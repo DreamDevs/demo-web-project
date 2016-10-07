@@ -131,5 +131,16 @@ public class WebController {
 		modelAndView.addObject("users", listAllUsers());
 		return modelAndView;
 	}
+	
+	
+	/********** Say Hello World API ************/
+	/**
+	 * This method says Hello to the World.
+	 */
+	@RequestMapping(value= "/cs480/helloworld", method = RequestMethod.GET)
+	String HelloWorld(){
+		return "Hello World";
+	}
+	
 
 }
