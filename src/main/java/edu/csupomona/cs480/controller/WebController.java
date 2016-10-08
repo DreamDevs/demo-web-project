@@ -142,5 +142,14 @@ public class WebController {
 		return "Hello World";
 	}
 	
+	/********** Sample API ************/
+	/**
+	 * This method will be removed sooner or later.
+	 */
+	@RequestMapping(value= "/cs480/potato", method = RequestMethod.GET)
+	String Sample(){
+		return "All lifeforms started out as a potato. Potato is love. Potato is life. If you disagree: (╯°□°)╯︵ ┻━┻";
+	}
+	
 
 }
