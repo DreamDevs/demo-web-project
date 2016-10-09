@@ -151,5 +151,13 @@ public class WebController {
 		return "All lifeforms started out as a potato. Potato is love. Potato is life. If you disagree: (╯°□°)╯︵ ┻━┻";
 	}
 	
+	/********** Sample API 2************/
+	/**
+	 * This method sends a sample string.
+	 */
+	@RequestMapping(value= "/cs480/string", method = RequestMethod.GET)
+	String sampleString(){
+		return "Just a string, don't question it.";
+	}
 
 }
