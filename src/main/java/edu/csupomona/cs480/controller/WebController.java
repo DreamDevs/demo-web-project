@@ -148,7 +148,7 @@ public class WebController {
 	 */
 	@RequestMapping(value= "/cs480/potato", method = RequestMethod.GET)
 	String Sample(){
-		return "All lifeforms started out as a potato. Potato is love. Potato is life. If you disagree: (╯°□°)╯︵ ┻━┻";
+		return "All lifeforms started out as a potato. Potato is love. Potato is life. If you disagree: (â•¯Â°â–¡Â°)â•¯ï¸µ â”»â”�â”»";
 	}
 	
 	/********** Sample API 2************/
@@ -159,5 +159,15 @@ public class WebController {
 	String sampleString(){
 		return "Just a string, don't question it.";
 	}
+	
+	/********** Sample API 3************/
+	/**
+	 * This method sends a sample string.
+	 */
+	@RequestMapping(value= "/cs480/theProclaimers", method = RequestMethod.GET)
+	String theProclaimers(){
+		return "I would walk 500 miles and I would walk 500 more.";
+	}
+	
 
 }
