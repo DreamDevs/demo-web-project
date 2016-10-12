@@ -23,4 +23,18 @@ public class ResourceResolver {
 		}
 		return file;
 	}
+	
+	/**
+	 * Get the file used to store the med object JSON
+	 *
+	 * @param MedicineName
+	 * @return
+	 */
+	public static File getMedFile() {
+		File file = new File(BASE_DIR + "/" + "med-map.json");
+		if (!file.getParentFile().exists()) {
+			file.getParentFile().mkdirs();
+		}
+		return file;
+	}
 }
