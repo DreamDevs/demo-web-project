@@ -13,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.csupomona.cs480.App;
 import edu.csupomona.cs480.data.User;
+import edu.csupomona.cs480.data.provider.MedManager;
 import edu.csupomona.cs480.data.provider.UserManager;
+import edu.csupomona.cs480.object_class.Medicine;
 
 import org.apache.commons.math.*;
 
@@ -39,6 +41,9 @@ public class WebController {
 	 */
 	@Autowired
 	private UserManager userManager;
+	
+	@Autowired
+	private MedManager medManager;
 
 	/**
 	 * This is a simple example of how the HTTP API works.
@@ -122,6 +127,11 @@ public class WebController {
 	List<User> listAllUsers() {
 		return userManager.listAllUsers();
 	}
+	
+	@RequestMapping(value = "/cs480/meds/list", method = RequestMethod.GET)
+	List<Medicine> listAllMeds() {
+		return medManager.listAllMeds();
+	}
 
 	/*********** Web UI Test Utility **********/
 	/**
@@ -151,7 +161,7 @@ public class WebController {
 	 */
 	@RequestMapping(value= "/cs480/potato", method = RequestMethod.GET)
 	String Sample(){
-		return "All lifeforms started out as a potato. Potato is love. Potato is life. If you disagree: (â•¯Â°â–¡Â°)â•¯ï¸µ â”»â”�â”»";
+		return "All lifeforms started out as a potato. Potato is love. Potato is life. If you disagree: (╯°□°)╯︵ ┻━┻";
 	}
 	
 	/********** Sample API 2************/
