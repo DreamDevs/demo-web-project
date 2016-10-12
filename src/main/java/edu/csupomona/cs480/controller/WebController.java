@@ -1,5 +1,6 @@
 package edu.csupomona.cs480.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.csupomona.cs480.App;
 import edu.csupomona.cs480.data.User;
 import edu.csupomona.cs480.data.provider.UserManager;
+
+import org.apache.commons.math.*;
 
 
 /**
@@ -168,6 +171,11 @@ public class WebController {
 	String theProclaimers(){
 		return "I would walk 500 miles and I would walk 500 more.";
 	}
+	
+
+
+
+	
 	
 
 }
