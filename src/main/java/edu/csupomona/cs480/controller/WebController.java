@@ -17,7 +17,7 @@ import edu.csupomona.cs480.data.provider.MedManager;
 import edu.csupomona.cs480.data.provider.UserManager;
 import edu.csupomona.cs480.object_class.Medicine;
 
-import org.apache.commons.math.*;
+import org.apache.commons.math3.stat.regression.SimpleRegression;
 
 
 /**
@@ -182,10 +182,28 @@ public class WebController {
 		return "I would walk 500 miles and I would walk 500 more.";
 	}
 	
+	@RequestMapping(value= "/cs480/regression", method = RequestMethod.GET)
+	public String sampleRegression(){
+	// creating regression object, passing true to have intercept term
+    SimpleRegression simpleRegression = new SimpleRegression(true);
 
+    // passing data to the model
+    // model will be fitted automatically by the class 
+    simpleRegression.addData(new double[][] {
+            {1, 2},
+            {2, 3},
+            {3, 4},
+            {4, 5},
+            {5, 6}
+    });
 
+    // querying for model parameters
+    System.out.println("slope = " + simpleRegression.getSlope());
+    System.out.println("intercept = " + simpleRegression.getIntercept());
 
+    // trying to run model for unknown data
+    return ("prediction for 1.5 = " + simpleRegression.predict(1.5));
 	
-	
+	}
 
 }
