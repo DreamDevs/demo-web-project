@@ -2,7 +2,7 @@ package edu.csupomona.cs480.controller;
 
 
 import java.util.List;
-
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -180,6 +180,15 @@ public class WebController {
 	@RequestMapping(value= "/cs480/theProclaimers", method = RequestMethod.GET)
 	String theProclaimers(){
 		return "I would walk 500 miles and I would walk 500 more.";
+	}
+	
+	@RequestMapping(value= "/cs480/payday", method = RequestMethod.GET)
+	public boolean isAfterPayDay() {
+		DateTime datetime = new DateTime("2012-02-03T14:15:00.000+08:00");
+		  if (datetime.getMonthOfYear() == 2) {   // February is month 2!!
+		    return datetime.getDayOfMonth() > 26;
+		  }
+		  return datetime.getDayOfMonth() > 28;
 	}
 	
 	@RequestMapping(value= "/cs480/regression", method = RequestMethod.GET)
