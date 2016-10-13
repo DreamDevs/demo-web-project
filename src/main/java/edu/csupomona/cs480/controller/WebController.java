@@ -1,6 +1,8 @@
 package edu.csupomona.cs480.controller;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import edu.csupomona.cs480.data.provider.MedManager;
 import edu.csupomona.cs480.data.provider.UserManager;
 import edu.csupomona.cs480.object_class.Medicine;
 
+import org.apache.commons.io.output.LockableFileWriter;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 
 
@@ -189,6 +192,22 @@ public class WebController {
 		    return datetime.getDayOfMonth() > 26;
 		  }
 		  return datetime.getDayOfMonth() > 28;
+	}
+	
+	@RequestMapping(value = "/cs480/fileLock", method = RequestMethod.GET)
+	public String fileLock() throws IOException{
+		//locks a file from being written to by multiple users
+		File file = new File("Name.txt");
+		LockableFileWriter lockFileWriter;
+		lockFileWriter = new LockableFileWriter(file);
+		
+		//one would do work before closing the lock
+		//doWork();
+		
+		lockFileWriter.close();
+		file.delete();
+		return "The file Name.txt was locked during use and is now open";
+		
 	}
 	
 	@RequestMapping(value= "/cs480/regression", method = RequestMethod.GET)
