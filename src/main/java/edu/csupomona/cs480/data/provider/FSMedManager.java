@@ -52,6 +52,7 @@ public class FSMedManager implements MedManager {
 		if (medFile.exists()) {
 			// read the file and convert the JSON content
 			// to the medList object
+			System.out.println("Hello Gary");
 			try {
 				Type type = new TypeToken<List<Medicine>>(){}.getType();
 				medList = new Gson().fromJson(json,type);
@@ -166,7 +167,7 @@ public class FSMedManager implements MedManager {
 		//Insulin Lispro
 		//Insulin Glargine
 		
-		//Nitroglycerine - Needs to fix (Duplicate names, Duplicate brand, different classification/different purpose
+		//Nitroglycerine - merged (Duplicate names, Duplicate brand, different classification/different purpose
 		
 		
 		List<String> PurposeList = new ArrayList<String>(Arrays.asList("ADHD"));
@@ -445,9 +446,9 @@ public class FSMedManager implements MedManager {
 		PurposeList = new ArrayList<String>(Arrays.asList("Hypertension","Old Myocardial Infarction (Heart Attack)","Supraventrilcular Tachycardia","Angina Pectoris","Congestive Heart Failure","Atrial Fibrillation ","Atrial Flutter","Cardiomyopathy"));
 		Medicine Propranolol = new Medicine("Propranolol", "Inderal", "", "Beta Blocker", PurposeList);
 		medList.add(Propranolol);
-		//PurposeList = new ArrayList<String>(Arrays.asList("Hypertention","Angina Pectoris"));
-		//Medicine Nitroglycerine = new Medicine("Nitroglycerine", "NitroStat SL", "", "", PurposeList);
-		//medList.add(Nitroglycerine);
+		PurposeList = new ArrayList<String>(Arrays.asList("Hypertention","Angina Pectoris"));
+		Medicine Nitroglycerine = new Medicine("Nitroglycerine", "NitroStat SL", "", "Vasodialator", PurposeList);
+		medList.add(Nitroglycerine);
 		PurposeList = new ArrayList<String>(Arrays.asList("Hypertention"));
 		Medicine Hydrochlorothiazide = new Medicine("Hydrochlorothiazide", "HCTZ", "", "Diuretic", PurposeList);
 		medList.add(Hydrochlorothiazide);
