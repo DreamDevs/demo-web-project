@@ -1,8 +1,10 @@
 package edu.csupomona.cs480.controller;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
-
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,7 @@ import edu.csupomona.cs480.data.provider.MedManager;
 import edu.csupomona.cs480.data.provider.UserManager;
 import edu.csupomona.cs480.object_class.Medicine;
 
+import org.apache.commons.io.output.LockableFileWriter;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 
 
@@ -180,6 +183,31 @@ public class WebController {
 	@RequestMapping(value= "/cs480/theProclaimers", method = RequestMethod.GET)
 	String theProclaimers(){
 		return "I would walk 500 miles and I would walk 500 more.";
+	}
+	
+	@RequestMapping(value= "/cs480/payday", method = RequestMethod.GET)
+	public boolean isAfterPayDay() {
+		DateTime datetime = new DateTime("2012-02-03T14:15:00.000+08:00");
+		  if (datetime.getMonthOfYear() == 2) {   // February is month 2!!
+		    return datetime.getDayOfMonth() > 26;
+		  }
+		  return datetime.getDayOfMonth() > 28;
+	}
+	
+	@RequestMapping(value = "/cs480/fileLock", method = RequestMethod.GET)
+	public String fileLock() throws IOException{
+		//locks a file from being written to by multiple users
+		File file = new File("Name.txt");
+		LockableFileWriter lockFileWriter;
+		lockFileWriter = new LockableFileWriter(file);
+		
+		//one would do work before closing the lock
+		//doWork();
+		
+		lockFileWriter.close();
+		file.delete();
+		return "The file Name.txt was locked during use and is now open";
+		
 	}
 	
 	@RequestMapping(value= "/cs480/regression", method = RequestMethod.GET)
