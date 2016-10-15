@@ -8,7 +8,15 @@ public class LabReport {
 	float GFR;
 	String PTH;
 	String Calcuium;
-	
+
+	public LabReport(float HGBA1C, float LDL, boolean Microalbumin, float GFR, String PTH, String Calcuium) {
+		HGBA1C = this.HGBA1C;
+		LDL = this.LDL;
+		Microalbumin = this.Microalbumin;
+		GFR = this.GFR;
+		PTH = this.PTH;
+		Calcuium = this.Calcuium;
+	}
 	
 	public float getHGBA1C() {
 		return HGBA1C;
