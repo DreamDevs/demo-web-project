@@ -6,8 +6,13 @@ public class SpecialistReport {
 
 	Hashtable<String, String> specialistReports;
 	Hashtable<String, Boolean> diagnoses;
+	Hashtable<String, String> dates;
 	
 	public SpecialistReport(){
+		
+		//Hashtable for holding dates
+		dates = new Hashtable<String,String>();
+		
 		
 		//Hashtable linking all diagnoses to their report
 		specialistReports = new Hashtable<String, String>();
@@ -126,6 +131,7 @@ public class SpecialistReport {
 		diagnoses.put("Onychomycosis", false);
 		diagnoses.put("Peripheral Vascular Disease", false);
 		diagnoses.put("Ulcers of lower Extremity", false);
+		
 
 	}
 	
@@ -144,4 +150,11 @@ public class SpecialistReport {
 		return specialistReports.get(diagnosis);
 	}
 	
+	public void addDate(String report, String date){
+		dates.put(report, date);
+	}
+	
+	public String getDate(String report, String date){
+		return dates.get(report);
+	}
 }
