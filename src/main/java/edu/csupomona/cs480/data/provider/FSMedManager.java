@@ -1,18 +1,23 @@
 package edu.csupomona.cs480.data.provider;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
 import java.lang.reflect.Type;
 
-import edu.csupomona.cs480.object_class.MedArrayList;
 import edu.csupomona.cs480.object_class.Medicine;
 import edu.csupomona.cs480.util.ResourceResolver;
 
@@ -27,43 +32,32 @@ import edu.csupomona.cs480.util.ResourceResolver;
 public class FSMedManager implements MedManager {
 
 	/**
-	 * We persist all the user related objects as JSON.
-	 * <p>
-	 * For more information about JSON and ObjectMapper, please see:
-	 * http://www.journaldev.com/2324/jackson-json-processing-api-in-java-example-tutorial
-	 *
-	 * or Google tons of tutorials
-	 *
-	 */
-	private static final ObjectMapper JSON = new ObjectMapper();
-	String json = "";
-
-	/**
 	 * Load the med map from the local file.
 	 *
 	 * @return
 	 */
 	
-	//private MedArrayList getMedList(){
 	private List<Medicine> getMedList(){
-		//MedArrayList medList = null;
 		List<Medicine> medList = null;
 		File medFile = ResourceResolver.getMedFile();
 		if (medFile.exists()) {
-			// read the file and convert the JSON content
+			// read the file and convert the GSON content
 			// to the medList object
-			System.out.println("Hello Gary");
 			try {
-				Type type = new TypeToken<List<Medicine>>(){}.getType();
-				medList = new Gson().fromJson(json,type);
-				//medList = JSON.readValue(medFile, MedArrayList.class);
+				
+				Gson gson = new Gson();
+				JsonReader reader = new JsonReader(new FileReader(ResourceResolver.getMedFile()));				
+				Type type = new TypeToken<List<Medicine>>(){}.getType();								
+				medList = gson.fromJson(reader,type);
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
-			//medList = new MedArrayList();
-			//medList = new ArrayList<Medicine>();
+			//If the file doesn't exist
+			//Create the MedList and store it in default location
 			medList = DefaultAllMeds();
+			persistMedList(medList);
 		}
 		return medList;
 	}
@@ -71,16 +65,17 @@ public class FSMedManager implements MedManager {
 	/**
 	 * Save and persist the med array list in the local file.
 	 *
-	 * @param medArrayList
+	 * @param medList
 	 */
 	private void persistMedList(List<Medicine> medList) {
-	//private void persistMedList(MedArrayList medList) {
 		try {
-			// convert the medicine object to JSON format
+			// convert the medicine object to GSON format
+			Gson gson = new Gson();
+			Type type = new TypeToken<List<Medicine>>(){}.getType();
+			JsonWriter writer = new JsonWriter(new FileWriter(ResourceResolver.getMedFile()));
+			gson.toJson(medList,type, writer);
+			writer.close();
 			
-			json = new Gson().toJson(medList);
-			JSON.writeValue(ResourceResolver.getMedFile(), json);
-			//JSON.writeValue(ResourceResolver.getMedFile(), medList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -90,7 +85,6 @@ public class FSMedManager implements MedManager {
 	@Override
 	public Medicine getMed(String bothNames) {
 		List<Medicine> medList = getMedList();
-		//MedArrayList medList = getMedList();
 		
 		for(Medicine med : medList){
 			if(med.getBothNames().equals(bothNames))
@@ -103,7 +97,6 @@ public class FSMedManager implements MedManager {
 	@Override
 	public void updateMed(Medicine med) {
 		List<Medicine> medList = getMedList();
-		//MedArrayList medList = getMedList();
 		int index = -1;
 		
 		if(medList != null){
@@ -113,9 +106,6 @@ public class FSMedManager implements MedManager {
 						break;
 				}
 			}
-		}
-		else{
-			medList = new MedArrayList();
 		}
 		
 		if(index != -1){
@@ -131,7 +121,6 @@ public class FSMedManager implements MedManager {
 	@Override
 	public void deleteMed(String bothNames) {
 		List<Medicine> medList = getMedList();
-		//MedArrayList medList = getMedList();
 		for(Medicine med : medList){
 			if(med.getBothNames().equals(bothNames)){
 					medList.remove(medList.indexOf(med));
@@ -144,16 +133,13 @@ public class FSMedManager implements MedManager {
 	@Override
 	public List<Medicine> listAllMeds() {
 		List<Medicine> medList = getMedList();
-		//MedArrayList medList = getMedList();
-		
-//		if(medList == null){
-//			DefaultAllMeds();
-//		}
+
 		
 		List<Medicine> clonedList = new ArrayList<Medicine>(medList.size());
 		for(Medicine med : medList){
 			clonedList.add(new Medicine(med));
 		}
+				
 		return clonedList;
 	}
 	
@@ -639,13 +625,7 @@ public class FSMedManager implements MedManager {
 		Medicine Pentoxifylline = new Medicine("Pentoxifylline", "Trental", "", "", PurposeList);
 		medList.add(Pentoxifylline);
 
-		
-		
-		
-		
-//		for(Medicine med : medList){
-//			updateMed(med);
-//		}
+
 		return medList;
 	}
 
