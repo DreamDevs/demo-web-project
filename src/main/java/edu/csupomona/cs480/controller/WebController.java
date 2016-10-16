@@ -226,8 +226,7 @@ public class WebController {
     });
 
     // querying for model parameters
-    System.out.println("slope = " + simpleRegression.getSlope());
-    System.out.println("intercept = " + simpleRegression.getIntercept());
+
 
     // trying to run model for unknown data
     return ("prediction for 1.5 = " + simpleRegression.predict(1.5));
