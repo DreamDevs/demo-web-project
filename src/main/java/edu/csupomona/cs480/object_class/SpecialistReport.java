@@ -63,7 +63,7 @@ public class SpecialistReport {
 		specialistReports.put("Multiple Sclerosis", "Neurologist, Rheumatologist");
 
 		//Podiatrist Report
-		specialistReports.put("Below Kneww Amputation", "Podiatrist");
+		specialistReports.put("Below Knee Amputation", "Podiatrist");
 		specialistReports.put("Above Knee Amputation", "Podiatrist");
 		specialistReports.put("Am", "Podiatrist");
 		specialistReports.put("Poly-Neuropathy", "Podiatrist");
@@ -123,7 +123,7 @@ public class SpecialistReport {
 		diagnoses.put("Multiple Sclerosis", false);
 
 		//Podiatrist Report
-		diagnoses.put("Below Kneww Amputation", false);
+		diagnoses.put("Below Knee Amputation", false);
 		diagnoses.put("Above Knee Amputation", false);
 		diagnoses.put("Am", false);
 		diagnoses.put("Poly-Neuropathy", false);
