@@ -31,10 +31,11 @@ public class ResourceResolver {
 	 * @return
 	 */
 	public static File getMedFile() {
-		File file = new File(BASE_DIR + "/" + "med-map.json");
+		File file = new File(BASE_DIR + "/" + "medList.json");
 		if (!file.getParentFile().exists()) {
 			file.getParentFile().mkdirs();
 		}
 		return file;
 	}
+
 }

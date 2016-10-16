@@ -135,6 +135,18 @@ public class WebController {
 	List<Medicine> listAllMeds() {
 		return medManager.listAllMeds();
 	}
+	
+	
+	//Sample Pulling Both Names
+	@RequestMapping(value = "/cs480/meds/names", method = RequestMethod.GET)
+	String listAllMedsName() {
+		
+		List<Medicine> medlist = medManager.listAllMeds();
+		String Meds = "";
+		for(Medicine med : medlist)
+			Meds += med.getBothNames() + "\n";
+		return Meds;
+	}
 
 	/*********** Web UI Test Utility **********/
 	/**
