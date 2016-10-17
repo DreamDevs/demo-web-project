@@ -1,0 +1,79 @@
+<html ng-app="cs480App">
+<style type="text/css">
+select {
+	width: 200px;
+	float: left;
+}
+
+form {
+	position: absolute;
+}
+
+.controls {
+	width: 40px;
+	float: left;
+	margin: 10px;
+}
+
+.controls a {
+	background-color: #222222;
+	border-radius: 4px;
+	border: 2px solid #000;
+	color: #ffffff;
+	padding: 2px;
+	font-size: 14px;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	margin: 5px;
+	width: 20px;
+}
+</style>
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+	
+</script>
+<script>
+	function moveSelected(from, to) {
+		$('#' + from + ' option:selected').remove().appendTo('#' + to);
+	}
+</script>
+
+<body ng-controller="UserCtrl">
+	<h1>Medication</h1>
+	<hr></hr>
+	<div>
+		<label>Select Patient Medications:</label>
+		<form name='add' method="post" onSubmit="return moveSelected()">
+			<div>
+				<select id="from" size="10" name="medication" multiple
+					onchange="selectMedication(this);">
+					<option value="medication">Medication</option>
+
+				</select>
+			</div>
+			<div class=controls>
+
+				<a href="javascript:moveSelected('from', 'to')">&gt;</a> <a
+					href="javascript:moveSelected('to', 'from')">&lt;</a>
+			</div>
+
+
+
+			<div>
+				<select multiple id="to" size="10" name="medications[]">
+				</select>
+			</div>
+
+
+		</form>
+
+
+	</div>
+
+
+</body>
+
+</html>
