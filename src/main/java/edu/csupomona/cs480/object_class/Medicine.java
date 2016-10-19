@@ -66,5 +66,15 @@ public class Medicine {
 	public void setPurpose(List<String> purpose) {
 		Purpose = purpose;
 	}
+	
+	public static Comparator<Medicine> sortByGName(){
+		Comparator c = new Comparator<Medicine>(){
+			@Override
+			public int compare(Medicine a, Medicine b){
+				return a.GenericName.compareTo(b.GenericName);
+			}
+		};
+		return c;
+	}
 }
  

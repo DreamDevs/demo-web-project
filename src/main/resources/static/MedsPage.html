@@ -1,4 +1,4 @@
-<html ng-app="cs480App">
+<html ng-app="cs480Med">
 <style type="text/css">
 select {
 	width: 200px;
@@ -41,16 +41,31 @@ form {
 	}
 </script>
 
-<body ng-controller="UserCtrl">
+<script>
+
+    $(function() {
+
+   $.getJSON('medList.json', function(data) {
+       $.each(data, function(i, f) {
+           var str= "<option value=" + f.GenericName + ">" + f.BothNames + "</option>"
+           $("#from").append(str);
+              
+     });
+
+   });
+
+});
+</script>
+
+<body ng-controller="MedPage">
 	<h1>Medication</h1>
 	<hr></hr>
-	<div>
+	<div ng-repeat = "med in meds >
 		<label>Select Patient Medications:</label>
 		<form name='add' method="post" onSubmit="return moveSelected()">
 			<div>
 				<select id="from" size="10" name="medication" multiple
 					onchange="selectMedication(this);">
-					<option value="medication">Medication</option>
 
 				</select>
 			</div>

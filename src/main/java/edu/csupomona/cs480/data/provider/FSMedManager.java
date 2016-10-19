@@ -6,7 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
 
 
 
@@ -49,6 +51,7 @@ public class FSMedManager implements MedManager {
 				JsonReader reader = new JsonReader(new FileReader(ResourceResolver.getMedFile()));				
 				Type type = new TypeToken<List<Medicine>>(){}.getType();								
 				medList = gson.fromJson(reader,type);
+				Collections.sort(medList, Medicine.sortByGName());
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -57,6 +60,7 @@ public class FSMedManager implements MedManager {
 			//If the file doesn't exist
 			//Create the MedList and store it in default location
 			medList = DefaultAllMeds();
+			Collections.sort(medList, Medicine.sortByGName());
 			persistMedList(medList);
 		}
 		return medList;
