@@ -7,12 +7,23 @@ public class SpecialistReport {
 	Hashtable<String, String> specialistReports;
 	Hashtable<String, Boolean> diagnoses;
 	Hashtable<String, String> dates;
+	String[] specialistNames;
 	
 	public SpecialistReport(){
 		
 		//Hashtable for holding dates
 		dates = new Hashtable<String,String>();
 		
+		//String to store the names for the Specialist Reports
+		specialistNames = new String[7];
+		specialistNames[0] = "Cardiologist";
+		specialistNames[1] = "Ophtalmologist";
+		specialistNames[2] = "Pulmonologist";
+		specialistNames[3] = "Neurologist";
+		specialistNames[4] = "Psychiatrist/Psychologist";
+		specialistNames[5] = "Rheumatologist";
+		specialistNames[6] = "Podiatrist";
+
 		
 		//Hashtable linking all diagnoses to their report
 		specialistReports = new Hashtable<String, String>();
