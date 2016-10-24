@@ -6,6 +6,7 @@ public class SpecialistReport {
 
 	Diagnosis[] diagnoses;
 	String[] specialistNames;
+	Boolean[] specialistTests;
 	
 	public SpecialistReport(){
 		
@@ -19,6 +20,12 @@ public class SpecialistReport {
 		specialistNames[5] = "Rheumatologist";
 		specialistNames[6] = "Podiatrist";
 
+		//Set all Specialist Reports to be used by default, click check box to say no to test
+		specialistTests = new Boolean[7];
+		for(int i = 0; i<specialistTests.length; i++){
+			specialistTests[i] = true;
+		}
+		
 		
 		//Hashtable linking all diagnoses to their report
 		diagnoses = new Diagnosis[41];
@@ -116,5 +123,22 @@ public class SpecialistReport {
 			}
 		}
 		return null;
+	}
+	
+	public void setSpecailistTruth(int special, Boolean value){		
+		specialistTests[special] = value;
+		//if changed to false, change all diagnoses under that test to be false
+		if(value == false){
+			for(int i = 0; i<diagnoses.length; i++){
+				if(diagnoses[i].getTestName(0) == specialistNames[special]){
+					diagnoses[i].setValue(false);
+				}
+			}
+		}
+		
+	}
+	
+	public Boolean getSpecialistTruth(int special){
+		return specialistTests[special];
 	}
 }
