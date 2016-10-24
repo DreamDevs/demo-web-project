@@ -7,7 +7,7 @@ public class LabReport {
 	boolean Microalbumin;
 	float GFR;
 	String PTH;
-	String Calcuium;
+	String Calcium;
 
 	public LabReport(float HGBA1C, float LDL, boolean Microalbumin, float GFR, String PTH, String Calcuium) {
 		HGBA1C = this.HGBA1C;
@@ -15,7 +15,7 @@ public class LabReport {
 		Microalbumin = this.Microalbumin;
 		GFR = this.GFR;
 		PTH = this.PTH;
-		Calcuium = this.Calcuium;
+		Calcium = this.Calcium;
 	}
 	
 	public float getHGBA1C() {
@@ -48,10 +48,10 @@ public class LabReport {
 	public void setPTH(String pTH) {
 		PTH = pTH;
 	}
-	public String getCalcuium() {
-		return Calcuium;
+	public String getCalcium() {
+		return Calcium;
 	}
 	public void setCalcuium(String calcuium) {
-		Calcuium = calcuium;
+		Calcium = calcuium;
 	}
 }
