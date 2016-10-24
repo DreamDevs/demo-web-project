@@ -51,7 +51,7 @@ public class LabReport {
 	public String getCalcium() {
 		return Calcium;
 	}
-	public void setCalcuium(String calcuium) {
-		Calcium = calcuium;
+	public void setCalcium(String calcium) {
+		Calcium = calcium;
 	}
 }
