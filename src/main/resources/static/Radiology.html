@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+button.accordion {
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+	background-color: #ddd;
+}
+
+button.accordion:after {
+	content: '\02795';
+	font-size: 13px;
+	color: #777;
+	float: right;
+	margin-left: 5px;
+}
+
+button.accordion.active:after {
+	content: "\2796";
+}
+
+div.panel {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow-y: hidden;
+	transition: 0.6s ease-in-out;
+	opacity: 0;
+}
+
+div.panel.show {
+	opacity: 1;
+	max-height: 1000px;
+}
+
+div.whole {
+	
+	overflow-y: scroll;
+	height:5000px
+	
+}
+</style>
+</head>
+<body><div id="whole">
+	<h1>Radiology</h1>
+	<hr></hr>
+
+	<button class="accordion">
+		<b>Cardiac Work-Ups</b>
+	</button>
+	<div class="panel">
+
+		<ul>
+			<p>
+			<form action="ElectroCardioGram.asp" method="get">
+				<li>Electrocardiogram: N/A <input type="checkbox" name="na"
+					value="N/A" onclick="myFunction()">
+				</li>
+				</p>
+
+				<div id="DIV">
+					<ul>
+						<p>
+						<li>DATE: <input type="Date" name="Date" value=""><br></li>
+						</p>
+						<p>
+						<ul>
+							<li>Arrhythmia:<input type="checkbox" name="normal"
+								value="normal"> Normal <input type="checkbox"
+								name="Tachycardia" value="Tachycardia"> Tachycardia <input
+								type="checkbox" name="Bradycardia" value="Bradycardia">
+								Bradycardia
+							</li>
+							<li>Atrial Fibrillation Present: <input type="checkbox"
+								name="Yes" value="Yes"> YES <input type="checkbox"
+								name="No" value="No"> NO
+							</li>
+							<li>Myocardial Infarction: <input type="checkbox" name="Yes"
+								value="Yes"> YES <input type="checkbox" name="No"
+								value="No"> NO
+							</li>
+							<li>Other: <input type="text" size="60" name="comments"
+								value=""><br></li>
+							</p>
+						</ul>
+					</ul>
+				</div>
+			</form>
+		</ul>
+
+
+		<ul>
+			<p>
+			<form action="EchoCardioGram.asp" method="get">
+				<li>Echocardiogram: N/A <input type="checkbox" name="na"
+					value="N/A" onclick="myFunction1()">
+				</li>
+				</p>
+
+				<div id="DIV1">
+					<ul>
+						<p>
+						<li>DATE: <input type="Date" name="Date" value=""><br></li>
+						</p>
+						<p>
+						<ul>
+							<li>Cardiomegaly: <input type="checkbox" name="Yes"
+								value="Yes"> YES <input type="checkbox" name="No"
+								value="No"> NO
+							</li>
+							<li>Cardiomyopathy: <input type="checkbox" name="Yes"
+								value="Yes"> YES <input type="checkbox" name="No"
+								value="No"> NO
+							</li>
+							<li>Aortic (A.S.P): <input type="checkbox" name="Yes"
+								value="Yes"> YES <input type="checkbox" name="No"
+								value="No"> NO
+							</li>
+							<li>Ejection Fraction: <input type="number"
+								name="percentage" value="">%<br></li>
+							<li>Other: <input type="text" size="60" name="comments"
+								value=""><br></li>
+							</p>
+						</ul>
+					</ul>
+				</div>
+			</form>
+		</ul>
+	</div>
+
+	<button class="accordion">
+		<b>X-Rays</b>
+	</button>
+	<div class="panel">
+		<ul>
+			<p>
+			<form action="Xrays.asp" method="get">
+				<li>Chest X-Ray: N/A <input type="checkbox" name="na"
+					value="N/A" onclick="myFunction2()">
+				</li>
+				</p>
+
+				<div id="DIV2">
+					<ul>
+						<p>
+						<li>DATE: <input type="Date" name="Date" value=""><br></li>
+						</p>
+						<p>
+						<li>Possible Diagnosis that can be found:
+							<ul>
+
+								<li>Aortic A.S.P: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Aortic Aneurysm: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Aortic Ectasia: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Aortic Tortuosity: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Chronic Obstructive Pulmonary Disease (COPD): <input
+									type="checkbox" name="Yes" value="Yes">
+								</li>
+								<li>Pneumonia: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Chronic Bronchitis: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Pulminary Cystic Fibrosis: <input type="checkbox"
+									name="Yes" value="Yes">
+								</li>
+								<li>Cardiomegaly: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Other: <input type="text" size="60" name="comments"
+									value=""><br></li>
+								</p>
+							</ul>
+
+						</li>
+					</ul>
+				</div>
+				<li>Extremity X-Ray: N/A <input type="checkbox" name="na"
+					value="N/A" onclick="myFunction3()">
+				</li>
+				</p>
+
+				<div id="DIV3">
+					<ul>
+						<p>
+						<li>Upper Extremity:N/A <input type="checkbox" name="na"
+							value="N/A" onclick="myFunction4()">
+						</li>
+						</p>
+						<div id="DIV4">
+							<p>
+							<ul>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+
+								<li>A.S.P of upper extremity:<input type="checkbox"
+									name="left" value="left"> Left <input type="checkbox"
+									name="Right" value="Right"> Right <input
+									type="checkbox" name="Both" value="Both"> Both
+								</li>
+							</ul>
+						</div>
+						<p>
+						<li>Lower Extremity:N/A <input type="checkbox" name="na"
+							value="N/A" onclick="myFunction5()">
+						</li>
+						<div id="DIV5">
+							<p>
+							<ul>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+
+								<li>A.S.P of lower extremity:<input type="checkbox"
+									name="left" value="left"> Left <input type="checkbox"
+									name="Right" value="Right"> Right <input
+									type="checkbox" name="Both" value="Both"> Both
+								</li>
+							</ul>
+						</div>
+					</ul>
+					<p>
+					<li>Other Extremity:</li>
+					<p>
+					<ul>
+						<li>DATE: <input type="Date" name="Date" value=""><br></li>
+						<li>Other: <input type="text" size="60" name="comments"
+							value=""><br></li>
+					</ul>
+					</p>
+
+
+				</div>
+
+
+			</form>
+	</div>
+
+	<button class="accordion">
+		<b>Ultrasound and Doppler Studies</b>
+	</button>
+	<div class="panel">
+		<ul>
+			<p>
+			<form action="AbdominalUltrasound.asp" method="get">
+				<li>Abdominal Ultrasound: N/A <input type="checkbox" name="na"
+					value="N/A" onclick="myFunction6()">
+				</li>
+				</p>
+
+				<div id="DIV6">
+					<ul>
+						<p>
+						<li>DATE: <input type="Date" name="Date" value=""><br></li>
+						</p>
+						<p>
+						<li>Possible Diagnosis that can be found:
+							<ul>
+
+								<li>Aortic A.S.P: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Aortic Aneurysm: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Nephritis: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Renal Artery A.S.P: <input type="checkbox" name="Yes"
+									value="Yes">
+								<li>Other: <input type="text" size="60" name="comments"
+									value=""><br></li>
+
+							</ul>
+
+
+						</li>
+
+					</ul>
+				</div>
+			</form>
+		</ul>
+
+		<ul>
+			<p>
+			<form action="AbdominalAorticDoppler.asp" method="get">
+				<li>Abdominal Aortic Doppler: N/A <input type="checkbox"
+					name="na" value="N/A" onclick="myFunction7()">
+				</li>
+				</p>
+
+				<div id="DIV7">
+					<ul>
+						<p>
+						<li>DATE: <input type="Date" name="Date" value=""><br></li>
+						</p>
+						<p>
+						<li>Possible Diagnosis that can be found:
+							<ul>
+
+								<li>Aortic A.S.P: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+								<li>Aortic Aneurysm: <input type="checkbox" name="Yes"
+									value="Yes">
+								</li>
+
+
+								<li>Other: <input type="text" size="60" name="comments"
+									value=""><br></li>
+
+							</ul>
+
+
+						</li>
+
+					</ul>
+				</div>
+			</form>
+
+
+			<p>
+			<form action="LowerExtremityDoppler.asp" method="get">
+				<li>Lower Extremity Doppler: N/A <input type="checkbox"
+					name="na" value="N/A" onclick="myFunction8()">
+				</li>
+				</p>
+
+				<div id="DIV8">
+					<ul>
+						<p>
+						<li>DATE: <input type="Date" name="Date" value=""><br></li>
+						</p>
+						<p>
+						<li>Monophasic Waves: <input type="checkbox" name="Yes"
+							value="Yes"> YES <input type="checkbox" name="No"
+							value="No"> NO
+						</li>
+						<li>ASP of Lower Extremity: <input type="checkbox"
+							name="left" value="left"> Left <input type="checkbox"
+							name="Right" value="Right"> Right <input type="checkbox"
+							name="Both" value="Both"> Both
+						</li>
+						<li>Peripheral Vascular Disease: <input type="checkbox" name="Yes"
+							value="Yes"> YES <input type="checkbox" name="No"
+							value="No"> NO 
+						</li>
+
+					</ul>
+				</div>
+			</form>
+
+		</ul>
+	</div>
+
+
+	<script>
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+			acc[i].onclick = function() {
+				this.classList.toggle("active");
+				this.nextElementSibling.classList.toggle("show");
+			}
+		}
+
+		function myFunction() {
+			var x = document.getElementById('DIV');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		function myFunction1() {
+			var x = document.getElementById('DIV1');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		function myFunction2() {
+			var x = document.getElementById('DIV2');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		function myFunction3() {
+			var x = document.getElementById('DIV3');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		function myFunction4() {
+			var x = document.getElementById('DIV4');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		function myFunction5() {
+			var x = document.getElementById('DIV5');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		function myFunction6() {
+			var x = document.getElementById('DIV6');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		function myFunction7() {
+			var x = document.getElementById('DIV7');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		
+		function myFunction8() {
+			var x = document.getElementById('DIV8');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+	</script>
+</div>
+</body>
+</html>
