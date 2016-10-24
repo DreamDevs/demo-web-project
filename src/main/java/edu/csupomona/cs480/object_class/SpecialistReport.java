@@ -54,7 +54,7 @@ public class SpecialistReport {
 		diagnoses[21] = new Diagnosis("Migraine Headache", "Neurologist");
 		diagnoses[22] = new Diagnosis("Dementia", "Neurologist");
 		diagnoses[23] = new Diagnosis("Alzheimer's Disease", "Neurologist");
-		diagnoses[24] = new Diagnosis("Multiple Scerosis", "Neurologist, Rheumatologist");
+		diagnoses[24] = new Diagnosis("Multiple Scerosis", "Neurologist");
 		
 		//Psychiatrist/Psychologist Report
 		diagnoses[25] = new Diagnosis("Major Depression", "Psychiatrist/Psychologist");
@@ -66,7 +66,7 @@ public class SpecialistReport {
 		//Rheumatologist Report
 		diagnoses[30] = new Diagnosis("Rheumatoid Arthritis", "Rheumatologist");
 		diagnoses[31] = new Diagnosis("Systemic Lupus", "Rheumatologist");
-		diagnoses[32] = new Diagnosis("Multiple Sclerosis", "Neurologist, Rheumatologist");
+		diagnoses[32] = new Diagnosis("Multiple Sclerosis", "Rheumatologist");
 
 		//Podiatrist Report
 		diagnoses[33] = new Diagnosis("Below Knee Amputation", "Podiatrist");
@@ -93,12 +93,17 @@ public class SpecialistReport {
 	
 	//Retrieves which tests correlate with this diagnosis
 	public String getTest(int diagnosis){
-		return diagnoses[diagnosis].getTestName();
+		return diagnoses[diagnosis].getTestName(0);
+	}
+	
+	//Retrieves a diagnosis
+	public Diagnosis getDiagnosis(int diagnosis){
+		return diagnoses[diagnosis];
 	}
 	
 	public void addDate(String report, String date){
 		for(int i = 0; i<diagnoses.length; i++){
-			if(diagnoses[i].getTestName() == report){
+			if(diagnoses[i].getTestName(0) == report){
 				diagnoses[i].setTestDate(date);
 			}
 		}
@@ -106,8 +111,8 @@ public class SpecialistReport {
 	
 	public String getDate(String report){
 		for(int i = 0; i<diagnoses.length; i++){
-			if(diagnoses[i].getTestName() == report){
-				return diagnoses[i].getTestDate();
+			if(diagnoses[i].getTestName(0) == report){
+				return diagnoses[i].getTestDate(0);
 			}
 		}
 		return null;

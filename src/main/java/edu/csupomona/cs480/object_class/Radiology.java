@@ -18,7 +18,7 @@ public class Radiology {
 	//Electrocardiogram
 	boolean Electrocardiogram = true;
 	String ElecDate; 		//Manage with Calendar in js
-	String Arrhthmia; 		//Normal, Tachycardia, or Bradycardia
+	String Arrhythmia; 		//Normal, Tachycardia, or Bradycardia
 	boolean AFP; 			//Atrial Fibrillation Present
 	boolean MI;  			//Myocardial Infarction
 	String ElecOther;
@@ -104,11 +104,11 @@ public class Radiology {
 	public void setElecDate(String elecDate) {
 		ElecDate = elecDate;
 	}
-	public String getArrhthmia() {
-		return Arrhthmia;
+	public String getArrhythmia() {
+		return Arrhythmia;
 	}
-	public void setArrhthmia(String arrhthmia) {
-		Arrhthmia = arrhthmia;
+	public void setArrhythmia(String arrhthmia) {
+		Arrhythmia = arrhthmia;
 	}
 	public boolean isAFP() {
 		return AFP;

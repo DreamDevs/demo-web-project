@@ -1,19 +1,19 @@
 package edu.csupomona.cs480.object_class;
 
+import java.util.ArrayList;
+
 public class Diagnosis {
 
 	String diagnosisName;
 	Boolean diagnosisValue;
-	String testName;
-	String testDate;
+	ArrayList <String> testDates;
+	ArrayList <String> testNames;
 	
 	
 	public Diagnosis(String diagnosis){
 		
 		diagnosisName = diagnosis;
 		diagnosisValue = false;
-		testName = null;
-		testDate = null;
 		
 	}
 	
@@ -21,8 +21,7 @@ public class Diagnosis {
 		
 		diagnosisName = diagnosis;
 		diagnosisValue = false;
-		testName = test;
-		testDate = null;
+		testNames.add(test);
 		
 	}
 	
@@ -31,11 +30,11 @@ public class Diagnosis {
 	}
 	
 	public void setTestName(String test){
-		testName = test;
+		testNames.add(test);
 	}
 	
 	public void setTestDate(String date){
-		testDate = date;
+		testDates.add(date);
 	}
 	
 	public String getDiagnosisName(){
@@ -46,12 +45,12 @@ public class Diagnosis {
 		return diagnosisValue;
 	}
 	
-	public String getTestName(){
-		return testName;
+	public String getTestName(int test){
+		return testNames.get(test);
 	}
-	
-	public String getTestDate(){
-		return testDate;
+
+	public String getTestDate(int test){
+		return testDates.get(test);
 	}
-	
+
 }
