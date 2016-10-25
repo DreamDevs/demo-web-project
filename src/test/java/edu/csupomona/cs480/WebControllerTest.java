@@ -3,7 +3,7 @@ package edu.csupomona.cs480;
 import org.junit.Test;
 
 import edu.csupomona.cs480.controller.WebController;
-import edu.csupomona.cs480.object_class.SpecialistReport;
+
 
 import org.junit.Ignore;
 
