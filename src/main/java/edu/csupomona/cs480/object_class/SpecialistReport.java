@@ -125,7 +125,7 @@ public class SpecialistReport {
 		return null;
 	}
 	
-	public void setSpecailistTruth(int special, Boolean value){		
+	public void setSpecialistTruth(int special, Boolean value){		
 		specialistTests[special] = value;
 		//if changed to false, change all diagnoses under that test to be false
 		if(value == false){
@@ -140,5 +140,9 @@ public class SpecialistReport {
 	
 	public Boolean getSpecialistTruth(int special){
 		return specialistTests[special];
+	}
+	
+	public String getSpecialistName(int special){
+		return specialistNames[special];
 	}
 }
