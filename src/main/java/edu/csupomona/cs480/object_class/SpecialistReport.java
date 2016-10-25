@@ -145,4 +145,5 @@ public class SpecialistReport {
 	public String getSpecialistName(int special){
 		return specialistNames[special];
 	}
+	
 }

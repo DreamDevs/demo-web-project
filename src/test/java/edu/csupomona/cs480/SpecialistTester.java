@@ -1,6 +1,9 @@
-package edu.csupomona.cs480.object_class;
+package edu.csupomona.cs480;
 
 import org.junit.Test;
+
+import edu.csupomona.cs480.object_class.SpecialistReport;
+
 import org.junit.Ignore;
 import static org.junit.Assert.assertEquals;
 
@@ -13,20 +16,20 @@ public class SpecialistTester extends SpecialistReport{
 	public void testSpecialistNames(){
 		
 		String name = "Cardiologist";
-		assertEquals(name, spec.specialistNames[0]);
+		assertEquals(name, spec.getSpecialistName(0));
 	
 	}
 	
 	@Test
 	public void testSpecialistNames2(){
 		String name = "Neurologist";
-		assertEquals(name, spec.specialistNames[3]);
+		assertEquals(name, spec.getSpecialistName(3));
 	}
 	
 	@Test
 	public void testSpecialistNames3(){
 		String name = "Podiatrist";
-		assertEquals(name, spec.specialistNames[6]);
+		assertEquals(name, spec.getSpecialistName(6));
 	}
 	
 	
