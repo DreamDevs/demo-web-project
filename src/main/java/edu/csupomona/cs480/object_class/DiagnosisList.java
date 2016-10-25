@@ -22,7 +22,7 @@ public class DiagnosisList {
 	//adds diagnoses for the lab results
 	public void addLabResults(){
 		Diagnosis tempDiagnosis;
-		float check;
+		double check;
 		
 		//Hemoglobin A1C Lab Result
 		check = person.labReport.getHGBA1C();
