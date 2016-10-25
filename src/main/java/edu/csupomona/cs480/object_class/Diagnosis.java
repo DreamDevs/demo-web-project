@@ -14,6 +14,8 @@ public class Diagnosis {
 		
 		diagnosisName = diagnosis;
 		diagnosisValue = false;
+		testDates = new ArrayList<String>();
+		testNames = new ArrayList<String>();
 		
 	}
 	
@@ -21,6 +23,8 @@ public class Diagnosis {
 		
 		diagnosisName = diagnosis;
 		diagnosisValue = false;
+		testDates = new ArrayList<String>();
+		testNames = new ArrayList<String>();
 		testNames.add(test);
 		
 	}
