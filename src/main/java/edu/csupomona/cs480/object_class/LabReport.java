@@ -2,32 +2,32 @@ package edu.csupomona.cs480.object_class;
 
 public class LabReport {
 	
-	float HGBA1C;
-	float LDL;
+	double HGBA1C;
+	double LDL;
 	boolean Microalbumin;
-	float GFR;
+	double GFR;
 	String PTH;
 	String Calcium;
 
-	public LabReport(float HGBA1C, float LDL, boolean Microalbumin, float GFR, String PTH, String Calcuium) {
-		HGBA1C = this.HGBA1C;
-		LDL = this.LDL;
-		Microalbumin = this.Microalbumin;
-		GFR = this.GFR;
-		PTH = this.PTH;
-		Calcium = this.Calcium;
+	public LabReport(double HGBA1C, double LDL, boolean Microalbumin, double GFR, String PTH, String Calcium) {
+		this.HGBA1C = HGBA1C;
+		this.LDL = LDL;
+		this.Microalbumin = Microalbumin;
+		this.GFR = GFR;
+		this.PTH = PTH;
+		this.Calcium = Calcium;
 	}
-	
-	public float getHGBA1C() {
+
+	public double getHGBA1C() {
 		return HGBA1C;
 	}
-	public void setHGBA1C(float hGBA1C) {
+	public void setHGBA1C(double hGBA1C) {
 		HGBA1C = hGBA1C;
 	}
-	public float getLDL() {
+	public double getLDL() {
 		return LDL;
 	}
-	public void setLDL(float lDL) {
+	public void setLDL(double lDL) {
 		LDL = lDL;
 	}
 	public boolean isMicroalbumin() {
@@ -36,10 +36,10 @@ public class LabReport {
 	public void setMicroalbumin(boolean microalbumin) {
 		Microalbumin = microalbumin;
 	}
-	public float getGFR() {
+	public double getGFR() {
 		return GFR;
 	}
-	public void setGFR(float gFR) {
+	public void setGFR(double gFR) {
 		GFR = gFR;
 	}
 	public String getPTH() {
