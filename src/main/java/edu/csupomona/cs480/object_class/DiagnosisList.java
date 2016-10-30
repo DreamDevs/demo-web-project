@@ -5,19 +5,24 @@ import java.util.ArrayList;
 
 public class DiagnosisList {
 
-	Person person;
 	ArrayList <Diagnosis> diagnoses;
 	Medicine[] medicines;
+	LabReport labReport;
+	Radiology radiologyReport;
+	SpecialistReport specialistReport;
 	
 	//initializes the person object
-	public DiagnosisList(Person pers){
-		person = pers;
+	public DiagnosisList(Medicine[] meds, LabReport lab, Radiology rad, SpecialistReport spec){
+		medicines = meds;
+		labReport = lab;
+		radiologyReport = rad;
+		specialistReport = spec;
+		
+		addLabResults();
+		addRadiologyResults();
+		addSpecialistResults();
 	}
 	
-	//adds the list from the medicine class
-	public void addMedicine(){
-		medicines = person.getMedicine();
-	}
 	
 	//adds diagnoses for the lab results
 	public void addLabResults(){
@@ -25,13 +30,13 @@ public class DiagnosisList {
 		double check;
 		
 		//Hemoglobin A1C Lab Result
-		check = person.labReport.getHGBA1C();
+		check = labReport.getHGBA1C();
 		if(check >6.4){
 			addDiagnosis("Diabetes Mellitus Type 1 or 2", "Hemoglobin A1C Lab");
 		}
 		
 		//Low Density Lipoprotein Result
-		check = person.labReport.getLDL();
+		check =  labReport.getLDL();
 		if(check >= 100 && check <= 120){
 			addDiagnosis("Possible Hyperlipidemia", "Low Density Lipoprotein Lab");
 		}else if (check > 120){
@@ -39,14 +44,14 @@ public class DiagnosisList {
 		}
 		
 		//Microalbuminuria Result
-		boolean checker = person.labReport.isMicroalbumin();
+		boolean checker =  labReport.isMicroalbumin();
 		if(checker){
 			addDiagnosis("Microalbuminuria", "Microalbuminuria Lab");
 		}
 		
 		//Glomerular Filtration Rate Result
-		check = person.labReport.getGFR();
-		if(person.labReport.isMicroalbumin() && check > 89){
+		check =  labReport.getGFR();
+		if( labReport.isMicroalbumin() && check > 89){
 			addDiagnosis("Chronic Kidney Disease Stage 1", "Glomerular Filtration Rate Lab");
 		}else if (check >= 60 && check <=89){
 			addDiagnosis("Chronic Kidney Disease Stage 2", "Glomerular Filtration Rate Lab");
@@ -60,8 +65,8 @@ public class DiagnosisList {
 		
 		
 		//Parathyroid Hormone and Calcium Level Result
-		String pth = person.labReport.getPTH();
-		String calcium = person.labReport.getCalcium();
+		String pth =  labReport.getPTH();
+		String calcium =  labReport.getCalcium();
 		if(pth == "high" && calcium == "high"){
 			addDiagnosis("Hyperthyroidism", "Parathyroid Hormone and Calcium Level Lab");
 		}else if(pth == "low" && calcium == "low"){
@@ -82,66 +87,66 @@ public class DiagnosisList {
 		//
 		
 		//Electrocardiogram Result
-		if(person.radiologyReport.isElectrocardiogram()){
+		if( radiologyReport.isElectrocardiogram()){
 			
 			//checks for Arrhythmia and Type
-			check = person.radiologyReport.getArrhythmia();
+			check =  radiologyReport.getArrhythmia();
 			if(check == "Tachycardia"){
-				addDiagnosis("Arrhythmia, Tachycardia", "Electrocardiogram Report", person.radiologyReport.getElecDate());
+				addDiagnosis("Arrhythmia, Tachycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
 			}else if (check == "Bradycardia"){
-				addDiagnosis("Arrhythmia, Bradycardia", "Electrocardiogram Report", person.radiologyReport.getElecDate());
+				addDiagnosis("Arrhythmia, Bradycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
 			}
 			
 			//checks for Atrial Fibrillation
-			value = person.radiologyReport.isAFP();
+			value =  radiologyReport.isAFP();
 			if(value){
-				addDiagnosis("Atrial Fibrillation Present", "Electrocardiogram Report", person.radiologyReport.getElecDate());
+				addDiagnosis("Atrial Fibrillation Present", "Electrocardiogram Report",  radiologyReport.getElecDate());
 			}
 			
 			//checks for Myocardial Infaction
-			value = person.radiologyReport.isMI();
+			value =  radiologyReport.isMI();
 			if(value){
-				addDiagnosis("Myocardial Infaction", "Electrocardiogram Report", person.radiologyReport.getElecDate());
+				addDiagnosis("Myocardial Infaction", "Electrocardiogram Report",  radiologyReport.getElecDate());
 			}
 			
 			//Other under Electrocardiogram
-			check = person.radiologyReport.getElecOther();
+			check =  radiologyReport.getElecOther();
 			if(check!=null){
-				addDiagnosis(check, "Electrocardiogram Report", person.radiologyReport.getElecDate());
+				addDiagnosis(check, "Electrocardiogram Report",  radiologyReport.getElecDate());
 			}
 		}
 		
 		//Echocardiogram Result
-		if(person.radiologyReport.isEchocardiogram()){
+		if( radiologyReport.isEchocardiogram()){
 			
 			//Checks for Cardiomegaly
-			value = person.radiologyReport.isCardiomegaly();
+			value =  radiologyReport.isCardiomegaly();
 			if(value){
-				addDiagnosis("Cardiomegaly", "Echocardiogram Report", person.radiologyReport.getEchoDate());
+				addDiagnosis("Cardiomegaly", "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 			
 			//Checks for Cardiomyopathy
-			value = person.radiologyReport.isCardiomyopathy();
+			value =  radiologyReport.isCardiomyopathy();
 			if(value){
-				addDiagnosis("Cardiomyopathy", "Echocardiogram Report", person.radiologyReport.getEchoDate());
+				addDiagnosis("Cardiomyopathy", "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 			
 			//Checks for Aortic ASP
-			value = person.radiologyReport.isAASP();
+			value =  radiologyReport.isAASP();
 			if(value){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Echocardiogram Report", person.radiologyReport.getEchoDate());
+				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 			
 			//Checks for Congestive Heart Failure
-			float num = person.radiologyReport.getEF();
+			float num =  radiologyReport.getEF();
 			if(num < 40){
-				addDiagnosis("Congestive Heart Failure", "Echocardiogram Report", person.radiologyReport.getEchoDate());
+				addDiagnosis("Congestive Heart Failure", "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 			
 			//Other under Echocardiogram
-			check = person.radiologyReport.getEchoOther();
+			check =  radiologyReport.getEchoOther();
 			if(check!=null){
-				addDiagnosis(check, "Echocardiogram Report", person.radiologyReport.getEchoDate());
+				addDiagnosis(check, "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 		}
 		
@@ -151,44 +156,44 @@ public class DiagnosisList {
 		
 		
 		//Chest X-Ray
-		if(person.radiologyReport.isChestXRay()){
+		if( radiologyReport.isChestXRay()){
 			
 			//Checks for all of the possible Diagnoses
-			List<Boolean> values = person.radiologyReport.getChestDiagnosis();
+			List<Boolean> values =  radiologyReport.getChestDiagnosis();
 			if(values.get(0)){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(1)){
-				addDiagnosis("Aortic Aneurysm", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Aortic Aneurysm", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(2)){
-				addDiagnosis("Aortic Ectasia", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Aortic Ectasia", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(3)){
-				addDiagnosis("Aortic Tortuosity", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Aortic Tortuosity", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(4)){
-				addDiagnosis("Chronic Obstructive Pulmonary Disease", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Chronic Obstructive Pulmonary Disease", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(5)){
-				addDiagnosis("Pneumonia", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Pneumonia", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(6)){
-				addDiagnosis("Chronic Bronchitis", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Chronic Bronchitis", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(7)){
-				addDiagnosis("Pulmonary Cystic Fibrosis", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Pulmonary Cystic Fibrosis", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(8)){
-				addDiagnosis("Cardiomegaly", "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis("Cardiomegaly", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}
 	
 			//Other under Chest X-Rays
-			check = person.radiologyReport.getChestOther();
+			check =  radiologyReport.getChestOther();
 			if(check!=null){
-				addDiagnosis(check, "Chest X-Ray Report", person.radiologyReport.getChestDate());
+				addDiagnosis(check, "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}
 		}
 		//Extremity X-Ray
-		if(person.radiologyReport.isExtremityXray()){
+		if( radiologyReport.isExtremityXray()){
 			
 			//Upper Extremity Report
 			
-			if(person.radiologyReport.isUpperEx()){
+			if( radiologyReport.isUpperEx()){
 				//Checks for which version of ASP of the Upper Extremity
-				check = person.radiologyReport.getASPofUpper();
+				check =  radiologyReport.getASPofUpper();
 				if(check == "Left")
 					check = "Left Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
 				else if(check == "Right")
@@ -196,14 +201,14 @@ public class DiagnosisList {
 				else
 					check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
 				
-				addDiagnosis(check, "Extremity X-Ray Report: Upper Extremity", person.radiologyReport.getUpperDate());
+				addDiagnosis(check, "Extremity X-Ray Report: Upper Extremity",  radiologyReport.getUpperDate());
 			
 			}
 			
 			//Lower Extremity
-			if(person.radiologyReport.isLowerEx()){
+			if( radiologyReport.isLowerEx()){
 				//Checks for which version of ASP of the Lower Extremity
-				check = person.radiologyReport.getASPofLower();
+				check =  radiologyReport.getASPofLower();
 				if(check == "Left")
 					check = "Left Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
 				else if(check == "Right")
@@ -211,13 +216,13 @@ public class DiagnosisList {
 				else
 					check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
 				
-				addDiagnosis(check, "Extremity X-Ray Report: Lower Extremity", person.radiologyReport.getLowerDate());
+				addDiagnosis(check, "Extremity X-Ray Report: Lower Extremity",  radiologyReport.getLowerDate());
 			}
 			
 			//Other Extremity
-			check = person.radiologyReport.getOtherExResult();
+			check =  radiologyReport.getOtherExResult();
 			if(check!=null){
-				addDiagnosis(check, "Extremity X-Ray: Other", person.radiologyReport.getOtherExDate());
+				addDiagnosis(check, "Extremity X-Ray: Other",  radiologyReport.getOtherExDate());
 
 			}
 		}
@@ -227,55 +232,55 @@ public class DiagnosisList {
 		//
 		
 		//Abdominal Ultrasound
-		if(person.radiologyReport.isAbdUS()){
+		if( radiologyReport.isAbdUS()){
 
 			//checks for all diagnoses under Abdominal Ultrasound
-			List<Boolean> values = person.radiologyReport.getAbdUSDiagnosis();
+			List<Boolean> values =  radiologyReport.getAbdUSDiagnosis();
 			if(values.get(0)){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Ultrasound", person.radiologyReport.getAbdUSDate());
+				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
 			}else if(values.get(1)){
-				addDiagnosis("Aortic Aneurysm", "Abdominal Ultrasound", person.radiologyReport.getAbdUSDate());
+				addDiagnosis("Aortic Aneurysm", "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
 			}else if(values.get(2)){
-				addDiagnosis("Nephritis", "Abdonminal Ultrasound", person.radiologyReport.getAbdUSDate());
+				addDiagnosis("Nephritis", "Abdonminal Ultrasound",  radiologyReport.getAbdUSDate());
 			}else if(values.get(2)){
-				addDiagnosis("Renal Artery Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report", person.radiologyReport.getAbdUSDate());
+				addDiagnosis("Renal Artery Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report",  radiologyReport.getAbdUSDate());
 			}
 			
 			//Other Diagnoses under Abdominal Ultrasound
-			check = person.radiologyReport.getAbdADOther();
+			check =  radiologyReport.getAbdADOther();
 			if(check!=null){
-				addDiagnosis(check, "Abdominal Ultrasound", person.radiologyReport.getAbdUSDate());
+				addDiagnosis(check, "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
 			}
 		}
 		
 		//Abdominal Aortic Doppler
-		if(person.radiologyReport.isAbdAD()){
+		if( radiologyReport.isAbdAD()){
 			//checks for all under Abdominal Aortic Doppler
-			List<Boolean> values = person.radiologyReport.getAbdADDiagnosis();
+			List<Boolean> values =  radiologyReport.getAbdADDiagnosis();
 			if(values.get(0)){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Aortic Doppler", person.radiologyReport.getAbdADDate());
+				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Aortic Doppler",  radiologyReport.getAbdADDate());
 			}else if (values.get(1)){
-				addDiagnosis("Aortic Aneurysm", "Abdominal Aortic Doppler", person.radiologyReport.getAbdADDate());
+				addDiagnosis("Aortic Aneurysm", "Abdominal Aortic Doppler",  radiologyReport.getAbdADDate());
 			}
 			
 			//Other under Abdominal Aortic Doppler
-			check = person.radiologyReport.getAbdADOther();
+			check =  radiologyReport.getAbdADOther();
 			if(check!=null){
-				addDiagnosis(check, "Abdominal Aortic Doppler", person.radiologyReport.getAbdADDate());
+				addDiagnosis(check, "Abdominal Aortic Doppler",  radiologyReport.getAbdADDate());
 			}
 		}
 		
 		//Lower Extremity Doppler
-		if(person.radiologyReport.isLowerED()){
+		if( radiologyReport.isLowerED()){
 			
 			//check for Monophasic Waves
-			value = person.radiologyReport.isMonophasicWaves();
+			value =  radiologyReport.isMonophasicWaves();
 			if(value){
-				addDiagnosis("Monophasic Waves", "Lower Extremity Doppler", person.radiologyReport.getLowerEDDate());
+				addDiagnosis("Monophasic Waves", "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
 			}
 			
 			//check for type ASP of Lower Extremity
-			check = person.radiologyReport.getASPofLower();
+			check =  radiologyReport.getASPofLower();
 			if(check == "Left")
 				check = "Left Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
 			else if(check == "Right")
@@ -283,12 +288,12 @@ public class DiagnosisList {
 			else
 				check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
 			
-			addDiagnosis(check, "Lower Extremity Doppler", person.radiologyReport.getLowerEDDate());
+			addDiagnosis(check, "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
 
 			//checks for Peripheral Vascular Disease
-			value = person.radiologyReport.isPVD();
+			value =  radiologyReport.isPVD();
 			if(value){
-				addDiagnosis("Peripheral Vascular Disease", "Lower Extremity Doppler", person.radiologyReport.getLowerEDDate());
+				addDiagnosis("Peripheral Vascular Disease", "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
 			}
 			
 		}
@@ -300,11 +305,11 @@ public class DiagnosisList {
 		
 		//for all diagnoses in the specialist report, check if they are true
 		//if true then add them to the list
-		for(int i = 0; i<person.specialistReport.diagnoses.length; i++){
-			if(person.specialistReport.getStatus(i)){
-				addDiagnosis(person.specialistReport.getDiagnosis(i).getDiagnosisName(),
-						person.specialistReport.getDiagnosis(i).getTestName(0),
-						person.specialistReport.getDiagnosis(i).getTestDate(0));
+		for(int i = 0; i< specialistReport.diagnoses.length; i++){
+			if( specialistReport.getStatus(i)){
+				addDiagnosis( specialistReport.getDiagnosis(i).getDiagnosisName(),
+						 specialistReport.getDiagnosis(i).getTestName(0),
+						 specialistReport.getDiagnosis(i).getTestDate(0));
 			}
 		}
 		
@@ -340,5 +345,10 @@ public class DiagnosisList {
 		diagnoses.get(num).setTestDate(reportDate);
 	}
 	
+	
+	//returns list of Diagnoses
+	public ArrayList<Diagnosis> getDiagnoses(){
+		return diagnoses;
+	}
 	
 }
