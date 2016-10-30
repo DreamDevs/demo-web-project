@@ -1,13 +1,97 @@
-<html>
-	<!-- This page will be shown when you git the root URL -->
-	<head>
-	    <title>CS480 Demo HomePage</title>
-	    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	    <script src="/js/home-control.js"></script>
-	</head>
+<link rel="stylesheet" type="text/css" href="FrontEnd.css" media="screen" />
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/FrontEnd.js"></script>
 
-	<body onload="healthCheck();">
-		Demo Project is running: <label id="status"></label>
+<html ng-app="cs480Med">
+
+	<body>
+		<div id="whole">
+			<h1>TITLE OF APP </h1>
+			<hr></hr>
+    
+			<button class="accordion">
+				<b>MEDICATIONS</b>
+			</button>
+			
+			<div class="panel">
+				<p>
+					<form name="Medlist">
+  						<table cellpadding="30" cellspacing="0">
+  							<tr><input id="searchbox" placeholder="Search Medicines here"></tr>
+  							<br>
+            				<p>Your Medicines list:</p>
+            				<p>Click on the item to remove</p>
+  							<tr><select id="storedMeds" size="9"></select></tr>
+						</table>
+					</form>
+				</p>
+			</div>
+			
+			<button class="accordion">
+				<b>LAB RESULTS</b>
+			</button>
+			
+			<div class="panel">
+				<p>
+					<form action="Cardiologist Report.asp" method="get">
+						<br>
+						<li>
+							<b>DATE:</b> 
+							<input type="Date" name="Date" value=""><br>
+						</li>
+						<br>
+						<li>
+							<b>HGBA1C:</b>
+							<input type="text" name="HGBA1C" value=""><br>
+						</li>
+						<br>
+						<li>
+							<b>LDL:</b>
+							<input type="text" name="LDL" value=""><br>
+						</li>
+						<br>
+						<li>
+							<b>Microalbumin:</b>
+							<input type="checkbox" name="Yes" value="Yes">YES 
+							<input type="checkbox" name="No" value="No">NO
+						</li>
+						<br>
+						<li>
+							<b>GFR:</b>
+							<input type="text" name="GFR" value=""><br>
+						</li>
+						<br>
+						<li>
+							<b>PTH:</b>
+							<input type="checkbox" name="Normal;" value="Normal">Normal 
+							<input type="checkbox" name="High" value="High">High 
+							<input type="checkbox" name="Low" value="Low">Low
+						</li>
+						<br>
+						<li>
+							<b>CALCIUM:</b>
+							<input type="checkbox" name="Normal;" value="Normal">Normal
+							<input type="checkbox" name="High" value="High">High 
+							<input type="checkbox" name="Low" value="Low">Low
+						</li>
+					</form>
+				</p>
+			</div>
+
+			<script>
+    			var acc = document.getElementsByClassName("accordion");
+				var i;
+
+				for (i = 0; i < acc.length; i++) {
+					acc[i].onclick = function() {
+					this.classList.toggle("active");
+					this.nextElementSibling.classList.toggle("show");
+					}
+				}
+			</script>
+		</div>
 	</body>
-
 </html>
