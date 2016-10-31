@@ -39,8 +39,8 @@
 					<form  action="@{/lab}" th:object"${lab}" method="post">
 						<table border="0">
 							<tr>
-								<td>Date (mm/dd/yyyy): </td>
-								<td> <input type="text" th:field="*{date}" /></td>
+								<td>DATE: </td>
+								<td><input type="Date" name="Date" value=""><br></td>
 							</tr>
 							<tr>
 								<td>HGBA1C: </td>
@@ -691,6 +691,7 @@
 		
 				<div class="accordion">
 					<b>Podiatrist Report</b>
+				</div>
 				<div class="panel">
 					<ul>
 						<p>

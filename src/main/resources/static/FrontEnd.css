@@ -5,7 +5,7 @@ div.accordion {
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
+    width: 99%;
     border: none;
     text-align: left;
     outline: none;
@@ -26,6 +26,7 @@ div.accordion:after {
     color: #777;
     float: right;
     margin-left: 5px;
+    margin-right: 20px;
 }
 
 div.accordion.active:after {
@@ -43,7 +44,8 @@ div.panel {
 
 div.panel.show {
     opacity: 1;
-    max-height: 500px;  
+    max-height: 100%;
+    overflow-y: auto;  
 }
 
 div.panel.show p {
