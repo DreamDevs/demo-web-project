@@ -12,9 +12,9 @@
 			<h1>TITLE OF APP </h1>
 			<hr></hr>
     
-			<button class="accordion">
-				<b>MEDICATIONS</b>
-			</button>
+			<div class="accordion">
+				<b>Medications</b>
+			</div>
 			
 			<div class="panel">
 				<p>
@@ -30,57 +30,722 @@
 				</p>
 			</div>
 			
-			<button class="accordion">
-				<b>LAB RESULTS</b>
-			</button>
+			<div class="accordion">
+				<b>Lab Results</b>
+			</div>
 			
 			<div class="panel">
 				<p>
-					<form action="Cardiologist Report.asp" method="get">
-						<br>
-						<li>
-							<b>DATE:</b> 
-							<input type="Date" name="Date" value=""><br>
-						</li>
-						<br>
-						<li>
-							<b>HGBA1C:</b>
-							<input type="text" name="HGBA1C" value=""><br>
-						</li>
-						<br>
-						<li>
-							<b>LDL:</b>
-							<input type="text" name="LDL" value=""><br>
-						</li>
-						<br>
-						<li>
-							<b>Microalbumin:</b>
-							<input type="checkbox" name="Yes" value="Yes">YES 
-							<input type="checkbox" name="No" value="No">NO
-						</li>
-						<br>
-						<li>
-							<b>GFR:</b>
-							<input type="text" name="GFR" value=""><br>
-						</li>
-						<br>
-						<li>
-							<b>PTH:</b>
-							<input type="checkbox" name="Normal;" value="Normal">Normal 
-							<input type="checkbox" name="High" value="High">High 
-							<input type="checkbox" name="Low" value="Low">Low
-						</li>
-						<br>
-						<li>
-							<b>CALCIUM:</b>
-							<input type="checkbox" name="Normal;" value="Normal">Normal
-							<input type="checkbox" name="High" value="High">High 
-							<input type="checkbox" name="Low" value="Low">Low
-						</li>
+					<form  action="@{/lab}" th:object"${lab}" method="post">
+						<table border="0">
+							<tr>
+								<td>Date (mm/dd/yyyy): </td>
+								<td> <input type="text" th:field="*{date}" /></td>
+							</tr>
+							<tr>
+								<td>HGBA1C: </td>
+								<td><input type="text" th:field="*{HGBA1C}" /></td>
+							</tr>
+							<tr>
+								<td>LDL: </td>
+								<td><input type="text" th:field="*{LDL}" /></td>
+							</tr>
+							<tr>
+								<td>Microalbumin: </td>
+								<td>
+									<input type="checkbox" value="true" th:field="*{Microalbumin}"/>Yes
+									<input type="checkbox" value="false" th:field="*{Microalbumin}"/>No
+								</td>
+							</tr>
+							<tr>
+								<td>GFR: </td>
+								<td><input type="text" th:field="*{GFR}" /></td>
+							</tr>
+							<tr>
+								<td>PTH: </td>
+								<td><input type="select" th:field="*{PTH}" items="${lowHigh}" /></td>
+							</tr>
+							<tr>
+								<td>Calcium: </td>
+								<td><input type="select" th:field="*{PTH}" items="${lowHigh}" /></td>
+							</tr>
+						</table>
 					</form>
 				</p>
 			</div>
-
+			
+			<div class="accordion">
+				<b>Radiology</b>
+			</div>
+			<div class="panel">
+				<div class="accordion">
+					<b>Cardiac Work-Ups</b>
+				</div>
+				<div class="panel">
+			
+					<ul>
+						<p>
+						<form action="ElectroCardioGram.asp" method="get">
+							<li>Electrocardiogram: N/A <input type="checkbox" name="na"
+								value="N/A" onclick="myFunction()">
+							</li>
+							</p>
+			
+							<div id="DIV">
+								<ul>
+									<p>
+									<li>DATE: <input type="Date" name="Date" value=""><br></li>
+									</p>
+									<p>
+									<ul>
+										<li>Arrhythmia:<input type="checkbox" name="normal"
+											value="normal"> Normal <input type="checkbox"
+											name="Tachycardia" value="Tachycardia"> Tachycardia <input
+											type="checkbox" name="Bradycardia" value="Bradycardia">
+											Bradycardia
+										</li>
+										<li>Atrial Fibrillation Present: <input type="checkbox"
+											name="Yes" value="Yes"> YES <input type="checkbox"
+											name="No" value="No"> NO
+										</li>
+										<li>Myocardial Infarction: <input type="checkbox" name="Yes"
+											value="Yes"> YES <input type="checkbox" name="No"
+											value="No"> NO
+										</li>
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+								</ul>
+							</div>
+						</form>
+					</ul>
+			
+			
+					<ul>
+						<p>
+						<form action="EchoCardioGram.asp" method="get">
+							<li>Echocardiogram: N/A <input type="checkbox" name="na"
+								value="N/A" onclick="myFunction1()">
+							</li>
+							</p>
+			
+							<div id="DIV1">
+								<ul>
+									<p>
+									<li>DATE: <input type="Date" name="Date" value=""><br></li>
+									</p>
+									<p>
+									<ul>
+										<li>Cardiomegaly: <input type="checkbox" name="Yes"
+											value="Yes"> YES <input type="checkbox" name="No"
+											value="No"> NO
+										</li>
+										<li>Cardiomyopathy: <input type="checkbox" name="Yes"
+											value="Yes"> YES <input type="checkbox" name="No"
+											value="No"> NO
+										</li>
+										<li>Aortic (A.S.P): <input type="checkbox" name="Yes"
+											value="Yes"> YES <input type="checkbox" name="No"
+											value="No"> NO
+										</li>
+										<li>Ejection Fraction: <input type="number"
+											name="percentage" value="">%<br></li>
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+								</ul>
+							</div>
+						</form>
+					</ul>
+				</div>
+			
+				<div class="accordion">
+					<b>X-Rays</b>
+				</div>
+				<div class="panel">
+					 <ul>
+						<p>
+						<form action="Xrays.asp" method="get">
+							<li>Chest X-Ray: N/A <input type="checkbox" name="na"
+								value="N/A" onclick="myFunction2()">
+							</li>
+							</p>
+			
+							<div id="DIV2">
+								<ul>
+									<p>
+									<li>DATE: <input type="Date" name="Date" value=""><br></li>
+									</p>
+									<p>
+									<li>Possible Diagnosis that can be found:
+										<ul>
+			
+											<li>Aortic A.S.P: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Aortic Aneurysm: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Aortic Ectasia: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Aortic Tortuosity: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Chronic Obstructive Pulmonary Disease (COPD): <input
+												type="checkbox" name="Yes" value="Yes">
+											</li>
+											<li>Pneumonia: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Chronic Bronchitis: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Pulminary Cystic Fibrosis: <input type="checkbox"
+												name="Yes" value="Yes">
+											</li>
+											<li>Cardiomegaly: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Other: <input type="text" size="60" name="comments"
+												value=""><br></li>
+											</p>
+										</ul>
+			
+									</li>
+								</ul>
+							</div>
+							<li>Extremity X-Ray: N/A <input type="checkbox" name="na"
+								value="N/A" onclick="myFunction3()">
+							</li>
+							</p>
+			
+							<div id="DIV3">
+								<ul>
+									<p>
+									<li>Upper Extremity:N/A <input type="checkbox" name="na"
+										value="N/A" onclick="myFunction4()">
+									</li>
+									</p>
+									<div id="DIV4">
+										<p>
+										<ul>
+											<li>DATE: <input type="Date" name="Date" value=""><br></li>
+			
+											<li>A.S.P of upper extremity:<input type="checkbox"
+												name="left" value="left"> Left <input type="checkbox"
+												name="Right" value="Right"> Right <input
+												type="checkbox" name="Both" value="Both"> Both
+											</li>
+										</ul>
+									</div>
+									<p>
+									<li>Lower Extremity:N/A <input type="checkbox" name="na"
+										value="N/A" onclick="myFunction5()">
+									</li>
+									<div id="DIV5">
+										<p>
+										<ul>
+											<li>DATE: <input type="Date" name="Date" value=""><br></li>
+			
+											<li>A.S.P of lower extremity:<input type="checkbox"
+												name="left" value="left"> Left <input type="checkbox"
+												name="Right" value="Right"> Right <input
+												type="checkbox" name="Both" value="Both"> Both
+											</li>
+										</ul>
+									</div>
+								</ul>
+								<p>
+								<li>Other Extremity:</li>
+								<p>
+								<ul>
+									<li>DATE: <input type="Date" name="Date" value=""><br></li>
+									<li>Other: <input type="text" size="60" name="comments"
+										value=""><br></li>
+								</ul>
+								</p>
+			
+			
+							</div>
+			
+			
+						</form> 
+				</div>
+<!-- 				</div> -->
+ 		
+				<div class="accordion">
+					<b>Ultrasound and Doppler Studies</b>
+				</div>
+				<div class="panel">
+					<ul>
+						<p>
+						<form action="AbdominalUltrasound.asp" method="get">
+							<li>Abdominal Ultrasound: N/A <input type="checkbox" name="na"
+								value="N/A" onclick="myFunction6()">
+							</li>
+							</p>
+			
+							<div id="DIV6">
+								<ul>
+									<p>
+									<li>DATE: <input type="Date" name="Date" value=""><br></li>
+									</p>
+									<p>
+									<li>Possible Diagnosis that can be found:
+										<ul>
+			
+											<li>Aortic A.S.P: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Aortic Aneurysm: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Nephritis: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Renal Artery A.S.P: <input type="checkbox" name="Yes"
+												value="Yes">
+											<li>Other: <input type="text" size="60" name="comments"
+												value=""><br></li>
+			
+										</ul>
+			
+			
+									</li>
+			
+								</ul>
+							</div>
+						</form>
+					</ul>
+			
+					<ul>
+						<p>
+						<form action="AbdominalAorticDoppler.asp" method="get">
+							<li>Abdominal Aortic Doppler: N/A <input type="checkbox"
+								name="na" value="N/A" onclick="myFunction7()">
+							</li>
+							</p>
+			
+							<div id="DIV7">
+								<ul>
+									<p>
+									<li>DATE: <input type="Date" name="Date" value=""><br></li>
+									</p>
+									<p>
+									<li>Possible Diagnosis that can be found:
+										<ul>
+			
+											<li>Aortic A.S.P: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+											<li>Aortic Aneurysm: <input type="checkbox" name="Yes"
+												value="Yes">
+											</li>
+			
+			
+											<li>Other: <input type="text" size="60" name="comments"
+												value=""><br></li>
+			
+										</ul>
+			
+			
+									</li>
+			
+								</ul>
+							</div>
+						</form>
+			
+			
+						<p>
+						<form action="LowerExtremityDoppler.asp" method="get">
+							<li>Lower Extremity Doppler: N/A <input type="checkbox"
+								name="na" value="N/A" onclick="myFunction8()">
+							</li>
+							</p>
+			
+							<div id="DIV8">
+								<ul>
+									<p>
+									<li>DATE: <input type="Date" name="Date" value=""><br></li>
+									</p>
+									<p>
+									<li>Monophasic Waves: <input type="checkbox" name="Yes"
+										value="Yes"> YES <input type="checkbox" name="No"
+										value="No"> NO
+									</li>
+									<li>ASP of Lower Extremity: <input type="checkbox"
+										name="left" value="left"> Left <input type="checkbox"
+										name="Right" value="Right"> Right <input type="checkbox"
+										name="Both" value="Both"> Both
+									</li>
+									<li>Peripheral Vascular Disease: <input type="checkbox" name="Yes"
+										value="Yes"> YES <input type="checkbox" name="No"
+										value="No"> NO 
+									</li>
+			
+								</ul>
+							</div>
+						</form>
+			
+					</ul>
+				</div>
+			</div>
+			
+			<div class="accordion">
+				<b> Specialist Report</b>
+			</div>
+			
+			<div class="panel">
+				<div class="accordion">
+					<b>Cardiologist Report</b>
+				</div>
+				<div class="panel">
+					<ul>
+						<p>
+						<form action="Cardiologist Report.asp" method="get">
+		
+							</li>
+							</p>
+							<ul>
+								<p>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+								</p>
+								<p>
+								<li>Possible Diagnosis that can be found:
+									<ul>
+		
+										<li>Hyperlipidemia: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Cardiomyopathy: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Congestive Heart Failure: <input type="checkbox"
+											name="Yes" value="Yes">
+										</li>
+										<li>Atrial Fibrillation: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Atrial Flutter: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Deep Vein Thrombosis: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Old Myocardial Infarction: <input type="checkbox"
+											name="Yes" value="Yes">
+										</li>
+										<li>Angina Pectoris: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Supraventricular Tachycardia: <input type="checkbox"
+											name="Yes" value="Yes">
+										</li>
+										<li>Hypertension: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+		
+								</li>
+						</form>
+					</ul>
+				</div>
+		
+				<div class="accordion">
+					<b>Ophthalmologist Report</b>
+				</div>
+				<div class="panel">
+					<ul>
+						<p>
+						<form action="Ophthalmologist Report.asp" method="get">
+		
+							</li>
+							</p>
+							<ul>
+								<p>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+								</p>
+								<p>
+								<li>Possible Diagnosis that can be found:
+									<ul>
+		
+										<li>Glaucoma:<input type="checkbox" name="left"
+											value="left"> Left <input type="checkbox" name="Right"
+											value="Right"> Right <input type="checkbox" name="Both"
+											value="Both"> Both
+										</li>
+										<li>Retinopathy:<input type="checkbox" name="left"
+											value="left"> Left <input type="checkbox" name="Right"
+											value="Right"> Right <input type="checkbox" name="Both"
+											value="Both"> Both
+											<ul>
+												<li>Proliferative:<input type="checkbox" name="left"
+													value="left"> Left <input type="checkbox"
+													name="Right" value="Right"> Right <input
+													type="checkbox" name="Both" value="Both"> Both
+												</li>
+												<li>Non-Proliferative:<input type="checkbox" name="left"
+													value="left"> Left <input type="checkbox"
+													name="Right" value="Right"> Right <input
+													type="checkbox" name="Both" value="Both"> Both
+												</li>
+											</ul>
+										</li>
+		
+										<li>Cataract:<input type="checkbox" name="left"
+											value="left"> Left <input type="checkbox" name="Right"
+											value="Right"> Right <input type="checkbox" name="Both"
+											value="Both"> Both
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+		
+								</li>
+						</form>
+					</ul>
+				</div>
+		
+				<div class="accordion">
+					<b>Pulmonologist Report</b>
+				</div>
+				<div class="panel">
+					<ul>
+						<p>
+						<form action="Pulmonologist Report.asp" method="get">
+		
+							</li>
+							</p>
+							<ul>
+								<p>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+								</p>
+								<p>
+								<li>Possible Diagnosis that can be found:
+									<ul>
+		
+										<li>Compulsive Obstructive Pulmonary Disease: <input
+											type="checkbox" name="Yes" value="Yes">
+										</li>
+										<li>Asthma, Asthma Bronchitis: <input type="checkbox"
+											name="Yes" value="Yes">
+										</li>
+										<li>Pulmonary Embolism: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Pulmonary Cystic Fibrosis: <input type="checkbox"
+											name="Yes" value="Yes">
+										</li>
+		
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+		
+								</li>
+						</form>
+					</ul>
+				</div>
+		
+		
+				<div class="accordion">
+					<b>Neurologist Report</b>
+				</div>
+				<div class="panel">
+					<ul>
+						<p>
+						<form action="Neurologist Report.asp" method="get">
+		
+							</li>
+							</p>
+							<ul>
+								<p>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+								</p>
+								<p>
+								<li>Possible Diagnosis that can be found:
+									<ul>
+		
+										<li>Parkinson's Disease: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Seizure Disorder: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Epilepsy: <input type="checkbox" name="Yes" value="Yes">
+										</li>
+										<li>Migrane Headache: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Dementia: <input type="checkbox" name="Yes" value="Yes">
+										</li>
+										<li>Alzheimer's Disease: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Multiple Sclerosis: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+		
+								</li>
+						</form>
+					</ul>
+				</div>
+		
+		
+		
+		
+		
+		
+		
+				<div class="accordion">
+					<b>Psychiatrist/Psychologist Report</b>
+				</div>
+				<div class="panel">
+					<ul>
+						<p>
+						<form action="Psychiatrist/Psychologist Report.asp" method="get">
+		
+							</li>
+							</p>
+							<ul>
+								<p>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+								</p>
+								<p>
+								<li>Possible Diagnosis that can be found:
+									<ul>
+		
+										<li>Major Depression: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Anxiety Disorder: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Schizophrenia: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Bipolar Disease: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Alcohol Dependence: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+		
+								</li>
+						</form>
+					</ul>
+				</div>
+		
+		
+				<div class="accordion">
+					<b>Rheumatologist Report</b>
+				</div>
+				<div class="panel">
+					<ul>
+						<p>
+						<form action="Rheumatologist Report.asp" method="get">
+		
+							</li>
+							</p>
+							<ul>
+								<p>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+								</p>
+								<p>
+								<li>Possible Diagnosis that can be found:
+									<ul>
+		
+										<li>Rheumatoid Arthritis: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Systemic Lupus: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Multiple Sclerosis: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+		
+								</li>
+						</form>
+					</ul>
+				</div>
+		
+		
+				<div class="accordion">
+					<b>Podiatrist Report</b>
+				<div class="panel">
+					<ul>
+						<p>
+						<form action="Podiatrist Report.asp" method="get">
+		
+							</li>
+							</p>
+							<ul>
+								<p>
+								<li>DATE: <input type="Date" name="Date" value=""><br></li>
+								</p>
+								<p>
+								<li>Possible Diagnosis that can be found:
+									<ul>
+		
+										<li>Below Knee Amputation:<input type="checkbox"
+											name="left" value="left"> Left <input type="checkbox"
+											name="Right" value="Right"> Right <input
+											type="checkbox" name="Both" value="Both"> Both
+										</li>
+										<li>Above Knee Amputation:<input type="checkbox"
+											name="left" value="left"> Left <input type="checkbox"
+											name="Right" value="Right"> Right <input
+											type="checkbox" name="Both" value="Both"> Both
+										</li>
+		
+										<li>Am: <input type="checkbox" name="Yes" value="Yes">
+										</li>
+										<li>Poly-Neuropathy: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Mono-Neuropathy: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Onychomycosis: <input type="checkbox" name="Yes"
+											value="Yes">
+										</li>
+										<li>Peripheral Vascular Disease: <input type="checkbox"
+											name="Yes" value="Yes">
+										</li>
+										<li>Ulcers of Lower Extremity:<input type="checkbox"
+											name="left" value="left"> Left <input type="checkbox"
+											name="Right" value="Right"> Right <input
+											type="checkbox" name="Both" value="Both"> Both
+										</li>
+										<li>Other: <input type="text" size="60" name="comments"
+											value=""><br></li>
+										</p>
+									</ul>
+		
+								</li>
+						</form>
+					</ul>
+				</div>
+			</div>
 			<script>
     			var acc = document.getElementsByClassName("accordion");
 				var i;
@@ -92,6 +757,7 @@
 					}
 				}
 			</script>
-		</div>
+			
+		<input type="submit" value="Submit">
 	</body>
 </html>

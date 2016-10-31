@@ -1,6 +1,6 @@
 @CHARSET "ISO-8859-1";
 
-button.accordion {
+div.accordion {
     background-color: #eee;
     color: #444;
     cursor: pointer;
@@ -13,13 +13,14 @@ button.accordion {
     transition: 0.4s;
 }
 
-button.accordion.active, button.accordion:hover {
+
+div.accordion.active, div.accordion:hover {
     background-color: #ddd;
     background-color: #ffdddd;
     border-left: 6px solid #f44336;
 }
 
-button.accordion:after {
+div.accordion:after {
     content: '\02795';
     font-size: 13px;
     color: #777;
@@ -27,7 +28,7 @@ button.accordion:after {
     margin-left: 5px;
 }
 
-button.accordion.active:after {
+div.accordion.active:after {
     content: "\2796";
 }
 
