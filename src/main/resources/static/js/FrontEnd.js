@@ -45,4 +45,12 @@ $(function() {
 		$("#storedMeds").find('option:selected').remove();
 		SelectSort(suggestions);
 	});
+
+    
+    $('input[type="checkbox"]').click(function(){
+        var $this = $(this);
+        var set = $this.add($this.prevUntil('li')).add($this.nextUntil('li'));
+        set.not(this).prop('checked', false); 
+    });
+
 });
