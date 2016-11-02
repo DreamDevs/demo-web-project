@@ -6,7 +6,29 @@
 <script src="js/SpecialistReport.js"></script>
 
 <html ng-app="cs480Med">
+
 <head>
+
+	    <script type="text/javascript">
+     		function toggleCheckbox(element){
+				if(element.value == "Yes"){
+					element.value = "No";
+				}
+				else{
+					element.value = "Yes";
+				}
+			}
+     	</script>
+
+
+	 <script type="text/javascript">
+     function ExampleJS(){
+        var hyper = document.getElementById("Hyperlipidemia").value;
+        var cardio = document.getElementById("Cardiomyopathy").value;
+        var chf = document.getElementById("Congestive Heart Failure").value;
+        alert("Hyperlipidemia: " + hyper + '\n' + "Cardiomyopathy: " + cardio + '\n' + "Congestive Heart Failure: " + chf);
+     }
+     </script>
 
 </head>
 <body>
@@ -20,7 +42,7 @@
 		<div class="panel">
 			<ul>
 				<p>
-				<form action="Cardiologist Report.asp" method="get">
+				<form action="Cardiologist Report.asp" onSubmit = "JavaScript:ExampleJS()">
 
 					</li>
 					</p>
@@ -32,42 +54,46 @@
 						<li>Possible Diagnosis that can be found:
 							<ul>
 
-								<li>Hyperlipidemia: <input type="checkbox" name="Yes"
-									value="Yes">
+								<li>Hyperlipidemia: <input type="checkbox" id = "Hyperlipidemia" name="Hyperlipidemia"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Cardiomyopathy: <input type="checkbox" name="Yes"
-									value="Yes">
+								<li>Cardiomyopathy: <input type="checkbox" id = "Cardiomyopathy" name="Cardiomyopathy"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Congestive Heart Failure: <input type="checkbox"
-									name="Yes" value="Yes">
+								<li>Congestive Heart Failure: <input type="checkbox" id = "Congestive Heart Failure" name="Congestive Heart Failure"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Atrial Fibrillation: <input type="checkbox" name="Yes"
-									value="Yes">
+								<li>Atrial Fibrillation: <input type="checkbox" id = "Atrial Fibrillation" name="Atrial Fibrillation"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Atrial Flutter: <input type="checkbox" name="Yes"
-									value="Yes">
+								<li>Atrial Flutter: <input type="checkbox" id = "Atrial Flutter" name="Atrial Flutter"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Deep Vein Thrombosis: <input type="checkbox" name="Yes"
-									value="Yes">
+								<li>Deep Vein Thrombosis: <input type="checkbox" id = "Deep Vein Thrombosis" name="Deep Vein Thrombosis"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Old Myocardial Infarction: <input type="checkbox"
-									name="Yes" value="Yes">
+								<li>Old Myocardial Infarction: <input type="checkbox" id = "Old Myocardial Infarction" name="Old Myocardial Infaction"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Angina Pectoris: <input type="checkbox" name="Yes"
-									value="Yes">
+								<li>Angina Pectoris: <input type="checkbox" id = "Angina Pectoris" name="Angina Pectoris"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Supraventricular Tachycardia: <input type="checkbox"
-									name="Yes" value="Yes">
+								<li>Supraventricular Tachycardia: <input type="checkbox" id = "Supraventricular Tachycardia" name="Supraventricular Tachycardia"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
-								<li>Hypertension: <input type="checkbox" name="Yes"
-									value="Yes">
+								<li>Hypertension: <input type="checkbox" id = "Hypertension" name="Hypertension"
+									value="No" onclick = "toggleCheckbox(this)">
 								</li>
 								<li>Other: <input type="text" size="60" name="comments"
 									value=""><br></li>
 								</p>
+								
 							</ul>
 
 						</li>
+						
+						<input name="Submit"  type="submit" value="Update" />
+						
 				</form>
 			</ul>
 		</div>
@@ -358,7 +384,10 @@
 							</ul>
 
 						</li>
+												
+						
 				</form>
+								
 			</ul>
 		</div>
 
@@ -378,5 +407,7 @@
 
 		</script>
 	</div>
+	
+						
 </body>
 </html>
