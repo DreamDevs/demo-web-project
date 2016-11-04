@@ -59,13 +59,88 @@ $(function() {
     //     return false;
     // });
 
+
     $("#SubmitButton").click(function() {
-    	var dataString = $("#MEDICINELIST,#LABREPORT, #ELECTROCARDIOGRAM, #ECHOCARDIOGRAM, #XRAYS, #ABDOMINALULTRASOUND,\
-    	 #ABDOMINALAORTICDOPPLER, #LOWEREXTREMITYDOPPLER, #CARDIOLOGISTREPORT, #OPHTHALMOLOGISTREPORT,\
-    	 #PULMONOLOGISTREPORT,#NEUROLOGISTREPORT,#PSYCHREPORT, #RHEUMATOLOGISTREPORT, #PODIATRISTREPORT").serialize();
-    	  console.log(dataString);
-    	  alert(dataString);
-    	 //console.log($("#ECHOCARDIOGRAM").serialize());
+
+	//Lab Report//
+
+	var temp = document.getElementById("LABREPORT");
+	var lab = $(temp).serializeArray();
+	console.log(JSON.stringify(lab));
+
+
+	//Radiology Report//
+
+
+	//Electrocardiogram
+	temp = document.getElementById("ELECTROCARDIOGRAM");
+	var electro = $(temp).serializeArray();
+	console.log(JSON.stringify(electro));
+
+	//Echocardiogram
+	temp = document.getElementById("ECHOCARDIOGRAM");
+	var echo = $(temp).serializeArray();
+	console.log(JSON.stringify(electro));
+
+	//X-Rays
+	temp = document.getElementById("XRAYS");
+	var xray = $(temp).serializeArray();
+	console.log(JSON.stringify(xray));
+
+	//Abdominal Ultrasound
+	temp = document.getElementById("ABDOMINALULTRASOUND");
+	var ultrasound = $(temp).serializeArray();
+	console.log(JSON.stringify(ultrasound));
+
+	//Abdominal Aortic Doppler
+	temp = document.getElementById("ABDOMINALAORTICDOPPLER");
+	var abdomDoppler = $(temp).serializeArray();
+	console.log(JSON.stringify(abdomDoppler));
+
+	//Lower Extremity Doppler
+	temp = document.getElementById("LOWEREXTREMITYDOPPLER");
+	var lowerDoppler = $(temp).serializeArray();
+	console.log(JSON.stringify(lowerDoppler));
+
+
+	//Specialist Report//
+
+
+	//Cardiologist Report
+	temp = document.getElementById("CARDIOLOGISTREPORT");
+	var cardio = $(temp).serializeArray();
+	console.log(JSON.stringify(cardio));
+
+	//Ophthalmologist Report
+	temp = document.getElementById("OPHTHALMOLOGISTREPORT");
+	var ophthal = $(temp).serializeArray();
+	console.log(JSON.stringify(ophthal));
+
+	//Pulmonologist Report
+	temp = document.getElementById("PULMONOLOGISTREPORT");
+	var pulmono = $(temp).serializeArray();
+	console.log(JSON.stringify(pulmono));
+
+	//Neurologist Report
+	temp = document.getElementById("NEUROLOGISTREPORT");
+	var neuro = $(temp).serializeArray();
+	console.log(JSON.stringify(neuro));
+
+	//Psychiatrist/Psychologist Report
+	temp = document.getElementById("PSYCHREPORT");
+	var psyche = $(temp).serializeArray();
+	console.log(JSON.stringify(psyche));
+
+	//Rheumatologist Report
+	temp = document.getElementById("RHEUMATOLOGISTREPORT");
+	var rheuma = $(temp).serializeArray();
+	console.log(JSON.stringify(rheuma));
+
+	//Podiatrist Report
+	temp = document.getElementById("PODIATRISTREPORT");
+	var podiatrist = $(temp).serializeArray();
+	console.log(JSON.stringify(podiatrist));
+
     });
 
 
