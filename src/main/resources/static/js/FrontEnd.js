@@ -66,7 +66,10 @@ $(function() {
 
 	var temp = document.getElementById("LABREPORT");
 	var lab = $(temp).serializeArray();
-	console.log(JSON.stringify(lab));
+	lab = JSON.stringify(lab);
+	lab = lab.replace(/"name":/g, '');
+	lab = lab.replace(/,"value"/g, '');
+	console.log(lab);
 
 
 	//Radiology Report//
@@ -75,32 +78,53 @@ $(function() {
 	//Electrocardiogram
 	temp = document.getElementById("ELECTROCARDIOGRAM");
 	var electro = $(temp).serializeArray();
-	console.log(JSON.stringify(electro));
+	electro = JSON.stringify(electro);
+	electro = electro.replace(/"name":/g, '');
+	electro = electro.replace(/,"value"/g, '');
+	console.log(electro);
 
 	//Echocardiogram
 	temp = document.getElementById("ECHOCARDIOGRAM");
 	var echo = $(temp).serializeArray();
-	console.log(JSON.stringify(electro));
+	echo = JSON.stringify(echo);
+	echo = echo.replace(/"name":/g, '');
+	echo = echo.replace(/,"value"/g, '');
+	console.log(echo);
+
 
 	//X-Rays
 	temp = document.getElementById("XRAYS");
 	var xray = $(temp).serializeArray();
-	console.log(JSON.stringify(xray));
+	xray = JSON.stringify(xray);
+	xray = xray.replace(/"name":/g, '');
+	xray = xray.replace(/,"value"/g, '');
+	console.log(xray);
+
 
 	//Abdominal Ultrasound
 	temp = document.getElementById("ABDOMINALULTRASOUND");
 	var ultrasound = $(temp).serializeArray();
-	console.log(JSON.stringify(ultrasound));
+	ultrasound = JSON.stringify(ultrasound);
+	ultrasound = ultrasound.replace(/"name":/g, '');
+	ultrasound = ultrasound.replace(/,"value"/g, '');
+	console.log(ultrasound);
+
 
 	//Abdominal Aortic Doppler
 	temp = document.getElementById("ABDOMINALAORTICDOPPLER");
 	var abdomDoppler = $(temp).serializeArray();
-	console.log(JSON.stringify(abdomDoppler));
+	abdomDoppler = JSON.stringify(abdomDoppler);
+	abdomDoppler = abdomDoppler.replace(/"name":/g, '');
+	abdomDoppler = abdomDoppler.replace(/,"value"/g, '');
+	console.log(abdomDoppler);
 
 	//Lower Extremity Doppler
 	temp = document.getElementById("LOWEREXTREMITYDOPPLER");
 	var lowerDoppler = $(temp).serializeArray();
-	console.log(JSON.stringify(lowerDoppler));
+	lowerDoppler = JSON.stringify(lowerDoppler);
+	lowerDoppler = lowerDoppler.replace(/"name":/g, '');
+	lowerDoppler = lowerDoppler.replace(/,"value"/g, '');
+	console.log(lab);
 
 
 	//Specialist Report//
@@ -109,37 +133,62 @@ $(function() {
 	//Cardiologist Report
 	temp = document.getElementById("CARDIOLOGISTREPORT");
 	var cardio = $(temp).serializeArray();
-	console.log(JSON.stringify(cardio));
+	cardio = JSON.stringify(cardio);
+	cardio = cardio.replace(/"name":/g, '');
+	cardio = cardio.replace(/,"value"/g, '');
+	console.log(cardio);
 
 	//Ophthalmologist Report
 	temp = document.getElementById("OPHTHALMOLOGISTREPORT");
 	var ophthal = $(temp).serializeArray();
-	console.log(JSON.stringify(ophthal));
+	ophthal = JSON.stringify(ophthal);
+	ophthal = ophthal.replace(/"name":/g, '');
+	ophthal = ophthal.replace(/,"value"/g, '');
+	console.log(ophthal);
+
 
 	//Pulmonologist Report
 	temp = document.getElementById("PULMONOLOGISTREPORT");
 	var pulmono = $(temp).serializeArray();
-	console.log(JSON.stringify(pulmono));
+	pulmono = JSON.stringify(pulmono);
+	pulmono = pulmono.replace(/"name":/g, '');
+	pulmono = pulmono.replace(/,"value"/g, '');
+	console.log(pulmono);
 
 	//Neurologist Report
 	temp = document.getElementById("NEUROLOGISTREPORT");
 	var neuro = $(temp).serializeArray();
-	console.log(JSON.stringify(neuro));
+	neuro = JSON.stringify(neuro);
+	neuro = neuro.replace(/"name":/g, '');
+	neuro = neuro.replace(/,"value"/g, '');
+	console.log(neuro);
+
 
 	//Psychiatrist/Psychologist Report
 	temp = document.getElementById("PSYCHREPORT");
 	var psyche = $(temp).serializeArray();
-	console.log(JSON.stringify(psyche));
+	psyche = JSON.stringify(psyche);
+	psyche = psyche.replace(/"name":/g, '');
+	psyche = psyche.replace(/,"value"/g, '');
+	console.log(psyche);
+
 
 	//Rheumatologist Report
 	temp = document.getElementById("RHEUMATOLOGISTREPORT");
 	var rheuma = $(temp).serializeArray();
-	console.log(JSON.stringify(rheuma));
+	rheuma = JSON.stringify(rheuma);
+	rheuma = rheuma.replace(/"name":/g, '');
+	rheuma = rheuma.replace(/,"value"/g, '');
+	console.log(rheuma);
 
 	//Podiatrist Report
 	temp = document.getElementById("PODIATRISTREPORT");
 	var podiatrist = $(temp).serializeArray();
-	console.log(JSON.stringify(podiatrist));
+	podiatrist = JSON.stringify(podiatrist);
+	podiatrist = podiatrist.replace(/"name":/g, '');
+	podiatrist = podiatrist.replace(/,"value"/g, '');
+	console.log(podiatrist);
+
 
     });
 
