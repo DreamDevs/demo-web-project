@@ -53,8 +53,8 @@
 							<tr>
 								<td>Microalbumin: </td>
 								<td>
-									<input type="radio" name = "Microalbumin" value="true" th:field="*{Microalbumin}"/>Yes
-									<input type="radio" name = "Microalbumin" value="false" th:field="*{Microalbumin}"/>No
+									<input type="checkbox" name = "Microalbumin" value="true" th:field="*{Microalbumin}"/>Yes
+									<input type="checkbox" name = "Microalbumin" value="false" th:field="*{Microalbumin}"/>No
 								</td>
 							</tr>
 							<tr>
@@ -87,7 +87,7 @@
 						<p>
 						<form action="ElectroCardioGram.json" method="post" id = "ELECTROCARDIOGRAM">
 							<li>Electrocardiogram: N/A 
-								<input type="radio" name="ElectroCardioGramCB" id = "ElectroCardioGramCB" value="NA" onclick="HideShowNA(DIV0)">
+								<input type="checkbox" name="ElectroCardioGramCB" id = "ElectroCardioGramCB" value="NA" onclick="HideShowNA(DIV0)">
 							</li>
 							</p>
 			
@@ -100,15 +100,15 @@
 									<p>
 									<ul>
 										<li>Arrhythmia:
-											<input type="radio" name="Arrhythmia" value="normal"> Normal 
-											<input type="radio" name="Arrhythmia" value="Tachycardia"> Tachycardia 
-											<input type="radio" name="Arrhythmia" value="Bradycardia"> Bradycardia
+											<input type="checkbox" name="Arrhythmia" value="normal"> Normal 
+											<input type="checkbox" name="Arrhythmia" value="Tachycardia"> Tachycardia 
+											<input type="checkbox" name="Arrhythmia" value="Bradycardia"> Bradycardia
 										</li>
 										<li>Atrial Fibrillation Present: 
-											<input type="radio" name="AFP" value="true">
+											<input type="checkbox" name="AFP" value="true">
 										</li>
 										<li>Myocardial Infarction: 
-											<input type="radio" name="MyocardialInfarction" value="true">
+											<input type="checkbox" name="MyocardialInfarction" value="true">
 										</li>
 										<li>Other: 
 											<input type="text" size="60" name="comments" value=""><br></li>
@@ -124,7 +124,7 @@
 						<p>
 						<form action="EchoCardioGram.json" method="post" id = "ECHOCARDIOGRAM">
 							<li>Echocardiogram: N/A 
-								<input type="radio" id = "EchoCardioGramCB" name="EchoCardioGramCB" value="NA" onclick="HideShowNA(DIV1)">
+								<input type="checkbox" id = "EchoCardioGramCB" name="EchoCardioGramCB" value="NA" onclick="HideShowNA(DIV1)">
 							</li>
 							</p>
 			
@@ -137,13 +137,13 @@
 									<p>
 									<ul>
 										<li>Cardiomegaly: 
-											<input type="radio" name="Cardiomegaly" value="true">
+											<input type="checkbox" name="Cardiomegaly" value="true">
 										</li>
 										<li>Cardiomyopathy: 
-											<input type="radio" name="Cardiomyopathy" value="true">
+											<input type="checkbox" name="Cardiomyopathy" value="true">
 										</li>
 										<li>Aortic (A.S.P): 
-											<input type="radio" name="AorticASP" value="true">
+											<input type="checkbox" name="AorticASP" value="true">
 										</li>
 										<li>Ejection Fraction: 
 											<input type="number" name="EFpercentage" value="">%<br></li>
@@ -165,7 +165,7 @@
 						<p>
 						<form action="Xrays.json" method="post" id = "XRAYS">
 							<li>Chest X-Ray: N/A 
-								<input type="radio" name="XraysCB" value="NA" onclick="HideShowNA(DIV2)">
+								<input type="checkbox" name="XraysCB" value="NA" onclick="HideShowNA(DIV2)">
 							</li>
 							</p>
 			
@@ -180,31 +180,31 @@
 										<ul>
 			
 											<li>Aortic A.S.P: 
-												<input type="radio" name="AorticASP" value="true">
+												<input type="checkbox" name="AorticASP" value="true">
 											</li>
 											<li>Aortic Aneurysm: 
-												<input type="radio" name="AorticAneurysm" value="true">
+												<input type="checkbox" name="AorticAneurysm" value="true">
 											</li>
 											<li>Aortic Ectasia: 
-												<input type="radio" name="AorticEctasia"	value="true">
+												<input type="checkbox" name="AorticEctasia"	value="true">
 											</li>
 											<li>Aortic Tortuosity: 
-												<input type="radio" name="AorticTortuosity" value="true">
+												<input type="checkbox" name="AorticTortuosity" value="true">
 											</li>
 											<li>Chronic Obstructive Pulmonary Disease (COPD): 
-												<input type="radio" name="COPD" value="true">
+												<input type="checkbox" name="COPD" value="true">
 											</li>
 											<li>Pneumonia:
-												<input type="radio" name="Pneumonia" value="true">
+												<input type="checkbox" name="Pneumonia" value="true">
 											</li>
 											<li>Chronic Bronchitis: 
-												<input type="radio" name="ChronicBronchitis" value="true">
+												<input type="checkbox" name="ChronicBronchitis" value="true">
 											</li>
 											<li>Pulminary Cystic Fibrosis: 
-												<input type="radio" name="PCF" value="true">
+												<input type="checkbox" name="PCF" value="true">
 											</li>
 											<li>Cardiomegaly: 
-												<input type="radio" name="Cardiomegaly" value="true">
+												<input type="checkbox" name="Cardiomegaly" value="true">
 											</li>
 											<li>Other: 
 												<input type="text" size="60" name="comments" value=""><br></li>
@@ -215,7 +215,7 @@
 								</ul>
 							</div>
 							<li>Extremity X-Ray: N/A 
-								<input type="radio" name="ExtremityXRayCB" value="NA" onclick="HideShowNA(DIV3)">
+								<input type="checkbox" name="ExtremityXRayCB" value="NA" onclick="HideShowNA(DIV3)">
 							</li>
 							</p>
 			
@@ -223,7 +223,7 @@
 								<ul>
 									<p>
 									<li>Upper Extremity:N/A 
-										<input type="radio" name="UpperExtremityCB" value="NA" onclick="HideShowNA(DIV4)">
+										<input type="checkbox" name="UpperExtremityCB" value="NA" onclick="HideShowNA(DIV4)">
 									</li>
 									</p>
 									<div id="DIV4">
@@ -232,15 +232,15 @@
 											<li>DATE: 
 												<input type="Date" name="UPPEREXTREMITYDate" value=""><br></li>
 											<li>A.S.P of upper extremity:
-												<input type="radio" name="ASPUpperEX" value="left"> Left 
-												<input type="radio" name="ASPUpperEX" value="Right"> Right 
-												<input type="radio" name="ASPUpperEX" value="Both"> Both
+												<input type="checkbox" name="ASPUpperEX" value="left"> Left 
+												<input type="checkbox" name="ASPUpperEX" value="Right"> Right 
+												<input type="checkbox" name="ASPUpperEX" value="Both"> Both
 											</li>
 										</ul>
 									</div>
 									<p>
 									<li>Lower Extremity:N/A 
-										<input type="radio" name="LowererExtremityCB" value="NA" onclick="HideShowNA(DIV5)">
+										<input type="checkbox" name="LowererExtremityCB" value="NA" onclick="HideShowNA(DIV5)">
 									</li>
 									</p>
 									<div id="DIV5">
@@ -248,9 +248,9 @@
 										<ul>
 											<li>DATE: <input type="Date" name="LOWEREXTREMITYDate" value=""><br></li>
 											<li>A.S.P of lower extremity:
-												<input type="radio" name="ASPLowerEX" value="left"> Left 
-												<input type="radio" name="ASPLowerEX" value="Right"> Right 
-												<input type="radio" name="ASPLowerEX" value="Both"> Both
+												<input type="checkbox" name="ASPLowerEX" value="left"> Left 
+												<input type="checkbox" name="ASPLowerEX" value="Right"> Right 
+												<input type="checkbox" name="ASPLowerEX" value="Both"> Both
 											</li>
 										</ul>
 									</div>
@@ -279,7 +279,7 @@
 						<p>
 						<form action="AbdominalUltrasound.json" method="post" id = "ABDOMINALULTRASOUND">
 							<li>Abdominal Ultrasound: N/A 
-								<input type="radio" name="AbdominalUltrasoundCB" value="NA" onclick="HideShowNA(DIV6)">
+								<input type="checkbox" name="AbdominalUltrasoundCB" value="NA" onclick="HideShowNA(DIV6)">
 							</li>
 							</p>
 			
@@ -294,16 +294,16 @@
 										<ul>
 			
 											<li>Aortic A.S.P: 
-												<input type="radio" name="AorticASP"	value="true">
+												<input type="checkbox" name="AorticASP"	value="true">
 											</li>
 											<li>Aortic Aneurysm: 
-												<input type="radio" name="AorticAneurysm" value="true">
+												<input type="checkbox" name="AorticAneurysm" value="true">
 											</li>
 											<li>Nephritis: 
-												<input type="radio" name="Nephritis"	value="true">
+												<input type="checkbox" name="Nephritis"	value="true">
 											</li>
 											<li>Renal Artery A.S.P: 
-												<input type="radio" name="RenalArteryASP" value="true">
+												<input type="checkbox" name="RenalArteryASP" value="true">
 											<li>Other: 
 												<input type="text" size="60" name="comments" value=""><br></li>
 										</ul>
@@ -318,7 +318,7 @@
 						<p>
 						<form action="AbdominalAorticDoppler.json" method="post" id = "ABDOMINALAORTICDOPPLER">
 							<li>Abdominal Aortic Doppler: N/A 
-								<input type="radio" name="AbdominalAorticDopplerCB" value="NA" onclick="HideShowNA(DIV7)">
+								<input type="checkbox" name="AbdominalAorticDopplerCB" value="NA" onclick="HideShowNA(DIV7)">
 							</li>
 							</p>
 			
@@ -332,10 +332,10 @@
 									<li>Possible Diagnosis that can be found:
 										<ul>		
 											<li>Aortic A.S.P: 
-												<input type="radio" name="AorticASP" value="true">
+												<input type="checkbox" name="AorticASP" value="true">
 											</li>
 											<li>Aortic Aneurysm: 
-												<input type="radio" name="AorticAneurysm" value="true">
+												<input type="checkbox" name="AorticAneurysm" value="true">
 											</li>
 											<li>Other: 
 												<input type="text" size="60" name="comments" value=""><br></li>
@@ -352,7 +352,7 @@
 						<p>
 						<form action="LowerExtremityDoppler.json" method="post" id = "LOWEREXTREMITYDOPPLER">
 							<li>Lower Extremity Doppler: N/A 
-								<input type="radio" name="LowerExtremityDopplerCB" value="NA" onclick="HideShowNA(DIV8)">
+								<input type="checkbox" name="LowerExtremityDopplerCB" value="NA" onclick="HideShowNA(DIV8)">
 							</li>
 							</p>
 			
@@ -364,15 +364,15 @@
 									</p>
 									<p>
 									<li>Monophasic Waves: 
-										<input type="radio" name="MonophasicWaves" value="true">
+										<input type="checkbox" name="MonophasicWaves" value="true">
 									</li>
 									<li>A.S.P of lower extremity:
-										<input type="radio" name="ASPLowerEX" value="left"> Left 
-										<input type="radio" name="ASPLowerEX" value="Right"> Right 
-										<input type="radio" name="ASPLowerEX" value="Both"> Both
+										<input type="checkbox" name="ASPLowerEX" value="left"> Left 
+										<input type="checkbox" name="ASPLowerEX" value="Right"> Right 
+										<input type="checkbox" name="ASPLowerEX" value="Both"> Both
 									</li>
 									<li>Peripheral Vascular Disease: 
-										<input type="radio" name="PVD" value="true">
+										<input type="checkbox" name="PVD" value="true">
 									</li>
 			
 								</ul>
@@ -408,34 +408,34 @@
 									<ul>
 		
 										<li>Hyperlipidemia: 
-											<input type="radio" name="Hyperlipidemia" value="true">
+											<input type="checkbox" name="Hyperlipidemia" value="true">
 										</li>
 										<li>Cardiomyopathy: 
-											<input type="radio" name="Cardiomyopathy" value="true">
+											<input type="checkbox" name="Cardiomyopathy" value="true">
 										</li>
 										<li>Congestive Heart Failure: 
-											<input type="radio" name="CHF" value="true">
+											<input type="checkbox" name="CHF" value="true">
 										</li>
 										<li>Atrial Fibrillation: 
-											<input type="radio" name="AtrialFibrillation" value="true">
+											<input type="checkbox" name="AtrialFibrillation" value="true">
 										</li>
 										<li>Atrial Flutter: 
-											<input type="radio" name="AtrialFlutter"	value="true">
+											<input type="checkbox" name="AtrialFlutter"	value="true">
 										</li>
 										<li>Deep Vein Thrombosis: 
-											<input type="radio" name="DVT" value="true">
+											<input type="checkbox" name="DVT" value="true">
 										</li>
 										<li>Old Myocardial Infarction: 
-											<input type="radio" name="OMI" value="true">
+											<input type="checkbox" name="OMI" value="true">
 										</li>
 										<li>Angina Pectoris: 
-											<input type="radio" name="AnginaPectoris" value="true">
+											<input type="checkbox" name="AnginaPectoris" value="true">
 										</li>
 										<li>Supraventricular Tachycardia: 
-											<input type="radio" name="SupraventricularTachycardia" value="true">
+											<input type="checkbox" name="SupraventricularTachycardia" value="true">
 										</li>
 										<li>Hypertension: 
-											<input type="radio" name="Hypertension" value="true">
+											<input type="checkbox" name="Hypertension" value="true">
 										</li>
 										<li>Other: 
 											<input type="text" size="60" name="comments" value=""><br></li>
@@ -467,32 +467,32 @@
 									<ul>
 		
 										<li>Glaucoma:
-											<input type="radio" name="Glaucoma" value="left"> Left 
-											<input type="radio" name="Glaucoma" value="Right"> Right 
-											<input type="radio" name="Glaucoma" value="Both"> Both
+											<input type="checkbox" name="Glaucoma" value="left"> Left 
+											<input type="checkbox" name="Glaucoma" value="Right"> Right 
+											<input type="checkbox" name="Glaucoma" value="Both"> Both
 										</li>
 										<li>Retinopathy:
-											<input type="radio" name="Retinopathy" value="left"> Left 
-											<input type="radio" name="Retinopathy" value="Right"> Right 
-											<input type="radio" name="Retinopathy" value="Both"> Both
+											<input type="checkbox" name="Retinopathy" value="left"> Left 
+											<input type="checkbox" name="Retinopathy" value="Right"> Right 
+											<input type="checkbox" name="Retinopathy" value="Both"> Both
 											<ul>
 												<li>Proliferative:
-													<input type="radio" name="Proliferative" value="left"> Left 
-													<input type="radio" name="Proliferative" value="Right"> Right 
-													<input type="radio" name="Proliferative" value="Both"> Both
+													<input type="checkbox" name="Proliferative" value="left"> Left 
+													<input type="checkbox" name="Proliferative" value="Right"> Right 
+													<input type="checkbox" name="Proliferative" value="Both"> Both
 												</li>
 												<li>Non-Proliferative:
-													<input type="radio" name="NonProliferative" value="left"> Left 
-													<input type="radio" name="NonProliferative" value="Right"> Right 
-													<input type="radio" name="NonProliferative" value="Both"> Both
+													<input type="checkbox" name="NonProliferative" value="left"> Left 
+													<input type="checkbox" name="NonProliferative" value="Right"> Right 
+													<input type="checkbox" name="NonProliferative" value="Both"> Both
 												</li>
 											</ul>
 										</li>
 		
 										<li>Cataract:
-											<input type="radio" name="Cataract" value="left"> Left 
-											<input type="radio" name="Cataract" value="Right"> Right 
-											<input type="radio" name="Cataract" value="Both"> Both
+											<input type="checkbox" name="Cataract" value="left"> Left 
+											<input type="checkbox" name="Cataract" value="Right"> Right 
+											<input type="checkbox" name="Cataract" value="Both"> Both
 										</li>
 										<li>Other: 
 											<input type="text" size="60" name="comments" value=""><br></li>
@@ -524,16 +524,16 @@
 									<ul>
 		
 										<li>Compulsive Obstructive Pulmonary Disease: 
-											<input type="radio" name="COPD" value="true">
+											<input type="checkbox" name="COPD" value="true">
 										</li>
 										<li>Asthma, Asthma Bronchitis: 
-											<input type="radio" name="Asthma" value="true">
+											<input type="checkbox" name="Asthma" value="true">
 										</li>
 										<li>Pulmonary Embolism: 
-											<input type="radio" name="PulmonaryEmbolism" value="true">
+											<input type="checkbox" name="PulmonaryEmbolism" value="true">
 										</li>
 										<li>Pulmonary Cystic Fibrosis: 
-											<input type="radio" name="PCF" value="true">
+											<input type="checkbox" name="PCF" value="true">
 										</li>
 		
 										<li>Other: 
@@ -567,25 +567,25 @@
 									<ul>
 		
 										<li>Parkinson's Disease: 
-											<input type="radio" name="ParkinsonsDisease" value="true">
+											<input type="checkbox" name="ParkinsonsDisease" value="true">
 										</li>
 										<li>Seizure Disorder: 
-											<input type="radio" name="SeizureDisorder" value="true">
+											<input type="checkbox" name="SeizureDisorder" value="true">
 										</li>
 										<li>Epilepsy: 
-											<input type="radio" name="Epilepsy" value="true">
+											<input type="checkbox" name="Epilepsy" value="true">
 										</li>
 										<li>Migrane Headache: 
-											<input type="radio" name="MigraneHeadache" value="true">
+											<input type="checkbox" name="MigraneHeadache" value="true">
 										</li>
 										<li>Dementia: 
-											<input type="radio" name="Dementia" value="true">
+											<input type="checkbox" name="Dementia" value="true">
 										</li>
 										<li>Alzheimer's Disease: 
-											<input type="radio" name="AlzheimersDisease" value="true">
+											<input type="checkbox" name="AlzheimersDisease" value="true">
 										</li>
 										<li>Multiple Sclerosis: 
-											<input type="radio" name="MultipleSclerosis"	value="true">
+											<input type="checkbox" name="MultipleSclerosis"	value="true">
 										</li>
 										<li>Other: 
 											<input type="text" size="60" name="comments" value=""><br></li>
@@ -623,19 +623,19 @@
 									<ul>
 		
 										<li>Major Depression: 
-											<input type="radio" name="MajorDepression" value="true">
+											<input type="checkbox" name="MajorDepression" value="true">
 										</li>
 										<li>Anxiety Disorder: 
-											<input type="radio" name="AnxietyDisorder" value="true">
+											<input type="checkbox" name="AnxietyDisorder" value="true">
 										</li>
 										<li>Schizophrenia: 
-											<input type="radio" name="Schizophrenia" value="true">
+											<input type="checkbox" name="Schizophrenia" value="true">
 										</li>
 										<li>Bipolar Disease: 
-											<input type="radio" name="BipolarDisease" value="true">
+											<input type="checkbox" name="BipolarDisease" value="true">
 										</li>
 										<li>Alcohol Dependence: 
-											<input type="radio" name="AlcoholDependence" value="true">
+											<input type="checkbox" name="AlcoholDependence" value="true">
 										</li>
 										<li>Other: 
 											<input type="text" size="60" name="comments" value=""><br></li>
@@ -668,13 +668,13 @@
 									<ul>
 		
 										<li>Rheumatoid Arthritis: 
-											<input type="radio" name="RheumatoidArthritis" value="true">
+											<input type="checkbox" name="RheumatoidArthritis" value="true">
 										</li>
 										<li>Systemic Lupus: 
-											<input type="radio" name="SystemicLupus"	value="true">
+											<input type="checkbox" name="SystemicLupus"	value="true">
 										</li>
 										<li>Multiple Sclerosis: 
-											<input type="radio" name="MultipleSclerosis"	value="true">
+											<input type="checkbox" name="MultipleSclerosis"	value="true">
 										</li>
 										<li>Other: 
 											<input type="text" size="60" name="comments" value=""><br></li>
@@ -707,35 +707,35 @@
 									<ul>
 		
 										<li>Below Knee Amputation:
-											<input type="radio" name="BelowKneeAmputation" value="left"> Left 
-											<input type="radio" name="BelowKneeAmputation" value="Right"> Right 
-											<input type="radio" name="BelowKneeAmputation" value="Both"> Both
+											<input type="checkbox" name="BelowKneeAmputation" value="left"> Left 
+											<input type="checkbox" name="BelowKneeAmputation" value="Right"> Right 
+											<input type="checkbox" name="BelowKneeAmputation" value="Both"> Both
 										</li>
 										<li>Above Knee Amputation:
-											<input type="radio" name="AboveKneeAmputation" value="left"> Left 
-											<input type="radio" name="AboveKneeAmputation" value="Right"> Right 
-											<input type="radio" name="AboveKneeAmputation" value="Both"> Both
+											<input type="checkbox" name="AboveKneeAmputation" value="left"> Left 
+											<input type="checkbox" name="AboveKneeAmputation" value="Right"> Right 
+											<input type="checkbox" name="AboveKneeAmputation" value="Both"> Both
 										</li>
 		
 										<li>Am: 
-											<input type="radio" name="Am" value="true">
+											<input type="checkbox" name="Am" value="true">
 										</li>
 										<li>Poly-Neuropathy: 
-											<input type="radio" name="PolyNeuropathy" value="true">
+											<input type="checkbox" name="PolyNeuropathy" value="true">
 										</li>
 										<li>Mono-Neuropathy: 
-											<input type="radio" name="MonoNeuropathy" value="true">
+											<input type="checkbox" name="MonoNeuropathy" value="true">
 										</li>
 										<li>Onychomycosis: 
-											<input type="radio" name="Onychomycosis"	value="true">
+											<input type="checkbox" name="Onychomycosis"	value="true">
 										</li>
 										<li>Peripheral Vascular Disease: 
-											<input type="radio" name="PVD" value="true">
+											<input type="checkbox" name="PVD" value="true">
 										</li>
 										<li>Ulcers of Lower Extremity:
-											<input type="radio" name="UlcersLowerEX" value="left"> Left 
-											<input type="radio" name="UlcersLowerEX" value="Right"> Right 
-											<input type="radio" name="UlcersLowerEX" value="Both"> Both
+											<input type="checkbox" name="UlcersLowerEX" value="left"> Left 
+											<input type="checkbox" name="UlcersLowerEX" value="Right"> Right 
+											<input type="checkbox" name="UlcersLowerEX" value="Both"> Both
 										</li>
 										<li>Other: 
 										<input type="text" size="60" name="comments" value=""><br></li>
