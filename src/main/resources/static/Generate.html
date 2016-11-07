@@ -1,0 +1,302 @@
+<style>
+#tblData {
+	width: 80%;
+	white-space: nowrap;
+	position: center;
+}
+/* Column widths are based on these cells */
+.row-diagnosis {
+	width: 30%;
+}
+
+.row-followup {
+	width: 25%;
+}
+
+.row-plan {
+	width: 20%;
+}
+
+#tblData td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#tblData th {
+	background: darkblue;
+	color: white;
+}
+
+#tblData td, #tblData th {
+	text-align: center;
+	padding: 5px 10px;
+}
+
+#tblData tr:nth-child(even) {
+	background: lightblue;
+}
+
+#loader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+
+@
+-webkit-keyframes spin { 0% {
+	-webkit-transform: rotate(0deg);
+}
+
+100%
+{
+-webkit-transform
+
+
+:
+
+ 
+
+rotate
+
+
+(360
+deg
+);
+
+ 
+
+}
+}
+@
+keyframes spin { 0% {
+	transform: rotate(0deg);
+}
+
+100%
+{
+transform
+
+
+:
+
+ 
+
+rotate
+
+
+(360
+deg
+);
+
+ 
+
+}
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+	position: relative;
+	-webkit-animation-name: animatebottom;
+	-webkit-animation-duration: 1s;
+	animation-name: animatebottom;
+	animation-duration: 1s
+}
+
+@
+-webkit-keyframes animatebottom {from { bottom:-100px;
+	opacity: 0
+}
+
+to {
+	bottom: 0px;
+	opacity: 1
+}
+
+}
+@
+keyframes animatebottom {from { bottom:-100px;
+	opacity: 0
+}
+
+to {
+	bottom: 0;
+	opacity: 1
+}
+
+}
+#myDiv {
+	display: none;
+	text-align: center;
+}
+</style>
+
+<html>
+
+<body onload="loadFunction()" style="margin: 0;">
+
+	<div id="loader"></div>
+
+
+
+	<div style="display: none;" id="myDiv" class="animate-bottom">
+
+
+
+		<h1>Possible Diagnosis List</h1>
+		<hr></hr>
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-bordered table-hover" id="tblData">
+						<thead>
+							<tr>
+								<th class="text-center">Diagnosis</th>
+								<th class="text-center">Follow Up Status</th>
+								<th class="text-center">Plan of Care</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id='addr0'>
+
+								<td><input type="text" name='name0' placeholder='Name'
+									class="form-control" /></td>
+								<td><input type="text" name='mail0' placeholder='Mail'
+									class="form-control" /></td>
+								<td><input type="text" name='mobile0' placeholder='Mobile'
+									class="form-control" /></td>
+							</tr>
+							<tr id='addr1'></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<button id="add_row" onclick="functon()" class="pull-left">Add
+				Row</button>
+			<button id='delete_row' class="pull-right">Delete Row</button>
+		</div>
+	</div>
+</html>
+
+
+<script>
+	var myVar;
+
+	function loadFunction() {
+		myVar = setTimeout(showPage, 3000);
+	}
+
+	function showPage() {
+		document.getElementById("loader").style.display = "none";
+		document.getElementById("myDiv").style.display = "block";
+	}
+
+	$(document)
+			.ready(
+					function() {
+						var i = 1;
+						$("#add_row")
+								.click(
+										function() {
+											$('#addr' + i)
+													.html(
+															"<td>"
+																	+ (i + 1)
+																	+ "</td><td><input name='name"+i+"' type='text' placeholder='Name' class='form-control input-md'  /> </td><td><input  name='mail"+i+"' type='text' placeholder='Mail'  class='form-control input-md'></td><td><input  name='mobile"+i+"' type='text' placeholder='Mobile'  class='form-control input-md'></td>");
+
+											$('#tab_logic').append(
+													'<tr id="addr' + (i + 1)
+															+ '"></tr>');
+											i++;
+										});
+						$("#delete_row").click(function() {
+							if (i > 1) {
+								$("#addr" + (i - 1)).html('');
+								i--;
+							}
+						});
+
+					});
+
+	function addRow(tableID) {
+
+		var table = document.getElementById(tableID);
+
+		var rowCount = table.rows.length;
+		var row = table.insertRow(rowCount);
+
+		var cell3 = row.insertCell(0);
+		cell3.innerHTML = cell3.innerHTML
+				+ ' <input type="text" size="20" name="values[]"/> <INPUT type="button"  class="btn_medium" value="Remove" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);" /><br><small><font color="gray">Enter Title</font></small>';
+		//cell3.innerHTML = cell3.innerHTML +' <input type="text" size="20" name="values[]"/> <INPUT type="button"  class="btn_medium" value="Remove" onclick="this.parentNode.parentNode.innerHTML=\'\';" /><br><small><font color="gray">Enter Title</font></small>';       
+	};
+
+	function Add() {
+		$("#tblData tbody")
+				.append(
+						"<tr>"
+								+ "<td><input type='text'/></td>"
+								+ "<td><input type='text'/></td>"
+								+ "<td><input type='text'/></td>"
+								+ "<td><img src='images/disk.png' class='btnSave'><img src='images/delete.png' class='btnDelete'/></td>"
+								+ "</tr>");
+		$(".btnSave").bind("click", Save);
+		$(".btnDelete").bind("click", Delete);
+	};
+
+	function Save() {
+		var par = $(this).parent().parent();
+
+		var tdName = par.children("td:nth-child(1)");
+		var tdPhone = par.children("td:nth-child(2)");
+		var tdEmail = par.children("td:nth-child(3)");
+		var tdButtons = par.children("td:nth-child(4)");
+		tdName.html(tdName.children("input[type=text]").val());
+		tdPhone.html(tdPhone.children("input[type=text]").val());
+		tdEmail.html(tdEmail.children("input[type=text]").val());
+		tdButtons
+				.html("<img src='images/delete.png' class='btnDelete'/><img src='images/pencil.png' class='btnEdit'/>");
+		$(".btnEdit").bind("click", Edit);
+		$(".btnDelete").bind("click", Delete);
+	};
+
+	function Edit() {
+		var par = $(this).parent().parent(); //tr 
+		var tdName = par.children("td:nth-child(1)");
+		var tdPhone = par.children("td:nth-child(2)");
+		var tdEmail = par.children("td:nth-child(3)");
+		var tdButtons = par.children("td:nth-child(4)");
+		tdName.html("<input type='text' id='txtName' value='" + tdName.html()
+				+ "'/>");
+		tdPhone.html("<input type='text' id='txtPhone' value='"
+				+ tdPhone.html() + "'/>");
+		tdEmail.html("<input type='text' id='txtEmail' value='"
+				+ tdEmail.html() + "'/>");
+		tdButtons.html("<img src='images/disk.png' class='btnSave'/>");
+		$(".btnSave").bind("click", Save);
+		$(".btnEdit").bind("click", Edit);
+		$(".btnDelete").bind("click", Delete);
+	};
+	function Delete() {
+		var par = $(this).parent().parent();
+		par.remove();
+	};
+	$(function() { //Add, Save, Edit and Delete functions code 
+		$(".btnEdit").bind("click", Edit);
+		$(".btnDelete").bind("click", Delete);
+		$("#btnAdd").bind("click", Add);
+	});
+</script>
+</body>
+</html>
