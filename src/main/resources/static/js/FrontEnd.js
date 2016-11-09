@@ -53,14 +53,16 @@ $(function() {
         set.not(this).prop('checked', false); 
     });
 
-
-    // $('input[type=submit]').click(function(e){
-    //     $('form').submit();
-    //     return false;
-    // });
-
-
     $("#SubmitButton").click(function() {
+
+
+    //Medicine List//
+
+    var medList = [];
+    $("#storedMeds option").each(function() {
+    medList.push($(this).val());
+	});
+    console.log(medList);
 
 	//Lab Report//
 
@@ -192,41 +194,5 @@ $(function() {
 
     });
 
-
-
-    // $('input[type=submit]').submit(function(){
-    // 	$.post($(this).attr('action'), $(this).serialize(), function(json) {
-    // 		alert(json);
-    // 	}, 'json');
-    // 	Console.log("Hi");
-    // 	return false;
-    // });
-  //   $("form").submit(function(){
-  //   $.post($(this).attr("action"), $(this).serialize(), function(jsonData){
-  //     console.log(jsonData);
-  //   }, "json");
-  // });
-
-
-    // $(document).ready(function () {
-//     $("#SubmitButton").click(function () {
-
-
-//     	var $form0 = $("#ECHOCARDIOGRAM")
-//     	var $form1 = $("#ELECTROCARDIOGRAM")
-//         var $form2 = $("#XRAYS");
-//         $.post($form0.attr("action"), $form0.serialize(), function(jsonData){
-//       		console.log(jsonData);
-//     	}, "json");
-
-//         $.post($form1.attr("action"), $form1.serialize(), function(jsonData){
-//       		console.log(jsonData);
-//     	}, "json");
-
-//     	$.post($form2.attr("action"), $form2.serialize(), function(jsonData){
-//       		console.log(jsonData);
-//     	}, "json");
-//     });
-// });
 
  });
