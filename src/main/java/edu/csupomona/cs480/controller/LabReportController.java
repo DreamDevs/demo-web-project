@@ -3,12 +3,14 @@ package edu.csupomona.cs480.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
 import edu.csupomona.cs480.object_class.LabReport;
 import edu.csupomona.cs480.object_class.Person;
 import edu.csupomona.cs480.object_class.rabreport;
@@ -35,7 +37,24 @@ public class LabReportController {
 
 	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
     public String indexSubmit(@ModelAttribute rabreport rabreport) {
+		System.out.println(rabreport.getCalcium());
         return "result2";
+    }
+	
+	
+	@RequestMapping(value="/person", method = RequestMethod.GET)
+    public String PersonForm(Model model) {
+        model.addAttribute("medicinepage", new Person());
+        //base page html
+        return "medicinepage";
+    }
+
+	@RequestMapping(value="/person", method = RequestMethod.POST)
+    public String PersonSubmit(@ModelAttribute Person person) {
+		System.out.println(person.getMedicine());
+		//result page html
+		//return "result3";
+        return "result4";
     }
 }
 //	

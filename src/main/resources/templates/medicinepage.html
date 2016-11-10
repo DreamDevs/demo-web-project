@@ -1,0 +1,27 @@
+<link rel="stylesheet" type="text/css" href="FrontEnd.css" media="screen" />
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/FrontEnd.js"></script>
+
+<html ng-app="cs480Med">
+
+	<body>
+		<div id="whole">
+			<h1>TITLE OF APP </h1>
+			<hr></hr>
+			<br></br>
+				<form action="#" th:action="@{/person}" th:object="${medicinepage}" method="post">
+					<table cellpadding="30" cellspacing="0">
+  							<tr><input id="searchbox" placeholder="Search Medicines here"/></tr>
+  							<br></br>
+            				<p>Your Medicines list:</p>
+            				<p>Click on the item to remove</p>
+  							<tr><select id="storedMeds" size="9"></select></tr>
+					</table>			
+				<p><input type="submit" value="Submit" /></p>
+			</form>	
+		</div>		
+	</body>
+</html>

@@ -2,6 +2,10 @@ package edu.csupomona.cs480.object_class;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import edu.csupomona.cs480.data.provider.MedManager;
+
 public class Person {
 	
 	//Personal settings for potential logging system
@@ -16,14 +20,17 @@ public class Person {
 	DiagnosisList diagnosisList;
 	ArrayList<Diagnosis> diagnoses;
 	
+	@Autowired
+	private MedManager medManager;
+	
 	
 	//getters and setters for all fields
 	
 	//set the Medicine list
-	public void setMedicine(Medicine[] meds){
+	public void setMedicine(String[] meds){
 		medicines = new Medicine[meds.length];
 		for(int i = 0; i<meds.length; i++){
-			medicines[i] = meds[i];
+			medicines[i] = medManager.getMed(meds[i]);
 		}
 	}
 	
