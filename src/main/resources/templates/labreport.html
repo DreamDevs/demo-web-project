@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+		<h1>Lab Results</h1>
+		<form action="#" th:action="@{/labreport}" th:object="${labreport}" method="post">
+			<table border="0">
+				<tr>
+					<td>HGBA1C: </td>
+					<td><input type="text" th:field="*{HGBA1C}" /></td>
+				</tr>
+				<tr>
+					<td>LDL: </td>
+					<td><input type="text" th:field="*{LDL}" /></td>
+				</tr>
+				<tr>
+					<td>Microalbumin: </td>
+					<td>
+						<input type="checkbox" name = "Microalbumin" value="true" th:field="*{Microalbumin}"/>Yes
+						<input type="checkbox" name = "Microalbumin" value="false" th:field="*{Microalbumin}"/>No
+					</td>
+				</tr>
+				<tr>
+					<td>GFR: </td>
+					<td><input type="text" th:field="*{GFR}" /></td>
+				</tr>
+				<tr>
+					<td>PTH: </td>
+					<td><input type="select" name = "PTH" th:field="*{PTH}" items="Low, Normal, High" /></td>
+				</tr>
+				<tr>
+					<td>Calcium: </td>
+					<td><input type="select" name = "Calcium" th:field="*{PTH}" items="Low, Normal, High" /></td>
+				</tr>
+			</table>
+			<!-- <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>-->
+		</form>
+		
+		
+		<form action="#" th:action="@{/labreport}" th:object="${radiology}" method="post">
+	        <li>Electrocardiogram: N/A 
+	            <!-- <input type="checkbox" th:field="*{Electrocardiogram}" onclick="HideShowNA(DIV0)" />-->
+	        </li>            
+	        <div id="DIV0">
+	            <ul>
+	                <p>
+	                <li>DATE: 
+	                    <input type="Date" th:field="*{ElecDate}" /><br></br>
+	                </li>
+	                </p>
+	                <p>
+	                <ul>
+	                    <li>Arrhythmia:
+	                        <!-- <input type="checkbox" name="Arrhythmia" th:field="*{Arrhythmia}" value="normal" /> Normal 
+	                        <input type="checkbox" name="Arrhythmia" th:field="*{Arrhythmia}" value="Tachycardia" /> Tachycardia 
+	                        <input type="checkbox" name="Arrhythmia" th:field="*{Arrhythmia}" value="Bradycardia" /> Bradycardia-->
+	                    </li>
+	                    <li>Atrial Fibrillation Present: 
+	                        <!-- <input type="checkbox" name="AFP" th:field="*{AFP}" value="true" />-->
+	                    </li>
+	                    <li>Myocardial Infarction: 
+	                        <!-- <input type="checkbox" th:field="*{MI}" />-->
+	                    </li>
+	                    <li>Other: 
+	                        <input type="text" th:field="*{ElecOther}" /><br></br>
+	                    </li>
+	                </ul>
+	                </p>
+	            </ul>
+	        </div>
+		</form>
+		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+		
+		
+</body>
+</html>
