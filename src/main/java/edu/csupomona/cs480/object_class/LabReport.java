@@ -9,15 +9,6 @@ public class LabReport {
 	String PTH;
 	String Calcium;
 
-	public LabReport(double HGBA1C, double LDL, boolean Microalbumin, double GFR, String PTH, String Calcium) {
-		this.HGBA1C = HGBA1C;
-		this.LDL = LDL;
-		this.Microalbumin = Microalbumin;
-		this.GFR = GFR;
-		this.PTH = PTH;
-		this.Calcium = Calcium;
-	}
-
 	public double getHGBA1C() {
 		return HGBA1C;
 	}

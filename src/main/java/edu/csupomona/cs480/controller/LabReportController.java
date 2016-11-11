@@ -13,49 +13,66 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import edu.csupomona.cs480.object_class.LabReport;
 import edu.csupomona.cs480.object_class.Person;
+import edu.csupomona.cs480.object_class.Radiology;
+import edu.csupomona.cs480.object_class.SpecialistReport;
 import edu.csupomona.cs480.object_class.rabreport;
 
 @Controller
 public class LabReportController {
 	
-//	@RequestMapping(value="/labreport", method = RequestMethod.GET)
+	
+//	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
 //    public String indexForm(Model model) {
-//        model.addAttribute("labreport", new Greeting());
-//        return "labreport";
+//        model.addAttribute("rabreport", new rabreport());
+//        return "rabreport";
 //    }
 //
-//	@RequestMapping(value="/labreport", method = RequestMethod.POST)
-//    public String indexSubmit(@ModelAttribute LabReport labreport) {
-//        return "result";
+//	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
+//    public String indexSubmit(@ModelAttribute rabreport rabreport) {
+//		System.out.println(rabreport.getCalcium());
+//        return "result2";
 //    }
 	
-	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
-    public String indexForm(Model model) {
-        model.addAttribute("rabreport", new rabreport());
-        return "rabreport";
-    }
-
-	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
-    public String indexSubmit(@ModelAttribute rabreport rabreport) {
-		System.out.println(rabreport.getCalcium());
-        return "result2";
-    }
+	@RequestMapping(value="/labreport", method = RequestMethod.GET)
+	public String LabReportForm(Model model) {
+      model.addAttribute("labreport", new LabReport());
+      model.addAttribute("radiology", new Radiology());
+      return "labreport";
+	}
+	
+	@RequestMapping(value="/labreport", method = RequestMethod.POST)
+	public String LabReportSubmit(@ModelAttribute LabReport labreport, Radiology radiology) {
+		return "output";
+	}
 	
 	
-	@RequestMapping(value="/person", method = RequestMethod.GET)
-    public String PersonForm(Model model) {
-        model.addAttribute("medicinepage", new Person());
-        //base page html
-        return "medicinepage";
-    }
+	
 
-	@RequestMapping(value="/person", method = RequestMethod.POST)
-    public String PersonSubmit(@ModelAttribute Person person) {
-		System.out.println(person.getMedicine());
-		//result page html
-		//return "result3";
-        return "result4";
-    }
+//	@RequestMapping(value="/input", method = RequestMethod.POST)
+//	public String indexSubmit(@ModelAttribute LabReport labreport, Radiology radiology, SpecialistReport specialistreport) {
+//		patient.setLabReport(labreport);
+//		System.out.println(labreport.getHGBA1C());
+////		patient.setRadiologyReport(radiology);
+////		patient.setSpecialistReport(specialistreport);
+//      return "output";
+//  }
+	
+	
+	
+//	@RequestMapping(value="/person", method = RequestMethod.GET)
+//    public String PersonForm(Model model) {
+//        model.addAttribute("medicinepage", new Person());
+//        //base page html
+//        return "medicinepage";
+//    }
+//
+//	@RequestMapping(value="/person", method = RequestMethod.POST)
+//    public String PersonSubmit(@ModelAttribute Person person) {
+//		System.out.println(person.getMedicine());
+//		//result page html
+//		//return "result3";
+//        return "result4";
+//    }
 }
 //	
 //	
