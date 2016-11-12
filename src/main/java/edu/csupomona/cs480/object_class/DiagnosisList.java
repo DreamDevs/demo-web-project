@@ -20,7 +20,7 @@ public class DiagnosisList {
 		
 		addLabResults();
 		addRadiologyResults();
-		addSpecialistResults();
+		//addSpecialistResults();
 	}
 	
 	
@@ -301,7 +301,7 @@ public class DiagnosisList {
 	}
 	
 	//adds specialist report diagnoses
-	public void addSpecialistResults(){
+	/*public void addSpecialistResults(){
 		
 		//for all diagnoses in the specialist report, check if they are true
 		//if true then add them to the list
@@ -314,7 +314,7 @@ public class DiagnosisList {
 		}
 		
 	}
-	
+	*/
 	//adds a diagnosis with a date
 	public void addDiagnosis(String diagnosisName, String reportName, String date){
 		//checks if the diagnosis is already in the list

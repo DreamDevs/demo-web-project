@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Cardiologist Report</h1>
+	<p th:text="'Cardiologist Date: ' + ${specialistreport.getCardiologistDate()}" />
+    <p th:text="'Hyperlipidemia: ' + ${specialistreport.isHyperlipidemia()}" />
+    <p th:text="'Cardiomyopathy: ' + ${specialistreport.isCardiomyopathy()}" />
+    <p th:text="'CongestiveHeartFailure: ' + ${specialistreport.isCongestiveHeartFailure()}" />
+    <p th:text="'AtrialFibrillation: ' + ${specialistreport.isAtrialFibrillation()}" />
+    <p th:text="'AtrialFlutter: ' + ${specialistreport.isAtrialFlutter()}" />
+    <p th:text="'DeepVeinThrombosis: ' + ${specialistreport.isDeepVeinThrombosis()}" />
+    <p th:text="'OldMyocardialInfarction: ' + ${specialistreport.isOldMyocardialInfarction()}" />
+    <p th:text="'AnginaPectoris: ' + ${specialistreport.isAnginaPectoris()}" />
+    <p th:text="'SupraventricularTachycardia: ' + ${specialistreport.isSupraventricularTachycardia()}" />
+    <p th:text="'Hypertension: ' + ${specialistreport.isHypertension()}" />
+    <p th:text="'Other: ' + ${specialistreport.getCardiologistOther()}" />
+    <a href="/specialistreport">Submit another message</a>
+</body>
+</html>

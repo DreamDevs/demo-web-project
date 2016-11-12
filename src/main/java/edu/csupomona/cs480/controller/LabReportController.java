@@ -21,17 +21,30 @@ import edu.csupomona.cs480.object_class.rabreport;
 public class LabReportController {
 	
 	
-//	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
-//    public String indexForm(Model model) {
-//        model.addAttribute("rabreport", new rabreport());
-//        return "rabreport";
-//    }
-//
-//	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
-//    public String indexSubmit(@ModelAttribute rabreport rabreport) {
-//		System.out.println(rabreport.getCalcium());
-//        return "result2";
-//    }
+/*	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
+    public String indexForm(Model model) {
+        model.addAttribute("rabreport", new rabreport());
+        return "rabreport";
+    }
+
+	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
+     public String indexSubmit(@ModelAttribute rabreport rabreport) {
+		System.out.println(rabreport.getCalcium());
+        return "result2";
+  }
+*/  	
+	
+	@RequestMapping(value="/specialistreport", method = RequestMethod.GET)
+    public String specialistForm(Model model) {
+        model.addAttribute("specialistreport", new SpecialistReport());
+        return "specialistreport";
+    }
+
+	@RequestMapping(value="/specialistreport", method = RequestMethod.POST)
+     public String specialistSubmit(@ModelAttribute(value = "specialistreport") SpecialistReport specialistreport) {
+        return "result5";
+	}	
+	
 	
 	@RequestMapping(value="/labreport", method = RequestMethod.GET)
 	public String LabReportForm(Model model) {
