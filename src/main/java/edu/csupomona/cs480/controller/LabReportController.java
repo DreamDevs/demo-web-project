@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import edu.csupomona.cs480.object_class.LabReport;
+import edu.csupomona.cs480.object_class.Medicine;
 import edu.csupomona.cs480.object_class.Person;
 import edu.csupomona.cs480.object_class.Radiology;
 import edu.csupomona.cs480.object_class.SpecialistReport;
@@ -21,7 +22,8 @@ import edu.csupomona.cs480.object_class.rabreport;
 public class LabReportController {
 	
 	
-/*	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
+
+	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
     public String indexForm(Model model) {
         model.addAttribute("rabreport", new rabreport());
         return "rabreport";
@@ -31,8 +33,7 @@ public class LabReportController {
      public String indexSubmit(@ModelAttribute rabreport rabreport) {
 		System.out.println(rabreport.getCalcium());
         return "result2";
-  }
-*/  	
+  }  	
 	
 	@RequestMapping(value="/specialistreport", method = RequestMethod.GET)
     public String specialistForm(Model model) {
@@ -45,16 +46,16 @@ public class LabReportController {
         return "result5";
 	}	
 	
-	
 	@RequestMapping(value="/labreport", method = RequestMethod.GET)
 	public String LabReportForm(Model model) {
       model.addAttribute("labreport", new LabReport());
       model.addAttribute("radiology", new Radiology());
+      model.addAttribute("medicine", new Person());
       return "labreport";
 	}
 	
 	@RequestMapping(value="/labreport", method = RequestMethod.POST)
-	public String LabReportSubmit(@ModelAttribute LabReport labreport, Radiology radiology) {
+	public String LabReportSubmit(@ModelAttribute LabReport labreport, Radiology radiology, Person person) {
 		return "output";
 	}
 	
