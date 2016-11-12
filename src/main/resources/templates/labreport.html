@@ -37,44 +37,7 @@
 					<td><input type="select" name = "Calcium" th:field="*{PTH}" items="Low, Normal, High" /></td>
 				</tr>
 			</table>
-			<!-- <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>-->
+			<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 		</form>
-		
-		
-		<form action="#" th:action="@{/labreport}" th:object="${radiology}" method="post">
-	        <li>Electrocardiogram: N/A 
-	            <!-- <input type="checkbox" th:field="*{Electrocardiogram}" onclick="HideShowNA(DIV0)" />-->
-	        </li>            
-	        <div id="DIV0">
-	            <ul>
-	                <p>
-	                <li>DATE: 
-	                    <input type="Date" th:field="*{ElecDate}" /><br></br>
-	                </li>
-	                </p>
-	                <p>
-	                <ul>
-	                    <li>Arrhythmia:
-	                        <!-- <input type="checkbox" name="Arrhythmia" th:field="*{Arrhythmia}" value="normal" /> Normal 
-	                        <input type="checkbox" name="Arrhythmia" th:field="*{Arrhythmia}" value="Tachycardia" /> Tachycardia 
-	                        <input type="checkbox" name="Arrhythmia" th:field="*{Arrhythmia}" value="Bradycardia" /> Bradycardia-->
-	                    </li>
-	                    <li>Atrial Fibrillation Present: 
-	                        <!-- <input type="checkbox" name="AFP" th:field="*{AFP}" value="true" />-->
-	                    </li>
-	                    <li>Myocardial Infarction: 
-	                        <!-- <input type="checkbox" th:field="*{MI}" />-->
-	                    </li>
-	                    <li>Other: 
-	                        <input type="text" th:field="*{ElecOther}" /><br></br>
-	                    </li>
-	                </ul>
-	                </p>
-	            </ul>
-	        </div>
-		</form>
-		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-		
-		
 </body>
 </html>

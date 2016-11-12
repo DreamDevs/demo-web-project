@@ -22,7 +22,7 @@ public class Radiology {
 	boolean AFP; 			//Atrial Fibrillation Present
 	boolean MI;  			//Myocardial Infarction
 	String ElecOther;
-	
+//	
 	//Echocardiogram
 	boolean Echocardiogram = true;
 	String EchoDate;
@@ -259,7 +259,7 @@ public class Radiology {
 	}
 	public void setAbdUS(boolean abdUS) {
 		AbdUS = abdUS;
-	}
+	}	
 	public String getAbdUSDate() {
 		return AbdUSDate;
 	}

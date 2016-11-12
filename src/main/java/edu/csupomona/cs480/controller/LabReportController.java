@@ -33,6 +33,28 @@ public class LabReportController {
         return "result2";
   }
 */  	
+
+	@RequestMapping(value="/labreport", method = RequestMethod.GET)
+	public String LabReportForm(Model model) {
+      model.addAttribute("labreport", new LabReport());
+      return "labreport";
+	}
+	
+	@RequestMapping(value="/labreport", method = RequestMethod.POST)
+	public String LabReportSubmit(@ModelAttribute LabReport labreport) {
+		return "redirect:radiology";
+	}
+	
+	@RequestMapping(value="/radiology", method = RequestMethod.GET)
+	public String RadiologyForm(Model model) {
+      model.addAttribute("radiology", new Radiology());
+      return "radiology";
+	}
+	
+	@RequestMapping(value="/radiology", method = RequestMethod.POST)
+	public String RadiologySubmit(@ModelAttribute Radiology radiology) {
+		return "redirect:specialistreport";
+	}
 	
 	@RequestMapping(value="/specialistreport", method = RequestMethod.GET)
     public String specialistForm(Model model) {
@@ -46,17 +68,8 @@ public class LabReportController {
 	}	
 	
 	
-	@RequestMapping(value="/labreport", method = RequestMethod.GET)
-	public String LabReportForm(Model model) {
-      model.addAttribute("labreport", new LabReport());
-      model.addAttribute("radiology", new Radiology());
-      return "labreport";
-	}
 	
-	@RequestMapping(value="/labreport", method = RequestMethod.POST)
-	public String LabReportSubmit(@ModelAttribute LabReport labreport, Radiology radiology) {
-		return "output";
-	}
+	
 	
 	
 	
