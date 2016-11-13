@@ -6,6 +6,11 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +25,7 @@ import edu.csupomona.cs480.object_class.rabreport;
 @Controller
 public class LabReportController {
 	
+	Person person = new Person();
 	
 /*	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
     public String indexForm(Model model) {
@@ -41,7 +47,8 @@ public class LabReportController {
 	}
 	
 	@RequestMapping(value="/labreport", method = RequestMethod.POST)
-	public String LabReportSubmit(@ModelAttribute LabReport labreport) {
+	public String LabReportRedirect(@ModelAttribute LabReport labreport) {
+		person.setLabReport(labreport);
 		return "redirect:radiology";
 	}
 	
@@ -52,7 +59,8 @@ public class LabReportController {
 	}
 	
 	@RequestMapping(value="/radiology", method = RequestMethod.POST)
-	public String RadiologySubmit(@ModelAttribute Radiology radiology) {
+	public String RadiologyRedirect(@ModelAttribute Radiology radiology) {
+		person.setRadiologyReport(radiology);
 		return "redirect:specialistreport";
 	}
 	
@@ -63,9 +71,17 @@ public class LabReportController {
     }
 
 	@RequestMapping(value="/specialistreport", method = RequestMethod.POST)
-     public String specialistSubmit(@ModelAttribute(value = "specialistreport") SpecialistReport specialistreport) {
-        return "result5";
-	}	
+    public String specialistSubmit(@ModelAttribute(value = "specialistreport") SpecialistReport specialistreport) {
+        person.setSpecialistReport(specialistreport);
+		return "redirect:diagnosislist";
+	}
+	
+	@RequestMapping(value="/diagnosislist", method = RequestMethod.GET)
+	public String diagnosisListForm(Model model) throws JsonProcessingException{
+		person.createDiagnosisList();
+		model.addAttribute("diagnosislist", person.getDiagnosisList().getDiagnoses());		
+		return "output";
+	}
 	
 	
 	

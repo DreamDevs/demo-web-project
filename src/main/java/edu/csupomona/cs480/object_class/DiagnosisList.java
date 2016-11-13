@@ -17,7 +17,7 @@ public class DiagnosisList {
 		labReport = lab;
 		radiologyReport = rad;
 		specialistReport = spec;
-		
+		diagnoses = new ArrayList<Diagnosis>();
 		addLabResults();
 		addRadiologyResults();
 		//addSpecialistResults();
@@ -59,7 +59,7 @@ public class DiagnosisList {
 			addDiagnosis("Chronic Kidney Disease Stage 3", "Glomerular Filtration Rate Lab");
 		}else if (check >= 15 && check <=29){
 			addDiagnosis("Chronic Kidney Disease Stage 4", "Glomerular Filtration Rate Lab");
-		}else if (check < 15){
+		}else if (0 < check && check < 15){
 			addDiagnosis("Chronic Kidney Disease Stage 5", "Glomerular Filtration Rate Lab");
 		}
 		
@@ -139,7 +139,7 @@ public class DiagnosisList {
 			
 			//Checks for Congestive Heart Failure
 			float num =  radiologyReport.getEF();
-			if(num < 40){
+			if( 0 < num && num < 40){
 				addDiagnosis("Congestive Heart Failure", "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 			
@@ -159,7 +159,7 @@ public class DiagnosisList {
 		if( radiologyReport.isChestXRay()){
 			
 			//Checks for all of the possible Diagnoses
-			List<Boolean> values =  radiologyReport.getChestDiagnosis();
+			/*List<Boolean> values =  radiologyReport.getChestDiagnosis();
 			if(values.get(0)){
 				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}else if(values.get(1)){
@@ -179,7 +179,7 @@ public class DiagnosisList {
 			}else if(values.get(8)){
 				addDiagnosis("Cardiomegaly", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}
-	
+		*/
 			//Other under Chest X-Rays
 			check =  radiologyReport.getChestOther();
 			if(check!=null){
@@ -235,6 +235,7 @@ public class DiagnosisList {
 		if( radiologyReport.isAbdUS()){
 
 			//checks for all diagnoses under Abdominal Ultrasound
+			/*
 			List<Boolean> values =  radiologyReport.getAbdUSDiagnosis();
 			if(values.get(0)){
 				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
@@ -245,7 +246,7 @@ public class DiagnosisList {
 			}else if(values.get(2)){
 				addDiagnosis("Renal Artery Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report",  radiologyReport.getAbdUSDate());
 			}
-			
+			*/
 			//Other Diagnoses under Abdominal Ultrasound
 			check =  radiologyReport.getAbdADOther();
 			if(check!=null){
@@ -350,5 +351,5 @@ public class DiagnosisList {
 	public ArrayList<Diagnosis> getDiagnoses(){
 		return diagnoses;
 	}
-	
+
 }

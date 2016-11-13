@@ -1,6 +1,6 @@
 package edu.csupomona.cs480.object_class;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Hashtable;
 
 public class SpecialistReport {

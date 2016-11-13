@@ -401,44 +401,44 @@
 							<ul>
 								<p>
 								<li>DATE: 
-									<input type="Date" name="CARDIOLOGISTREPORTDate" value=""><br></li>
+									<input type="Date" name="CARDIOLOGISTREPORTDate" value="" th:field="*{CardiologistDate}"/><br></li>
 								</p>
 								<p>
 								<li>Possible Diagnosis that can be found:
 									<ul>
 		
 										<li>Hyperlipidemia: 
-											<input type="checkbox" name="Hyperlipidemia" value="true">
+											<input type="checkbox" name="Hyperlipidemia" value="true" th:field="*{Hyperlipidemia}"/>
 										</li>
 										<li>Cardiomyopathy: 
-											<input type="checkbox" name="Cardiomyopathy" value="true">
+											<input type="checkbox" name="Cardiomyopathy" value="true" th:field="*{Cardiomyopathy}"/>
 										</li>
 										<li>Congestive Heart Failure: 
-											<input type="checkbox" name="CHF" value="true">
+											<input type="checkbox" name="CHF" value="true" th:field="*{CongestiveHeartFailure}"/>
 										</li>
 										<li>Atrial Fibrillation: 
-											<input type="checkbox" name="AtrialFibrillation" value="true">
+											<input type="checkbox" name="AtrialFibrillation" value="true" th:field="*{AtrialFibrillation}"/>
 										</li>
 										<li>Atrial Flutter: 
-											<input type="checkbox" name="AtrialFlutter"	value="true">
+											<input type="checkbox" name="AtrialFlutter"	value="true" th:field="*{AtrialFlutter}"/>
 										</li>
 										<li>Deep Vein Thrombosis: 
-											<input type="checkbox" name="DVT" value="true">
+											<input type="checkbox" name="DVT" value="true"  th:field="*{DeepVeinThrombosis}"/>
 										</li>
 										<li>Old Myocardial Infarction: 
-											<input type="checkbox" name="OMI" value="true">
+											<input type="checkbox" name="OMI" value="true" th:field="*{OldMyocardialInfarction}"/>
 										</li>
 										<li>Angina Pectoris: 
-											<input type="checkbox" name="AnginaPectoris" value="true">
+											<input type="checkbox" name="AnginaPectoris" value="true" th:field="*{AnginaPectoris}"/>
 										</li>
 										<li>Supraventricular Tachycardia: 
-											<input type="checkbox" name="SupraventricularTachycardia" value="true">
+											<input type="checkbox" name="SupraventricularTachycardia" value="true" th:field="*{SupraventricularTachycardia}"/>
 										</li>
-										<li>Hypertension: 
-											<input type="checkbox" name="Hypertension" value="true">
+										<li>Hypertentson: 
+											<input type="checkbox" name="Hypertension" value="true" th:field="*{Hypertension}"/>
 										</li>
 										<li>Other: 
-											<input type="text" size="60" name="comments" value=""><br></li>
+											<input type="text" size="60" name="comments" value="" th:field="*{CardiologistOther}"/><br></li>
 										</p>
 									</ul>
 		
@@ -460,42 +460,42 @@
 							<ul>
 								<p>
 								<li>DATE: 
-									<input type="Date" name="OPHTHALMOLOGISTREPORTDate" value=""><br></li>
+									<input type="Date" name="OPHTHALMOLOGISTREPORTDate" value=""  th:field="*{OphthalmologistDate}"/><br></li>
 								</p>
 								<p>
 								<li>Possible Diagnosis that can be found:
 									<ul>
 		
 										<li>Glaucoma:
-											<input type="checkbox" name="Glaucoma" value="left"> Left 
-											<input type="checkbox" name="Glaucoma" value="Right"> Right 
-											<input type="checkbox" name="Glaucoma" value="Both"> Both
+											<input type="checkbox" name="Glaucoma" value="left" th:field="*{Glaucoma}"/> Left 
+											<input type="checkbox" name="Glaucoma" value="Right" th:field="*{Glaucoma}"/> Right 
+											<input type="checkbox" name="Glaucoma" value="Both" th:field="*{Glaucoma}"/> Both
 										</li>
 										<li>Retinopathy:
-											<input type="checkbox" name="Retinopathy" value="left"> Left 
-											<input type="checkbox" name="Retinopathy" value="Right"> Right 
-											<input type="checkbox" name="Retinopathy" value="Both"> Both
+											<input type="checkbox" name="Retinopathy" value="left" th:field="*{Retinopathy}"/> Left 
+											<input type="checkbox" name="Retinopathy" value="Right" th:field="*{Retinopathy}"/> Right 
+											<input type="checkbox" name="Retinopathy" value="Both" th:field="*{Retinopathy}"/> Both
 											<ul>
 												<li>Proliferative:
-													<input type="checkbox" name="Proliferative" value="left"> Left 
-													<input type="checkbox" name="Proliferative" value="Right"> Right 
-													<input type="checkbox" name="Proliferative" value="Both"> Both
+													<input type="checkbox" name="Proliferative" value="left" th:field="*{Proliferative}"/> Left 
+													<input type="checkbox" name="Proliferative" value="Right" th:field="*{Proliferative}"/> Right 
+													<input type="checkbox" name="Proliferative" value="Both" th:field="*{Proliferative}"/> Both
 												</li>
 												<li>Non-Proliferative:
-													<input type="checkbox" name="NonProliferative" value="left"> Left 
-													<input type="checkbox" name="NonProliferative" value="Right"> Right 
-													<input type="checkbox" name="NonProliferative" value="Both"> Both
+													<input type="checkbox" name="NonProliferative" value="left" th:field="*{NonProliferative}"/> Left 
+													<input type="checkbox" name="NonProliferative" value="Right" th:field="*{NonProliferative}"/> Right 
+													<input type="checkbox" name="NonProliferative" value="Both" th:field="*{NonProliferative}"/> Both
 												</li>
 											</ul>
 										</li>
 		
 										<li>Cataract:
-											<input type="checkbox" name="Cataract" value="left"> Left 
-											<input type="checkbox" name="Cataract" value="Right"> Right 
-											<input type="checkbox" name="Cataract" value="Both"> Both
+											<input type="checkbox" name="Cataract" value="left" th:field="*{Cataract}"/> Left 
+											<input type="checkbox" name="Cataract" value="Right" th:field="*{Cataract}"/> Right 
+											<input type="checkbox" name="Cataract" value="Both" th:field="*{Cataract}"/> Both
 										</li>
 										<li>Other: 
-											<input type="text" size="60" name="comments" value=""><br></li>
+											<input type="text" size="60" name="comments" value="" th:field="*{OphthalmologistOther}"/><br></li>
 										</p>
 									</ul>
 		
@@ -517,27 +517,27 @@
 							<ul>
 								<p>
 								<li>DATE: 
-									<input type="Date" name="PULMONOLOGISTREPORTDate" value=""><br></li>
+									<input type="Date" name="PULMONOLOGISTREPORTDate" value="" th:field="*{PulmonologistDate}"/><br></li>
 								</p>
 								<p>
 								<li>Possible Diagnosis that can be found:
 									<ul>
 		
 										<li>Compulsive Obstructive Pulmonary Disease: 
-											<input type="checkbox" name="COPD" value="true">
+											<input type="checkbox" name="COPD" value="true" th:field="*{CompulsiveObstructivePulmonaryDisease}"/>
 										</li>
 										<li>Asthma, Asthma Bronchitis: 
-											<input type="checkbox" name="Asthma" value="true">
+											<input type="checkbox" name="Asthma" value="true" th:field="*{AsthmaBronchitis}"/>
 										</li>
 										<li>Pulmonary Embolism: 
-											<input type="checkbox" name="PulmonaryEmbolism" value="true">
+											<input type="checkbox" name="PulmonaryEmbolism" value="true" th:field="*{PulmonaryEmbolism}"/>
 										</li>
 										<li>Pulmonary Cystic Fibrosis: 
-											<input type="checkbox" name="PCF" value="true">
+											<input type="checkbox" name="PCF" value="true" th:field="*{PulmonaryCysticFibrosis}"/>
 										</li>
 		
 										<li>Other: 
-											<input type="text" size="60" name="comments" value=""><br></li>
+											<input type="text" size="60" name="comments" value="" th:field="*{PulmonologistOther}"/><br></li>
 										</p>
 									</ul>
 		
@@ -560,35 +560,35 @@
 							<ul>
 								<p>
 								<li>DATE: 
-									<input type="Date" name="NEUROLOGISTREPORTDate" value=""><br></li>
+									<input type="Date" name="NEUROLOGISTREPORTDate" value="" th:field="*{NeurologistDate}"/><br></li>
 								</p>
 								<p>
 								<li>Possible Diagnosis that can be found:
 									<ul>
 		
 										<li>Parkinson's Disease: 
-											<input type="checkbox" name="ParkinsonsDisease" value="true">
+											<input type="checkbox" name="ParkinsonsDisease" value="true"  th:field="*{ParkinsonsDisease}"/>
 										</li>
 										<li>Seizure Disorder: 
-											<input type="checkbox" name="SeizureDisorder" value="true">
+											<input type="checkbox" name="SeizureDisorder" value="true" th:field="*{SeizureDisorder}"/>
 										</li>
 										<li>Epilepsy: 
-											<input type="checkbox" name="Epilepsy" value="true">
+											<input type="checkbox" name="Epilepsy" value="true" th:field="*{Epilepsy}"/>
 										</li>
 										<li>Migrane Headache: 
-											<input type="checkbox" name="MigraneHeadache" value="true">
+											<input type="checkbox" name="MigraneHeadache" value="true" th:field="*{MigrainHeadache}"/>
 										</li>
 										<li>Dementia: 
-											<input type="checkbox" name="Dementia" value="true">
+											<input type="checkbox" name="Dementia" value="true" th:field="*{Dementia}"/>
 										</li>
 										<li>Alzheimer's Disease: 
-											<input type="checkbox" name="AlzheimersDisease" value="true">
+											<input type="checkbox" name="AlzheimersDisease" value="true" th:field="*{AlzheimersDisease}"/>
 										</li>
 										<li>Multiple Sclerosis: 
-											<input type="checkbox" name="MultipleSclerosis"	value="true">
+											<input type="checkbox" name="MultipleSclerosis"	value="true" th:field="*{MultipleScelerosis1}"/>
 										</li>
 										<li>Other: 
-											<input type="text" size="60" name="comments" value=""><br></li>
+											<input type="text" size="60" name="comments" value="" th:field="*{NeurologistOther}"/><br></li>
 										</p>
 									</ul>
 		
@@ -616,29 +616,29 @@
 							<ul>
 								<p>
 								<li>DATE: 
-									<input type="Date" name="PSYCHREPORTDate" value=""><br></li>
+									<input type="Date" name="PSYCHREPORTDate" value="" th:field="*{PsychiatristPsychologistDate}"/><br></li>
 								</p>
 								<p>
 								<li>Possible Diagnosis that can be found:
 									<ul>
 		
 										<li>Major Depression: 
-											<input type="checkbox" name="MajorDepression" value="true">
+											<input type="checkbox" name="MajorDepression" value="true" th:field="*{MajorDepression}"/>
 										</li>
 										<li>Anxiety Disorder: 
-											<input type="checkbox" name="AnxietyDisorder" value="true">
+											<input type="checkbox" name="AnxietyDisorder" value="true" th:field="*{AnxietyDisorder}"/>
 										</li>
 										<li>Schizophrenia: 
-											<input type="checkbox" name="Schizophrenia" value="true">
+											<input type="checkbox" name="Schizophrenia" value="true" th:field="*{Schizophrenia}"/>
 										</li>
 										<li>Bipolar Disease: 
-											<input type="checkbox" name="BipolarDisease" value="true">
+											<input type="checkbox" name="BipolarDisease" value="true" th:field="*{BipolarDisease}"/>
 										</li>
 										<li>Alcohol Dependence: 
-											<input type="checkbox" name="AlcoholDependence" value="true">
+											<input type="checkbox" name="AlcoholDependence" value="true" th:field="*{AlcoholDependence}"/>
 										</li>
 										<li>Other: 
-											<input type="text" size="60" name="comments" value=""><br></li>
+											<input type="text" size="60" name="comments" value="" th:field="*{PsychiatristPsychologistOther}"/><br></li>
 										</p>
 									</ul>
 		
@@ -661,23 +661,23 @@
 							<ul>
 								<p>
 								<li>DATE: 
-									<input type="Date" name="RHEUMATOLOGISTREPORTDate" value=""><br></li>
+									<input type="Date" name="RHEUMATOLOGISTREPORTDate" value="" th:field="*{RheumatologistDate}"/><br></li>
 								</p>
 								<p>
 								<li>Possible Diagnosis that can be found:
 									<ul>
 		
 										<li>Rheumatoid Arthritis: 
-											<input type="checkbox" name="RheumatoidArthritis" value="true">
+											<input type="checkbox" name="RheumatoidArthritis" value="true" th:field="*{RheumatoidArthritis}"/>
 										</li>
 										<li>Systemic Lupus: 
-											<input type="checkbox" name="SystemicLupus"	value="true">
+											<input type="checkbox" name="SystemicLupus"	value="true" th:field="*{SystemicLupus}"/>
 										</li>
 										<li>Multiple Sclerosis: 
-											<input type="checkbox" name="MultipleSclerosis"	value="true">
+											<input type="checkbox" name="MultipleSclerosis"	value="true" th:field="*{MultipleSclerosis2}"/>
 										</li>
 										<li>Other: 
-											<input type="text" size="60" name="comments" value=""><br></li>
+											<input type="text" size="60" name="comments" value="" th:field="*{RheumatologistOther}"/><br></li>
 										</p>
 									</ul>
 		
@@ -700,45 +700,45 @@
 							<ul>
 								<p>
 								<li>DATE: 
-									<input type="Date" name="PODIATRISTREPORTDate" value=""><br></li>
+									<input type="Date" name="PODIATRISTREPORTDate" value="" th:field="*{PodiatristDate}"/><br></li>
 								</p>
 								<p>
 								<li>Possible Diagnosis that can be found:
 									<ul>
 		
 										<li>Below Knee Amputation:
-											<input type="checkbox" name="BelowKneeAmputation" value="left"> Left 
-											<input type="checkbox" name="BelowKneeAmputation" value="Right"> Right 
-											<input type="checkbox" name="BelowKneeAmputation" value="Both"> Both
+											<input type="checkbox" name="BelowKneeAmputation" value="left" th:field="*{BelowKneeAmputation}"/> Left 
+											<input type="checkbox" name="BelowKneeAmputation" value="Right"th:field="*{BelowKneeAmputation}"/> Right 
+											<input type="checkbox" name="BelowKneeAmputation" value="Both"th:field="*{BelowKneeAmputation}"/> Both
 										</li>
 										<li>Above Knee Amputation:
-											<input type="checkbox" name="AboveKneeAmputation" value="left"> Left 
-											<input type="checkbox" name="AboveKneeAmputation" value="Right"> Right 
-											<input type="checkbox" name="AboveKneeAmputation" value="Both"> Both
+											<input type="checkbox" name="AboveKneeAmputation" value="left" th:field="*{AboveKneeAmputation}"/> Left 
+											<input type="checkbox" name="AboveKneeAmputation" value="Right" th:field="*{AboveKneeAmputation}"/> Right 
+											<input type="checkbox" name="AboveKneeAmputation" value="Both" th:field="*{AboveKneeAmputation}"/> Both
 										</li>
 		
 										<li>Am: 
-											<input type="checkbox" name="Am" value="true">
+											<input type="checkbox" name="Am" value="true" th:field="*{Am}"/>
 										</li>
 										<li>Poly-Neuropathy: 
-											<input type="checkbox" name="PolyNeuropathy" value="true">
+											<input type="checkbox" name="PolyNeuropathy" value="true" th:field="*{PolyNeuropathy}"/>
 										</li>
 										<li>Mono-Neuropathy: 
-											<input type="checkbox" name="MonoNeuropathy" value="true">
+											<input type="checkbox" name="MonoNeuropathy" value="true" th:field="*{MonoNeuropathy}"/>
 										</li>
 										<li>Onychomycosis: 
-											<input type="checkbox" name="Onychomycosis"	value="true">
+											<input type="checkbox" name="Onychomycosis"	value="true" th:field="*{Onychomycosis}"/>
 										</li>
 										<li>Peripheral Vascular Disease: 
-											<input type="checkbox" name="PVD" value="true">
+											<input type="checkbox" name="PVD" value="true" th:field="*{PeripheralVascularDisease}"/>
 										</li>
 										<li>Ulcers of Lower Extremity:
-											<input type="checkbox" name="UlcersLowerEX" value="left"> Left 
-											<input type="checkbox" name="UlcersLowerEX" value="Right"> Right 
-											<input type="checkbox" name="UlcersLowerEX" value="Both"> Both
+											<input type="checkbox" name="UlcersLowerEX" value="left" th:field="*{UlcersOfLowerExtremity}"/> Left 
+											<input type="checkbox" name="UlcersLowerEX" value="Right" th:field="*{UlcersOfLowerExtremity}"/> Right 
+											<input type="checkbox" name="UlcersLowerEX" value="Both" th:field="*{UlcersOfLowerExtremity}"/> Both
 										</li>
 										<li>Other: 
-										<input type="text" size="60" name="comments" value=""><br></li>
+										<input type="text" size="60" name="comments" value="" th:field="*{PodiatristOther}"/><br></li>
 										</p>
 									</ul>
 		

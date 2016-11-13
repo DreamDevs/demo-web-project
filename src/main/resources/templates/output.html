@@ -5,21 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Result Lab Report</h1>
-    <p th:text="'HGBA1C: ' + ${labreport.HGBA1C}" />
-    <p th:text="'LDL: ' + ${labreport.LDL}" />
-    <p th:text="'Microalbumin: ' + ${labreport.Microalbumin}" />
-    <p th:text="'GFR: ' + ${labreport.GFR}" />
-    <p th:text="'PTH: ' + ${labreport.PTH}" />
-    <p th:text="'Calcium: ' + ${labreport.Calcium}" />
-    <a href="/labreport">Submit another message</a>
-    <h1>Result Radiology</h1>
-    <p th:text="'Electrocardiogram: ' + ${radiology.Electrocardiogram}" />
-    <p th:text="'ElecDate: ' + ${radiology.ElecDate}" />
-    <p th:text="'Arrhythmia: ' + ${radiology.Arrhythmia}" />
-    <p th:text="'AFP: ' + ${radiology.AFP}" />
-    <p th:text="'MI: ' + ${radiology.MI}" />
-    <p th:text="'ElecOther: ' + ${radiology.ElecOther}" />
-    <h1>Result Specialist Report</h1>
+	<h1>List of Diagnoses</h1>
+	<p th:each="diagnosis,iteration :${diagnosislist}">
+	<td th:text = "${diagnosis.getDiagnosisName()}"></td>
+	</p>	
+	
 </body>
 </html>
