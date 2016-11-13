@@ -52,17 +52,35 @@ $(function() {
         var set = $this.add($this.prevUntil('li')).add($this.nextUntil('li'));
         set.not(this).prop('checked', false); 
     });
+    
+
 
     $("#SubmitButton").click(function() {
 
 
     //Medicine List//
 
-    var medList = [];
-    $("#storedMeds option").each(function() {
-    medList.push($(this).val());
-	});
-    console.log(medList);
+    	var myObject = [];
+        var myString = "";
+        
+        $("#storedMeds option").each(function() {
+    		myObject.push($(this).val());
+    		myString += $(this).val() + " ";
+        });
+        
+        myString = myString.substring(0,myString.length-1);
+        
+        jQuery.ajax({
+            type: "POST",
+            url: "/ignoredPage",
+            data: JSON.stringify(myObject),
+            contentType : 'application/json; charset=utf-8',
+            dataType : 'json',
+            data: JSON.stringify({"medicineList": myString}), // Note it is important
+            success :function(myString) {
+             alert(myString);
+           }
+        });
 
 	//Lab Report//
 

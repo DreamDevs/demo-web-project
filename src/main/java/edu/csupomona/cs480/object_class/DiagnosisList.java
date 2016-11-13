@@ -6,13 +6,13 @@ import java.util.ArrayList;
 public class DiagnosisList {
 
 	ArrayList <Diagnosis> diagnoses;
-	Medicine[] medicines;
+	List<Medicine> medicines;
 	LabReport labReport;
 	Radiology radiologyReport;
 	SpecialistReport specialistReport;
 	
 	//initializes the person object
-	public DiagnosisList(Medicine[] meds, LabReport lab, Radiology rad, SpecialistReport spec){
+	public DiagnosisList(List<Medicine> meds, LabReport lab, Radiology rad, SpecialistReport spec){
 		medicines = meds;
 		labReport = lab;
 		radiologyReport = rad;

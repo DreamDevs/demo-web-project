@@ -1,9 +1,10 @@
-<link rel="stylesheet" type="text/css" href="FrontEnd.css" media="screen" />
-<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="js/FrontEnd.js"></script>
+	<script th:src="@{//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js}"></script>
+	<script th:src="@{//code.jquery.com/jquery-1.12.4.js}"></script>
+	<script th:src="@{//code.jquery.com/ui/1.12.1/jquery-ui.js}"></script>
+	<script type="text/javascript" src="../js/FrontEnd.js"></script>
+	
+	<link href = "../static/css/FrontEnd.css" th:href="@{/css/FrontEnd.css}" rel = "stylesheet" type="text/css" media = "screen"/>
+	<link href = "../static/css/jquery-ui.css" th:href="@{/css/jquery-ui.css}" rel = "stylesheet" type="text/css" media = "screen"/>
 
 <html ng-app="cs480Med">
 
@@ -18,7 +19,6 @@
             
             <div class="panel">
                 <p>
-                    <!-- <form name="Medlist" id = "MEDICINELIST"> -->
                     <form action="#" th:action="@{/person}" th:object="${medicinepage}" method="post">
                         <table cellpadding="30" cellspacing="0">
                               <tr><input id="searchbox" placeholder="Search Medicines here"/></tr>

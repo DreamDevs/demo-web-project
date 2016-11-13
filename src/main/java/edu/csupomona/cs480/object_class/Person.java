@@ -1,9 +1,11 @@
 package edu.csupomona.cs480.object_class;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import edu.csupomona.cs480.data.provider.FSMedManager;
 import edu.csupomona.cs480.data.provider.MedManager;
 
 public class Person {
@@ -11,26 +13,68 @@ public class Person {
 	//Personal settings for potential logging system
 	int userID;
 	String password;
-	
+		
 	//Medical Information
-	Medicine[] medicines;
+	private List<Medicine> medicines;
 	LabReport labReport;
 	Radiology radiologyReport;
 	SpecialistReport specialistReport;
 	DiagnosisList diagnosisList;
 	ArrayList<Diagnosis> diagnoses;
+	String medicineString = " ";
 	
 	@Autowired
-	private MedManager medManager;
+	private MedManager medManager = new FSMedManager();;
 	
-	
+		
 	//getters and setters for all fields
 	
 	//set the Medicine list
-	public void setMedicine(String[] meds){
-		medicines = new Medicine[meds.length];
-		for(int i = 0; i<meds.length; i++){
-			medicines[i] = medManager.getMed(meds[i]);
+//	public void setMedicine(String[] meds){
+//		medicines = new Medicine[meds.length];
+//		for(int i = 0; i<meds.length; i++){
+//			medicines[i] = medManager.getMed(meds[i]);
+//		}
+//	}
+	
+	public Person(Person person){
+		this.userID = person.userID;
+		this.password = person.password;
+		this.medicines = person.medicines;
+		this.labReport = person.labReport;
+		this.specialistReport = person.specialistReport;
+		this.diagnosisList = person.diagnosisList;
+		this.diagnoses = person.diagnoses;
+		this.medicineString = person.medicineString;
+	}
+	
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public List<Medicine> getMedicines() {
+		return medicines;
+	}
+
+	public void setMedicines(List<Medicine> medicines) {
+		this.medicines = medicines;
+	}
+	
+	public String getMedicineString() {
+		return medicineString;
+	}
+
+	public void setMedicineString(String medicineString) {
+		this.medicineString = medicineString;
+	}
+
+
+	public void processMedicine(){
+		
+		medicines = new ArrayList<Medicine>();
+		String[] meds = medicineString.split(" ");
+		for(int i = 0; i < meds.length; i++){
+			medicines.add(medManager.getMed(meds[i]));
 		}
 	}
 	
@@ -64,12 +108,7 @@ public class Person {
 	public void setPassword(String pass){
 		password = pass;
 	}
-	
-	//Gets the medicine list
-	public Medicine[] getMedicine(){
-		return medicines;
-	}
-	
+		
 	//gets the Lab Report
 	public LabReport getLabReport(){
 		return labReport;
