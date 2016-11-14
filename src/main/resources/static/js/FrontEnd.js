@@ -69,7 +69,7 @@ $(function() {
         });
         
         myString = myString.substring(0,myString.length-1);
-        
+                
         jQuery.ajax({
             type: "POST",
             url: "/ignoredPage",
@@ -81,6 +81,11 @@ $(function() {
              alert(myString);
            }
         });
+        
+        //Delay remaining form to obtain medicine list first
+        $("#MAINSubmit").submit();
+        
+        alert($("#ElectrocardiogramDate").val());
 
 	//Lab Report//
 
@@ -89,7 +94,7 @@ $(function() {
 	lab = JSON.stringify(lab);
 	lab = lab.replace(/"name":/g, '');
 	lab = lab.replace(/,"value"/g, '');
-	console.log(lab);
+	//console.log(lab);
 
 
 	//Radiology Report//
@@ -101,7 +106,7 @@ $(function() {
 	electro = JSON.stringify(electro);
 	electro = electro.replace(/"name":/g, '');
 	electro = electro.replace(/,"value"/g, '');
-	console.log(electro);
+	//console.log(electro);
 
 	//Echocardiogram
 	temp = document.getElementById("ECHOCARDIOGRAM");
@@ -109,7 +114,7 @@ $(function() {
 	echo = JSON.stringify(echo);
 	echo = echo.replace(/"name":/g, '');
 	echo = echo.replace(/,"value"/g, '');
-	console.log(echo);
+	//console.log(echo);
 
 
 	//X-Rays
@@ -118,7 +123,7 @@ $(function() {
 	xray = JSON.stringify(xray);
 	xray = xray.replace(/"name":/g, '');
 	xray = xray.replace(/,"value"/g, '');
-	console.log(xray);
+	//console.log(xray);
 
 
 	//Abdominal Ultrasound
@@ -127,7 +132,7 @@ $(function() {
 	ultrasound = JSON.stringify(ultrasound);
 	ultrasound = ultrasound.replace(/"name":/g, '');
 	ultrasound = ultrasound.replace(/,"value"/g, '');
-	console.log(ultrasound);
+	//console.log(ultrasound);
 
 
 	//Abdominal Aortic Doppler
@@ -136,7 +141,7 @@ $(function() {
 	abdomDoppler = JSON.stringify(abdomDoppler);
 	abdomDoppler = abdomDoppler.replace(/"name":/g, '');
 	abdomDoppler = abdomDoppler.replace(/,"value"/g, '');
-	console.log(abdomDoppler);
+	//console.log(abdomDoppler);
 
 	//Lower Extremity Doppler
 	temp = document.getElementById("LOWEREXTREMITYDOPPLER");
@@ -144,7 +149,7 @@ $(function() {
 	lowerDoppler = JSON.stringify(lowerDoppler);
 	lowerDoppler = lowerDoppler.replace(/"name":/g, '');
 	lowerDoppler = lowerDoppler.replace(/,"value"/g, '');
-	console.log(lab);
+	//console.log(lab);
 
 
 	//Specialist Report//
@@ -156,7 +161,7 @@ $(function() {
 	cardio = JSON.stringify(cardio);
 	cardio = cardio.replace(/"name":/g, '');
 	cardio = cardio.replace(/,"value"/g, '');
-	console.log(cardio);
+	//console.log(cardio);
 
 	//Ophthalmologist Report
 	temp = document.getElementById("OPHTHALMOLOGISTREPORT");
@@ -164,7 +169,7 @@ $(function() {
 	ophthal = JSON.stringify(ophthal);
 	ophthal = ophthal.replace(/"name":/g, '');
 	ophthal = ophthal.replace(/,"value"/g, '');
-	console.log(ophthal);
+	//console.log(ophthal);
 
 
 	//Pulmonologist Report
@@ -173,7 +178,7 @@ $(function() {
 	pulmono = JSON.stringify(pulmono);
 	pulmono = pulmono.replace(/"name":/g, '');
 	pulmono = pulmono.replace(/,"value"/g, '');
-	console.log(pulmono);
+	//console.log(pulmono);
 
 	//Neurologist Report
 	temp = document.getElementById("NEUROLOGISTREPORT");
@@ -181,7 +186,7 @@ $(function() {
 	neuro = JSON.stringify(neuro);
 	neuro = neuro.replace(/"name":/g, '');
 	neuro = neuro.replace(/,"value"/g, '');
-	console.log(neuro);
+	//console.log(neuro);
 
 
 	//Psychiatrist/Psychologist Report
@@ -190,7 +195,7 @@ $(function() {
 	psyche = JSON.stringify(psyche);
 	psyche = psyche.replace(/"name":/g, '');
 	psyche = psyche.replace(/,"value"/g, '');
-	console.log(psyche);
+	//console.log(psyche);
 
 
 	//Rheumatologist Report
@@ -199,7 +204,7 @@ $(function() {
 	rheuma = JSON.stringify(rheuma);
 	rheuma = rheuma.replace(/"name":/g, '');
 	rheuma = rheuma.replace(/,"value"/g, '');
-	console.log(rheuma);
+	//console.log(rheuma);
 
 	//Podiatrist Report
 	temp = document.getElementById("PODIATRISTREPORT");
@@ -207,7 +212,7 @@ $(function() {
 	podiatrist = JSON.stringify(podiatrist);
 	podiatrist = podiatrist.replace(/"name":/g, '');
 	podiatrist = podiatrist.replace(/,"value"/g, '');
-	console.log(podiatrist);
+	//console.log(podiatrist);
 
 
     });

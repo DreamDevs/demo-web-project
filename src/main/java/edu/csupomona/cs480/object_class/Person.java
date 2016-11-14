@@ -37,7 +37,18 @@ public class Person {
 		this.specialistReport = person.specialistReport;
 		this.diagnosisList = person.diagnosisList;
 		this.diagnoses = person.diagnoses;
-		this.medicineString = person.medicineString;
+		
+		//Need to ignore Medicine
+		//this.medicineString = person.medicineString;
+	}
+	
+	public void setPerson(Person person){
+		this.userID = person.userID;
+		this.password = person.password;
+		this.labReport = person.labReport;
+		this.specialistReport = person.specialistReport;
+		this.diagnosisList = person.diagnosisList;
+		this.diagnoses = person.diagnoses;
 	}
 	
 	public Person() {

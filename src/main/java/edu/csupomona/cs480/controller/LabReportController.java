@@ -30,16 +30,43 @@ public class LabReportController {
 	
 	@Autowired
 	private MedManager medManager;
-	private Person patient;
+	private Person patient = new Person();
 	
 
-
-	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
-     public String indexSubmit(@ModelAttribute rabreport rabreport) {
-		System.out.println(rabreport.getCalcium());
-        return "result2";
+	@RequestMapping(value="/mainPage", method = RequestMethod.GET)
+	public String MainForm(Model model) {
+	 model.addAttribute("patient", new Person());
+     model.addAttribute("labreport", new LabReport());
+     model.addAttribute("radiology", new Radiology());
+     model.addAttribute("specialistreport", new SpecialistReport());
+     return "MainPage";
 	}
+	
+	@RequestMapping(value="/mainPage", method = RequestMethod.POST)
+    public String MainSubmit(@ModelAttribute Person person, @ModelAttribute LabReport labreport,
+    		@ModelAttribute Radiology radiology, @ModelAttribute SpecialistReport specialistreport) {
+		
+		System.out.println("Meds: " + patient.getMedicineString());
+		patient.setPerson(person);
+		System.out.println("HGBA1C: " + person.getLabReport().getHGBA1C());
+		//System.out.println("ElecDate: " + person.getRadiologyReport().getElecDate());
+//		System.out.println("HELLO: " + person.getRadiologyReport().getArrhythmia());
 
+       return "mainResult";
+	}
+	
+	
+	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
+    public String indexForm(Model model) {
+        model.addAttribute("rabreport", new rabreport());
+        return "rabreport";
+    }
+	
+	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
+    public String indexSubmit(@ModelAttribute rabreport rabreport) {
+		System.out.println(rabreport.getCalcium());
+       return "result2";
+ }
 
 	@RequestMapping(value="/labreport", method = RequestMethod.GET)
 	public String LabReportForm(Model model) {
@@ -49,6 +76,7 @@ public class LabReportController {
 	
 	@RequestMapping(value="/labreport", method = RequestMethod.POST)
 	public String LabReportSubmit(@ModelAttribute LabReport labreport) {
+		System.out.println(labreport.getHGBA1C());
 		return "redirect:radiology";
 	}
 	
