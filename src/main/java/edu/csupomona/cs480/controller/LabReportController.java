@@ -33,17 +33,35 @@ public class LabReportController {
 	private Person patient;
 	
 
-//	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
-//    public String indexForm(Model model) {
-//        model.addAttribute("rabreport", new rabreport());
-//        return "rabreport";
-//    }
-//
-//	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
-//     public String indexSubmit(@ModelAttribute rabreport rabreport) {
-//		System.out.println(rabreport.getCalcium());
-//        return "result2";
-//  }  	
+
+	@RequestMapping(value="/rabreport", method = RequestMethod.POST)
+     public String indexSubmit(@ModelAttribute rabreport rabreport) {
+		System.out.println(rabreport.getCalcium());
+        return "result2";
+	}
+
+
+	@RequestMapping(value="/labreport", method = RequestMethod.GET)
+	public String LabReportForm(Model model) {
+      model.addAttribute("labreport", new LabReport());
+      return "labreport";
+	}
+	
+	@RequestMapping(value="/labreport", method = RequestMethod.POST)
+	public String LabReportSubmit(@ModelAttribute LabReport labreport) {
+		return "redirect:radiology";
+	}
+	
+	@RequestMapping(value="/radiology", method = RequestMethod.GET)
+	public String RadiologyForm(Model model) {
+      model.addAttribute("radiology", new Radiology());
+      return "radiology";
+	}
+	
+	@RequestMapping(value="/radiology", method = RequestMethod.POST)
+	public String RadiologySubmit(@ModelAttribute Radiology radiology) {
+		return "redirect:specialistreport";
+	}
 	
 	@RequestMapping(value="/specialistreport", method = RequestMethod.GET)
     public String specialistForm(Model model) {
@@ -55,20 +73,7 @@ public class LabReportController {
      public String specialistSubmit(@ModelAttribute(value = "specialistreport") SpecialistReport specialistreport) {
         return "result5";
 	}	
-	
-	@RequestMapping(value="/labreport", method = RequestMethod.GET)
-	public String LabReportForm(Model model) {
-      model.addAttribute("labreport", new LabReport());
-      model.addAttribute("radiology", new Radiology());
-      model.addAttribute("medicine", new Person());
-      return "labreport";
-	}
-	
-	@RequestMapping(value="/labreport", method = RequestMethod.POST)
-	public String LabReportSubmit(@ModelAttribute LabReport labreport, Radiology radiology, Person person) {
-		return "output";
-	}
-	
+		
 	//Page is not meant to be visited, only for retrieving information from client to server
 	@RequestMapping(value="/ignoredPage",method=RequestMethod.POST)
 	public @ResponseBody String  getSearchUserProfiles(@RequestBody MedString medString, HttpServletRequest request) {
@@ -84,7 +89,7 @@ public class LabReportController {
 	       return "hello";
 	   }
 	
-	
+	//Medicine Test Page
 	@RequestMapping(value="/person", method = RequestMethod.GET)
     public String PersonForm(Model model) {
         model.addAttribute("person", new Person());
