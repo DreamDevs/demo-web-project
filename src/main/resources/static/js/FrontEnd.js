@@ -85,7 +85,7 @@ $(function() {
         //Delay remaining form to obtain medicine list first
         $("#MAINSubmit").submit();
         
-        alert($("#ElectrocardiogramDate").val());
+        //alert($("#ElectrocardiogramDate").val());
 
 	//Lab Report//
 

@@ -52,7 +52,7 @@ public class LabReportController {
 		//System.out.println("ElecDate: " + person.getRadiologyReport().getElecDate());
 //		System.out.println("HELLO: " + person.getRadiologyReport().getArrhythmia());
 
-       return "mainResult";
+       return "MainResult";
 	}
 	
 	
