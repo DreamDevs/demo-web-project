@@ -21,21 +21,13 @@ public class Person {
 	SpecialistReport specialistReport;
 	DiagnosisList diagnosisList;
 	ArrayList<Diagnosis> diagnoses;
-	String medicineString = " ";
+	private String medicineString = " ";
 	
 	@Autowired
-	private MedManager medManager = new FSMedManager();;
+	private MedManager medManager = new FSMedManager();
 	
 		
 	//getters and setters for all fields
-	
-	//set the Medicine list
-//	public void setMedicine(String[] meds){
-//		medicines = new Medicine[meds.length];
-//		for(int i = 0; i<meds.length; i++){
-//			medicines[i] = medManager.getMed(meds[i]);
-//		}
-//	}
 	
 	public Person(Person person){
 		this.userID = person.userID;
