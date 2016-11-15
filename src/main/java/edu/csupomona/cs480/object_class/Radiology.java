@@ -22,7 +22,7 @@ public class Radiology {
 	boolean AFP; 			//Atrial Fibrillation Present
 	boolean MI;  			//Myocardial Infarction
 	String ElecOther;
-	
+//	
 	//Echocardiogram
 	boolean Echocardiogram = true;
 	String EchoDate;
@@ -37,15 +37,15 @@ public class Radiology {
 	//Chest X-ray
 	boolean ChestXRay = true;
 	String ChestDate;
-	List<Boolean> ChestDiagnosis = new ArrayList<Boolean>(9){{
-		// Aortic A.S.P, Aortic Aneurysm, Aortic Ectasia
-		// Aortic Tortuosity, Chronic Obstructive Pulmonary Disease (COPD), Pneumonia
-		// Chronic Bronchitis, Pulmonary Cystic Fibrosis, Cardiomegaly
-
-		add(false); add(false); add(false);
-		add(false); add(false); add(false);
-		add(false); add(false); add(false);
-		}};
+	boolean AorticASP = false;
+	boolean AorticAneurysm = false;
+	boolean AorticEctasia = false;
+	boolean AorticTortuosity = false;
+	boolean COPD = false;
+	boolean Pneumonia = false;
+	boolean ChronicBronchitis = false;
+	boolean PCF = false;
+	boolean Cardiomegaly2 = false;
 	String ChestOther;
 	
 	//Extremity X-ray
@@ -67,17 +67,17 @@ public class Radiology {
 	//Abdominal UltraSound
 	boolean AbdUS = true;
 	String AbdUSDate;
-	List<Boolean> AbdUSDiagnosis = new ArrayList<Boolean>(4){{
-		//Aortic A.S.P, Aortic Aneurysm, Nephritis, Renal Artery A.S.P
-		add(false); add(false); add(false);add(false);}};
+	boolean AorticASP2;
+	boolean AorticAneurysm2;
+	boolean Nephritis;
+	boolean RenalArteryASP;
 	String AbdUSOther;
 	
 	//Abdominal Aortic Doppler
 	boolean AbdAD = true;
 	String abdADDate;
-	List<Boolean> AbdADDiagnosis = new ArrayList<Boolean>(2){{
-		//Aortic A.S.P, Aortic Aneurysm
-		add(false); add(false);}};
+	boolean AorticASP3;
+	boolean AorticAneurysm3;
 	String AbdADOther;
 	
 	//Lower Extremity Doppler
@@ -90,8 +90,7 @@ public class Radiology {
 	
 //CT Scans: On Hold
 	
-	
-	
+
 	public boolean isElectrocardiogram() {
 		return Electrocardiogram;
 	}
@@ -107,8 +106,8 @@ public class Radiology {
 	public String getArrhythmia() {
 		return Arrhythmia;
 	}
-	public void setArrhythmia(String arrhthmia) {
-		Arrhythmia = arrhthmia;
+	public void setArrhythmia(String arrhythmia) {
+		Arrhythmia = arrhythmia;
 	}
 	public boolean isAFP() {
 		return AFP;
@@ -182,11 +181,59 @@ public class Radiology {
 	public void setChestDate(String chestDate) {
 		ChestDate = chestDate;
 	}
-	public List<Boolean> getChestDiagnosis() {
-		return ChestDiagnosis;
+	public boolean isAorticASP() {
+		return AorticASP;
 	}
-	public void setChestDiagnosis(List<Boolean> chestDiagnosis) {
-		ChestDiagnosis = chestDiagnosis;
+	public void setAorticASP(boolean aorticASP) {
+		AorticASP = aorticASP;
+	}
+	public boolean isAorticAneurysm() {
+		return AorticAneurysm;
+	}
+	public void setAorticAneurysm(boolean aorticAneurysm) {
+		AorticAneurysm = aorticAneurysm;
+	}
+	public boolean isAorticEctasia() {
+		return AorticEctasia;
+	}
+	public void setAorticEctasia(boolean aorticEctasia) {
+		AorticEctasia = aorticEctasia;
+	}
+	public boolean isAorticTortuosity() {
+		return AorticTortuosity;
+	}
+	public void setAorticTortuosity(boolean aorticTortuosity) {
+		AorticTortuosity = aorticTortuosity;
+	}
+	public boolean isCOPD() {
+		return COPD;
+	}
+	public void setCOPD(boolean cOPD) {
+		COPD = cOPD;
+	}
+	public boolean isPneumonia() {
+		return Pneumonia;
+	}
+	public void setPneumoni(boolean pneumonia) {
+		Pneumonia = pneumonia;
+	}
+	public boolean isChronicBronchitis() {
+		return ChronicBronchitis;
+	}
+	public void setChronicBronchitis(boolean chronicBronchitis) {
+		ChronicBronchitis = chronicBronchitis;
+	}
+	public boolean isPCF() {
+		return PCF;
+	}
+	public void setPCF(boolean pCF) {
+		PCF = pCF;
+	}
+	public boolean isCardiomegaly2() {
+		return Cardiomegaly2;
+	}
+	public void setCardiomegaly2(boolean cardiomegaly2) {
+		Cardiomegaly2 = cardiomegaly2;
 	}
 	public String getChestOther() {
 		return ChestOther;
@@ -266,11 +313,29 @@ public class Radiology {
 	public void setAbdUSDate(String abdUSDate) {
 		AbdUSDate = abdUSDate;
 	}
-	public List<Boolean> getAbdUSDiagnosis() {
-		return AbdUSDiagnosis;
+	public boolean isAorticASP2() {
+		return AorticASP2;
 	}
-	public void setAbdUSDiagnosis(List<Boolean> abdUSDiagnosis) {
-		AbdUSDiagnosis = abdUSDiagnosis;
+	public void setAorticASP2(boolean aorticASP2) {
+		AorticASP2 = aorticASP2;
+	}
+	public boolean isAorticAneurysm2() {
+		return AorticAneurysm2;
+	}
+	public void setAorticAneurysm2(boolean aorticAneurysm2) {
+		AorticAneurysm2 = aorticAneurysm2;
+	}
+	public boolean isNephritis() {
+		return Nephritis;
+	}
+	public void setNephritis(boolean nephritis) {
+		Nephritis = nephritis;
+	}
+	public boolean isRenalArteryASP() {
+		return RenalArteryASP;
+	}
+	public void setRenalArteryASP(boolean renalArteryASP) {
+		RenalArteryASP = renalArteryASP;
 	}
 	public String getAbdUSOther() {
 		return AbdUSOther;
@@ -290,11 +355,17 @@ public class Radiology {
 	public void setAbdADDate(String abdADDate) {
 		this.abdADDate = abdADDate;
 	}
-	public List<Boolean> getAbdADDiagnosis() {
-		return AbdADDiagnosis;
+	public boolean isAorticASP3() {
+		return AorticASP3;
 	}
-	public void setAbdADDiagnosis(List<Boolean> abdADDiagnosis) {
-		AbdADDiagnosis = abdADDiagnosis;
+	public void setAorticASP3(boolean aorticASP3) {
+		AorticASP3 = aorticASP3;
+	}
+	public boolean isAorticAneurysm3() {
+		return AorticAneurysm3;
+	}
+	public void setAorticAneurysm3(boolean aorticAneurysm3) {
+		AorticAneurysm3 = aorticAneurysm3;
 	}
 	public String getAbdADOther() {
 		return AbdADOther;
@@ -332,4 +403,5 @@ public class Radiology {
 	public void setPVD(boolean pVD) {
 		PVD = pVD;
 	}
+	
 }

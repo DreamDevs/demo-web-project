@@ -85,13 +85,13 @@ public class FSMedManager implements MedManager {
 		}
 	}
 
-	//bothNames refers to "GenericName - BrandName"
+	
 	@Override
-	public Medicine getMed(String bothNames) {
+	public Medicine getMed(String genericName) {
 		List<Medicine> medList = getMedList();
 		
 		for(Medicine med : medList){
-			if(med.getBothNames().equals(bothNames))
+			if(med.getGenericName().equals(genericName))
 					return med;
 		}
 		

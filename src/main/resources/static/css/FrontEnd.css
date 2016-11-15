@@ -106,3 +106,5 @@ select {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
+.ui-helper-hidden-accessible { display:none; }
+

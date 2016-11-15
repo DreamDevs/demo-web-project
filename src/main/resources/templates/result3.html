@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <link href = "../static/css/FrontEnd.css" th:href="@{/css/FrontEnd.css}" rel = "stylesheet" type="text/css" media = "screen"/>
+	<link href = "../static/css/jquery-ui.css" th:href="@{/css/jquery-ui.css}" rel = "stylesheet" type="text/css" media = "screen"/>
+    
+	<script th:src="@{//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js}"></script>
+	<script th:src="@{//code.jquery.com/jquery-1.12.4.js}"></script>
+	<script th:src="@{//code.jquery.com/ui/1.12.1/jquery-ui.js}"></script>
+	<script type="text/javascript" src="../js/FrontEnd.js"></script>
+    
+    
+</head>
+<body>
+	<h1>Result</h1>
+      
+    <form action="#" th:action="@{/person}" th:object="${medicinepage}" method="post">
+    	<table cellpadding="30" cellspacing="0">
+    			<tr><input id="searchbox" placeholder="Search Medicines here"/></tr>
+    			<p>Your Medicines list:</p>
+    			<p>Click on the item to remove</p>
+    			<tr><select id="storedMeds" size="9"></select></tr>
+    	</table>
+    </form>
+    
+    
+    
+</body>
+</html>
