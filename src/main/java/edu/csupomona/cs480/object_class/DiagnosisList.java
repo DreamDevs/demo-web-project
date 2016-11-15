@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class DiagnosisList {
 
 	ArrayList <Diagnosis> diagnoses;
-	List<Medicine> medicines;
+	List <Medicine> medicines;
 	LabReport labReport;
 	Radiology radiologyReport;
 	SpecialistReport specialistReport;
@@ -17,7 +17,7 @@ public class DiagnosisList {
 		labReport = lab;
 		radiologyReport = rad;
 		specialistReport = spec;
-		
+		diagnoses = new ArrayList<Diagnosis>();
 		addLabResults();
 		addRadiologyResults();
 		//addSpecialistResults();
@@ -59,7 +59,7 @@ public class DiagnosisList {
 			addDiagnosis("Chronic Kidney Disease Stage 3", "Glomerular Filtration Rate Lab");
 		}else if (check >= 15 && check <=29){
 			addDiagnosis("Chronic Kidney Disease Stage 4", "Glomerular Filtration Rate Lab");
-		}else if (check < 15){
+		}else if (0 < check && check < 15){
 			addDiagnosis("Chronic Kidney Disease Stage 5", "Glomerular Filtration Rate Lab");
 		}
 		
@@ -139,7 +139,7 @@ public class DiagnosisList {
 			
 			//Checks for Congestive Heart Failure
 			float num =  radiologyReport.getEF();
-			if(num < 40){
+			if( 0 < num && num < 40){
 				addDiagnosis("Congestive Heart Failure", "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 			
@@ -159,27 +159,61 @@ public class DiagnosisList {
 		if( radiologyReport.isChestXRay()){
 			
 			//Checks for all of the possible Diagnoses
-			List<Boolean> values =  radiologyReport.getChestDiagnosis();
-			if(values.get(0)){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report",  radiologyReport.getChestDate());
-			}else if(values.get(1)){
+			
+			//Checks for Aortic ASP
+			value =  radiologyReport.isAorticASP();
+			if(value){
+				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Echocardiogram Report",  radiologyReport.getChestDate());
+			}
+			
+			//Checks for Aortic Aneurysm
+			value =  radiologyReport.isAorticAneurysm();
+			if(value){
 				addDiagnosis("Aortic Aneurysm", "Chest X-Ray Report",  radiologyReport.getChestDate());
-			}else if(values.get(2)){
+			}
+			
+			//Checks for Aortic Ectasia
+			value =  radiologyReport.isAorticAneurysm();
+			if(value){
 				addDiagnosis("Aortic Ectasia", "Chest X-Ray Report",  radiologyReport.getChestDate());
-			}else if(values.get(3)){
+			}
+			
+			//Checks for Aortic Ectasia
+			value =  radiologyReport.isAorticTortuosity();
+			if(value){
 				addDiagnosis("Aortic Tortuosity", "Chest X-Ray Report",  radiologyReport.getChestDate());
-			}else if(values.get(4)){
+			}
+			
+			//Checks for COPD
+			value =  radiologyReport.isCOPD();
+			if(value){
 				addDiagnosis("Chronic Obstructive Pulmonary Disease", "Chest X-Ray Report",  radiologyReport.getChestDate());
-			}else if(values.get(5)){
+			}
+			
+			//Checks for Pneumonia
+			value =  radiologyReport.isPneumonia();
+			if(value){
 				addDiagnosis("Pneumonia", "Chest X-Ray Report",  radiologyReport.getChestDate());
-			}else if(values.get(6)){
+			}
+			
+			//Checks for Chronic Bronchitis
+			value =  radiologyReport.isChronicBronchitis();
+			if(value){
 				addDiagnosis("Chronic Bronchitis", "Chest X-Ray Report",  radiologyReport.getChestDate());
-			}else if(values.get(7)){
+			}
+			
+			//Checks for Pulmonary Cystic Fibrosis
+			value =  radiologyReport.isPCF();
+			if(value){
 				addDiagnosis("Pulmonary Cystic Fibrosis", "Chest X-Ray Report",  radiologyReport.getChestDate());
-			}else if(values.get(8)){
+			}
+			
+			//Checks for Cardiomegaly
+			value =  radiologyReport.isCardiomegaly2();
+			if(value){
 				addDiagnosis("Cardiomegaly", "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}
-	
+		
 			//Other under Chest X-Rays
 			check =  radiologyReport.getChestOther();
 			if(check!=null){
@@ -235,17 +269,31 @@ public class DiagnosisList {
 		if( radiologyReport.isAbdUS()){
 
 			//checks for all diagnoses under Abdominal Ultrasound
-			List<Boolean> values =  radiologyReport.getAbdUSDiagnosis();
-			if(values.get(0)){
+			
+			//Checks for Aortic ASP
+			value =  radiologyReport.isAorticASP2();
+			if(value){
 				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
-			}else if(values.get(1)){
-				addDiagnosis("Aortic Aneurysm", "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
-			}else if(values.get(2)){
-				addDiagnosis("Nephritis", "Abdonminal Ultrasound",  radiologyReport.getAbdUSDate());
-			}else if(values.get(2)){
-				addDiagnosis("Renal Artery Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report",  radiologyReport.getAbdUSDate());
 			}
 			
+			//Checks for Aortic Aneurysm
+			value =  radiologyReport.isAorticAneurysm2();
+			if(value){
+				addDiagnosis("Aortic Aneurysm", "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
+			}
+			
+			//Checks for Nephritis
+			value =  radiologyReport.isNephritis();
+			if(value){
+				addDiagnosis("Nephritis", "Abdonminal Ultrasound",  radiologyReport.getAbdUSDate());
+			}
+			
+			//Checks for Renal Artery ASP
+			value =  radiologyReport.isRenalArteryASP();
+			if(value){
+				addDiagnosis("Renal Artery Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report",  radiologyReport.getAbdUSDate());
+			}
+
 			//Other Diagnoses under Abdominal Ultrasound
 			check =  radiologyReport.getAbdADOther();
 			if(check!=null){
@@ -256,10 +304,16 @@ public class DiagnosisList {
 		//Abdominal Aortic Doppler
 		if( radiologyReport.isAbdAD()){
 			//checks for all under Abdominal Aortic Doppler
-			List<Boolean> values =  radiologyReport.getAbdADDiagnosis();
-			if(values.get(0)){
+			
+			//Checks for Aortic ASP
+			value =  radiologyReport.isAorticASP3();
+			if(value){
 				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Aortic Doppler",  radiologyReport.getAbdADDate());
-			}else if (values.get(1)){
+			}
+			
+			//Checks for Aortic Aneurysm
+			value =  radiologyReport.isAorticAneurysm3();
+			if(value){
 				addDiagnosis("Aortic Aneurysm", "Abdominal Aortic Doppler",  radiologyReport.getAbdADDate());
 			}
 			
@@ -350,5 +404,5 @@ public class DiagnosisList {
 	public ArrayList<Diagnosis> getDiagnoses(){
 		return diagnoses;
 	}
-	
+
 }

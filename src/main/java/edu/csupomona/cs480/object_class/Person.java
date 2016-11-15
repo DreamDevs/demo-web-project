@@ -30,25 +30,26 @@ public class Person {
 	//getters and setters for all fields
 	
 	public Person(Person person){
-		this.userID = person.userID;
-		this.password = person.password;
-		this.medicines = person.medicines;
-		this.labReport = person.labReport;
-		this.specialistReport = person.specialistReport;
-		this.diagnosisList = person.diagnosisList;
-		this.diagnoses = person.diagnoses;
+		this.userID = person.getUserID();
+		this.password = person.getPassword();
+		this.medicines = person.getMedicines();
+		this.labReport = person.getLabReport();
+		this.specialistReport = person.getSpecialistReport();
+		this.diagnosisList = person.getDiagnosisList();
+		this.diagnoses = person.getDiagnoses();
 		
 		//Need to ignore Medicine
 		//this.medicineString = person.medicineString;
 	}
 	
 	public void setPerson(Person person){
-		this.userID = person.userID;
-		this.password = person.password;
-		this.labReport = person.labReport;
-		this.specialistReport = person.specialistReport;
-		this.diagnosisList = person.diagnosisList;
-		this.diagnoses = person.diagnoses;
+		userID = person.getUserID();
+		password = person.getPassword();
+		medicines = person.getMedicines();
+		labReport = person.getLabReport();
+		specialistReport = person.getSpecialistReport();
+		diagnosisList = person.getDiagnosisList();
+		diagnoses = person.getDiagnoses();
 	}
 	
 	public Person() {

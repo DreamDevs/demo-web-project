@@ -43,16 +43,23 @@ public class LabReportController {
 	}
 	
 	@RequestMapping(value="/mainPage", method = RequestMethod.POST)
-    public String MainSubmit(@ModelAttribute Person person, @ModelAttribute LabReport labreport,
+    public String MainSubmit(Model model, @ModelAttribute Person person, @ModelAttribute LabReport labreport,
     		@ModelAttribute Radiology radiology, @ModelAttribute SpecialistReport specialistreport) {
 		
 		System.out.println("Meds: " + patient.getMedicineString());
-		patient.setPerson(person);
+		String tempMeds = patient.getMedicineString();
+		patient = person;
+		patient.setMedicineString(tempMeds);
+		patient.processMedicine();
+		System.out.println("Meds: " + patient.getMedicineString());
 		System.out.println("HGBA1C: " + person.getLabReport().getHGBA1C());
-		//System.out.println("ElecDate: " + person.getRadiologyReport().getElecDate());
-//		System.out.println("HELLO: " + person.getRadiologyReport().getArrhythmia());
+		System.out.println("ElecDate: " + person.getRadiologyReport().getArrhythmia());
+		System.out.println("HELLO: " + patient.getRadiologyReport().getArrhythmia());
 
-       return "MainResult";
+		patient.createDiagnosisList();
+		model.addAttribute("diagnosislist", patient.getDiagnosisList().getDiagnoses());		
+
+       return "output";
 	}
 	
 	
