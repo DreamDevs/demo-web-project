@@ -22,7 +22,6 @@ public class SpecialistReport {
 		//Ophthalmologist Report
 		private Date OphthalmologistDate;
 		private String Glaucoma = "";
-		private String Retinopathy = "";
 		private String Proliferative = "";
 		private String NonProliferative = "";
 		private String Cataract = "";
@@ -163,12 +162,6 @@ public class SpecialistReport {
 		}
 		public void setGlaucoma(String glaucoma) {
 			Glaucoma = glaucoma;
-		}
-		public String getRetinopathy() {
-			return Retinopathy;
-		}
-		public void setRetinopathy(String retinopathy) {
-			Retinopathy = retinopathy;
 		}
 		public String getProliferative() {
 			return Proliferative;

@@ -51,11 +51,8 @@ public class LabReportController {
 		patient = person;
 		patient.setMedicineString(tempMeds);
 		patient.processMedicine();
-		System.out.println("Meds: " + patient.getMedicineString());
-		System.out.println("HGBA1C: " + person.getLabReport().getHGBA1C());
-		System.out.println("ElecDate: " + person.getRadiologyReport().getArrhythmia());
-		System.out.println("HELLO: " + patient.getRadiologyReport().getArrhythmia());
-
+		System.out.println(person.getRadiologyReport().getElecDate());
+		
 		patient.createDiagnosisList();
 		model.addAttribute("diagnosislist", patient.getDiagnosisList().getDiagnoses());		
 

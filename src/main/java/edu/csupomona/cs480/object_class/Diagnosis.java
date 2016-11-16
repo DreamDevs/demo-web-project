@@ -1,12 +1,13 @@
 package edu.csupomona.cs480.object_class;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Diagnosis {
 
 	String diagnosisName;
 	Boolean diagnosisValue;
-	ArrayList <String> testDates;
+	ArrayList <Date> testDates;
 	ArrayList <String> testNames;
 	
 	
@@ -14,7 +15,7 @@ public class Diagnosis {
 		
 		diagnosisName = diagnosis;
 		diagnosisValue = false;
-		testDates = new ArrayList<String>();
+		testDates = new ArrayList<Date>();
 		testNames = new ArrayList<String>();
 		
 	}
@@ -23,7 +24,7 @@ public class Diagnosis {
 		
 		diagnosisName = diagnosis;
 		diagnosisValue = false;
-		testDates = new ArrayList<String>();
+		testDates = new ArrayList<Date>();
 		testNames = new ArrayList<String>();
 		testNames.add(test);
 		
@@ -37,7 +38,7 @@ public class Diagnosis {
 		testNames.add(test);
 	}
 	
-	public void setTestDate(String date){
+	public void setTestDate(Date date){
 		testDates.add(date);
 	}
 	
@@ -53,7 +54,7 @@ public class Diagnosis {
 		return testNames.get(test);
 	}
 
-	public String getTestDate(int test){
+	public Date getTestDate(int test){
 		return testDates.get(test);
 	}
 

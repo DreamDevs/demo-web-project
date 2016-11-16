@@ -2,6 +2,7 @@ package edu.csupomona.cs480.object_class;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DiagnosisList {
 
@@ -20,7 +21,7 @@ public class DiagnosisList {
 		diagnoses = new ArrayList<Diagnosis>();
 		addLabResults();
 		addRadiologyResults();
-		//addSpecialistResults();
+		addSpecialistResults();
 	}
 	
 	
@@ -67,14 +68,15 @@ public class DiagnosisList {
 		//Parathyroid Hormone and Calcium Level Result
 		String pth =  labReport.getPTH();
 		String calcium =  labReport.getCalcium();
-		if(pth == "high" && calcium == "high"){
-			addDiagnosis("Hyperthyroidism", "Parathyroid Hormone and Calcium Level Lab");
-		}else if(pth == "low" && calcium == "low"){
-			addDiagnosis("Hypothyroidism", "Parathyroid Hormone and Calcium Level Lab");
-		}else if(pth != "normal" || calcium != "normal"){
-			addDiagnosis("Possible Issue - PTH and Calcium levels", "Parathyroid Hormone and Calcium Level Lab");
+		if(	pth!=null && !pth.isEmpty() && calcium !=null && !calcium.isEmpty()){
+			if(pth.equals("High") && calcium.equals("High")){
+				addDiagnosis("Hyperthyroidism", "Parathyroid Hormone and Calcium Level Lab");
+			}else if(pth.equals("Low") && calcium.equals("Low")){
+				addDiagnosis("Hypothyroidism", "Parathyroid Hormone and Calcium Level Lab");
+			}else if(pth != "normal" || calcium != "normal"){
+				addDiagnosis("Possible Issue - PTH and Calcium levels", "Parathyroid Hormone and Calcium Level Lab");
+			}
 		}
-		
 	}
 	
 	public void addRadiologyResults(){
@@ -91,10 +93,12 @@ public class DiagnosisList {
 			
 			//checks for Arrhythmia and Type
 			check =  radiologyReport.getArrhythmia();
-			if(check == "Tachycardia"){
-				addDiagnosis("Arrhythmia, Tachycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
-			}else if (check == "Bradycardia"){
-				addDiagnosis("Arrhythmia, Bradycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
+			if(check!=null && !check.isEmpty()){
+				if(check.equals("Tachycardia")){
+					addDiagnosis("Arrhythmia, Tachycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
+				}else if (check.equals("Bradycardia")){
+					addDiagnosis("Arrhythmia, Bradycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
+				}
 			}
 			
 			//checks for Atrial Fibrillation
@@ -111,7 +115,7 @@ public class DiagnosisList {
 			
 			//Other under Electrocardiogram
 			check =  radiologyReport.getElecOther();
-			if(check!=null){
+			if(check!=null && !check.isEmpty()){
 				addDiagnosis(check, "Electrocardiogram Report",  radiologyReport.getElecDate());
 			}
 		}
@@ -145,7 +149,7 @@ public class DiagnosisList {
 			
 			//Other under Echocardiogram
 			check =  radiologyReport.getEchoOther();
-			if(check!=null){
+			if(check!=null && !check.isEmpty()){
 				addDiagnosis(check, "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 		}
@@ -216,7 +220,7 @@ public class DiagnosisList {
 		
 			//Other under Chest X-Rays
 			check =  radiologyReport.getChestOther();
-			if(check!=null){
+			if(check!=null && !check.isEmpty()){
 				addDiagnosis(check, "Chest X-Ray Report",  radiologyReport.getChestDate());
 			}
 		}
@@ -228,34 +232,37 @@ public class DiagnosisList {
 			if( radiologyReport.isUpperEx()){
 				//Checks for which version of ASP of the Upper Extremity
 				check =  radiologyReport.getASPofUpper();
-				if(check == "Left")
-					check = "Left Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
-				else if(check == "Right")
-					check = "Right Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
-				else
-					check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
-				
-				addDiagnosis(check, "Extremity X-Ray Report: Upper Extremity",  radiologyReport.getUpperDate());
-			
+				if(check!=null && !check.isEmpty()){
+					if(check.equals("Left")){
+						check = "Left Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
+					}else if(check.equals("Right")){
+						check = "Right Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
+					}else if(check.equals("Both")){
+						check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
+					}
+					addDiagnosis(check, "Extremity X-Ray Report: Upper Extremity",  radiologyReport.getUpperDate());
+				}
 			}
 			
 			//Lower Extremity
 			if( radiologyReport.isLowerEx()){
 				//Checks for which version of ASP of the Lower Extremity
 				check =  radiologyReport.getASPofLower();
-				if(check == "Left")
-					check = "Left Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
-				else if(check == "Right")
-					check = "Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
-				else
-					check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
-				
-				addDiagnosis(check, "Extremity X-Ray Report: Lower Extremity",  radiologyReport.getLowerDate());
+				if(check!=null && !check.isEmpty()){
+					if(check.equals("Left")){
+						check = "Left Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+					}else if(check.equals("Right")){
+						check = "Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+					}else if(check.equals("Both")){
+						check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+					}
+					addDiagnosis(check, "Extremity X-Ray Report: Lower Extremity",  radiologyReport.getLowerDate());
+				}
 			}
 			
 			//Other Extremity
 			check =  radiologyReport.getOtherExResult();
-			if(check!=null){
+			if(check!=null && !check.isEmpty()){
 				addDiagnosis(check, "Extremity X-Ray: Other",  radiologyReport.getOtherExDate());
 
 			}
@@ -296,7 +303,7 @@ public class DiagnosisList {
 
 			//Other Diagnoses under Abdominal Ultrasound
 			check =  radiologyReport.getAbdADOther();
-			if(check!=null){
+			if(check!=null && !check.isEmpty()){
 				addDiagnosis(check, "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
 			}
 		}
@@ -319,7 +326,7 @@ public class DiagnosisList {
 			
 			//Other under Abdominal Aortic Doppler
 			check =  radiologyReport.getAbdADOther();
-			if(check!=null){
+			if(check!=null && !check.isEmpty()){
 				addDiagnosis(check, "Abdominal Aortic Doppler",  radiologyReport.getAbdADDate());
 			}
 		}
@@ -330,20 +337,22 @@ public class DiagnosisList {
 			//check for Monophasic Waves
 			value =  radiologyReport.isMonophasicWaves();
 			if(value){
-				addDiagnosis("Monophasic Waves", "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
+				addDiagnosis("Peripheral Vascular Disease", "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
 			}
 			
 			//check for type ASP of Lower Extremity
 			check =  radiologyReport.getASPofLower();
-			if(check == "Left")
-				check = "Left Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
-			else if(check == "Right")
-				check = "Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
-			else
-				check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+			if(check!=null && !check.isEmpty()){
+				if(check.equals("Left")){
+					check = "Left Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+				}else if(check.equals("Right")){
+					check = "Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+				}else if(check.equals("Both")){
+					check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+				}
+				addDiagnosis(check, "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
+			}
 			
-			addDiagnosis(check, "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
-
 			//checks for Peripheral Vascular Disease
 			value =  radiologyReport.isPVD();
 			if(value){
@@ -355,26 +364,379 @@ public class DiagnosisList {
 	}
 	
 	//adds specialist report diagnoses
-	/*public void addSpecialistResults(){
+	public void addSpecialistResults(){
 		
 		//for all diagnoses in the specialist report, check if they are true
 		//if true then add them to the list
-		for(int i = 0; i< specialistReport.diagnoses.length; i++){
-			if( specialistReport.getStatus(i)){
-				addDiagnosis( specialistReport.getDiagnosis(i).getDiagnosisName(),
-						 specialistReport.getDiagnosis(i).getTestName(0),
-						 specialistReport.getDiagnosis(i).getTestDate(0));
+		
+		boolean value;
+		String check;
+		
+		/*
+		/Cardiologist Report
+		*/
+	
+		//check for Hyperlipidemia
+		value =  specialistReport.isHyperlipidemia();
+		if(value){
+			addDiagnosis("Hyperlipidemia", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//check for Cardiomyopathy
+		value =  specialistReport.isCardiomyopathy();
+		if(value){
+			addDiagnosis("Cardiomyopathy", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+	
+		//check for Congestive Heart Failure
+		value =  specialistReport.isCongestiveHeartFailure();
+		if(value){
+			addDiagnosis("Congestive Heart Failure", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//check for Atrial Fibrillation
+		value =  specialistReport.isAtrialFibrillation();
+		if(value){
+			addDiagnosis("Atrial Fibrillation", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//check for Atrial Flutter
+		value =  specialistReport.isAtrialFlutter();
+		if(value){
+			addDiagnosis("Atrial Flutter", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//check for Deep Vein Thrombosis
+		value =  specialistReport.isDeepVeinThrombosis();
+		if(value){
+			addDiagnosis("Deep Vein Thrombosis", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//check for Old Myocardial Infarction
+		value =  specialistReport.isOldMyocardialInfarction();
+		if(value){
+			addDiagnosis("Old Myocardial Infarction", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//check for Angina Pectoris
+		value =  specialistReport.isAnginaPectoris();
+		if(value){
+			addDiagnosis("Angina Pectoris", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//check for Supraventricular Tachycardia
+		value =  specialistReport.isSupraventricularTachycardia();
+		if(value){
+			addDiagnosis("Supraventricular Tachycardia", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//check for Hypertension
+		value =  specialistReport.isHypertension();
+		if(value){
+			addDiagnosis("Hypertension", "Cardiologist Report",  specialistReport.getCardiologistDate());
+		}
+		
+		//checks for Cardiologist Other
+		check = specialistReport.getCardiologistOther();
+		if(check!=null && !check.isEmpty()){
+			addDiagnosis(check, "Cardiologist Report", specialistReport.getCardiologistDate());
+		}
+		
+		/*
+		 * Ophthalmologist Report
+		 */
+		
+		//check for Glaucoma
+		check = specialistReport.getGlaucoma();
+		if(check!=null && !check.isEmpty()){
+			if(check.equals("Left")){
+				addDiagnosis("Left Eye Glaucoma", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else if(check.equals("Right")){
+				addDiagnosis("Right Eye Glaucoma", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else if(check.equals("Both")){
+				addDiagnosis("Left and Right Eye Glaucoma", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
 			}
 		}
 		
+		//check for Proliferative
+		check = specialistReport.getProliferative();
+		if(check!=null && !check.isEmpty()){
+			if(check.equals("Left")){
+				addDiagnosis("Left Eye Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else if(check.equals("Right")){
+				addDiagnosis("Right Eye Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else if(check.equals("Both")){
+				addDiagnosis("Left and Right Proliferative Eye Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}
+		}
+		
+		//check for Non-Proliferative
+		check = specialistReport.getNonProliferative();
+		if(check!=null && !check.isEmpty()){
+			if(check.equals("Left")){
+				addDiagnosis("Left Eye Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else if(check.equals("Right")){
+				addDiagnosis("Right Eye Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else if(check.equals("Both")){
+				addDiagnosis("Left and Right Non-Proliferative Eye Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}
+		}
+		
+		//check for Cataract
+		check = specialistReport.getCataract();
+		if(check!=null && !check.isEmpty()){
+			if(check.equals("Left")){
+				addDiagnosis("Left Eye Cataract", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else if(check.equals("Right")){
+				addDiagnosis("Right Eye Cataract", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else if(check.equals("Both")){
+				addDiagnosis("Left and Right Eye Cataract", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}
+		}
+		
+		//check for Opthalmologist Other
+		check = specialistReport.getOphthalmologistOther();
+		if(check!=null && !check.isEmpty()){
+			addDiagnosis(check, "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+		}
+		
+		/*
+		 * Pulmonologist Report
+		 */
+		
+		//checks for Compulsive Obstructive Pulmonary Disease
+		value = specialistReport.isCompulsiveObstructivePulmonaryDisease();
+		if(value){
+			addDiagnosis("Compulsive Obstructive Pulmonary Disease", "Pulmonologist Report",  specialistReport.getPulmonologistDate());
+		}
+		
+		//checks for Asthma, Asthma Bronchitis
+		value = specialistReport.isAsthmaBronchitis();
+		if(value){
+			addDiagnosis("Ashtma, Asthma Bronchitis", "Pulmonologist Report",  specialistReport.getPulmonologistDate());
+		}
+		
+		//checks for Pulmonary Embolism
+		value = specialistReport.isPulmonaryCysticFibrosis();
+		if(value){
+			addDiagnosis("Pulmonary Embolism", "Pulmonologist Report",  specialistReport.getPulmonologistDate());
+		}
+		
+		//checks for Pulmonary Cystic Fibrosis
+		value = specialistReport.isPulmonaryCysticFibrosis();
+		if(value){
+			addDiagnosis("Pulmonary Cystic Fibrosis", "Pulmonologist Report",  specialistReport.getPulmonologistDate());
+		}
+		
+		//checks for Pulmonologist Other
+		check = specialistReport.getPulmonologistOther();
+		if(check!=null && !check.isEmpty()){
+			addDiagnosis(check, "Pulmonologist Report", specialistReport.getPulmonologistDate());
+		}
+		
+		/*
+		 * Neurologist Report
+		 */
+		
+		//checks for Parkinson's Disease
+		value = specialistReport.isParkinsonsDisease();
+		if(value){
+			addDiagnosis("Parkinson's Disease", "Neurologist Report", specialistReport.getNeurologistDate());
+		}
+		
+		//checks for Seizure Disorder
+		value = specialistReport.isSeizureDisorder();
+		if(value){
+			addDiagnosis("Seizure Disorder", "Neurologist Report", specialistReport.getNeurologistDate());
+		}
+
+		//checks for Epilepsy
+		value = specialistReport.isEpilepsy();
+		if(value){
+			addDiagnosis("Epilepsy", "Neurologist Report", specialistReport.getNeurologistDate());
+		}
+
+		//checks for Migraine Headache
+		value = specialistReport.isMigrainHeadache();
+		if(value){
+			addDiagnosis("Migraine Headache", "Neurologist Report", specialistReport.getNeurologistDate());
+		}
+
+		//checks for Dementia
+		value = specialistReport.isDementia();
+		if(value){
+			addDiagnosis("Dementia", "Neurologist Report", specialistReport.getNeurologistDate());
+		}
+
+		//checks for Alzheimer's Disease
+		value = specialistReport.isAlzheimersDisease();
+		if(value){
+			addDiagnosis("Alzheimer's Disease", "Neurologist Report", specialistReport.getNeurologistDate());
+		}
+
+		//checks for Multiple Sclerosis
+		value = specialistReport.isMultipleSclerosis1();
+		if(value){
+			addDiagnosis("Multiple Sclerosis", "Neurologist Report", specialistReport.getNeurologistDate());
+		}
+		
+		//checks for Neurologist other
+		check = specialistReport.getNeurologistOther();
+		if(check!=null && !check.isEmpty()){
+			addDiagnosis(check, "Neurologist Report", specialistReport.getNeurologistDate());
+		}
+		
+		/*
+		 * Psychiatrist/Psychologist Report
+		 */
+		
+		//checks for Major Depression
+		value = specialistReport.isMajorDepression();
+		if(value){
+			addDiagnosis("Major Depression", "Psychiatrist/Psychologist Report", specialistReport.getPsychiatristPsychologistDate());
+		}
+		
+		//checks for Anxiety Disorder
+		value = specialistReport.isAnxietyDisorder();
+		if(value){
+			addDiagnosis("Anxiety Disorder", "Psychiatrist/Psychologist Report", specialistReport.getPsychiatristPsychologistDate());
+		}
+		
+		//checks for Schizophrenia
+		value = specialistReport.isSchizophrenia();
+		if(value){
+			addDiagnosis("Schizophrenia", "Psychiatrist/Psychologist Report", specialistReport.getPsychiatristPsychologistDate());
+		}
+		
+		//checks for Bipolar Disease
+		value = specialistReport.isBipolarDisease();
+		if(value){
+			addDiagnosis("Bipolar Disease", "Psychiatrist/Psychologist Report", specialistReport.getPsychiatristPsychologistDate());
+		}
+		
+		//checks for Alcohol Dependence
+		value = specialistReport.isAlcoholDependence();
+		if(value){
+			addDiagnosis("Alcohol Dependence", "Psychiatrist/Psychologist Report", specialistReport.getPsychiatristPsychologistDate());
+		}
+
+		//checks for Psychiatrist/Psychologist Other
+		check = specialistReport.getPsychiatristPsychologistOther();
+		if(check!=null && !check.isEmpty()){
+			addDiagnosis(check, "Psychiatrist/Psychologist Report", specialistReport.getPsychiatristPsychologistDate());
+		}
+		
+		/*
+		 * Rheumatologist Report
+		 */
+		
+		//checks for Rheumatoid Arthritis
+		value = specialistReport.isRheumatoidArthritis();
+		if(value){
+			addDiagnosis("Rheumatoid Arthritis", "Rheumatologist Report", specialistReport.getRheumatologistDate());
+		}
+		
+		//checks for Systemic Lupus
+		value = specialistReport.isSystemicLupus();
+		if(value){
+			addDiagnosis("Systemic Lupus", "Rheumatologist Report", specialistReport.getRheumatologistDate());
+		}
+		
+		//checks for Multiple Sclerosis
+		value = specialistReport.isMultipleSclerosis2();
+		if(value){
+			addDiagnosis("Multiple Sclerosis", "Rheumatologist Report", specialistReport.getRheumatologistDate());
+		}
+		
+		//checks for Rheumatologist Other
+		check = specialistReport.getRheumatologistOther();
+		if(check!=null && !check.isEmpty()){
+			addDiagnosis(check, "Rheumatologist Report", specialistReport.getRheumatologistDate());
+		}			
+		
+		/*
+		 * Podiatrist Report
+		 */
+		
+		//checks for Below Knee Amputation
+		check = specialistReport.getBelowKneeAmputation();
+		if(check!=null && !check.isEmpty()){
+			if(check.equals("Left")){
+				addDiagnosis("Left Below Knee Amputation", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}else if(check.equals("Right")){
+				addDiagnosis("Right Below Knee Amputation", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}else if(check.equals("Both")){
+				addDiagnosis("Left and Right Below Knee Amputation", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}		
+		}
+		
+		//checks for Above Knee Amputation
+		check = specialistReport.getAboveKneeAmputation();
+		if(check!=null && !check.isEmpty()){
+			if(check.equals("Left")){
+				addDiagnosis("Left Above Knee Amputation", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}else if(check.equals("Right")){
+				addDiagnosis("Right Above Knee Amputation", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}else if(check.equals("Both")){
+				addDiagnosis("Left and Right Above Knee Amputation", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}
+		}
+
+		//checks for Am
+		value = specialistReport.isAm();
+		if(value){
+			addDiagnosis("Am", "Podiatrist Report", specialistReport.getPodiatristDate());
+		}
+
+		//checks for Poly-Neuropathy
+		value = specialistReport.isPolyNeuropathy();
+		if(value){
+			addDiagnosis("Poly-Neuropathy", "Podiatrist Report", specialistReport.getPodiatristDate());
+		}
+
+		//checks for Mono-Neuropathy
+		value = specialistReport.isMonoNeuropathy();
+		if(value){
+			addDiagnosis("Mono-Neuropathy", "Podiatrist Report", specialistReport.getPodiatristDate());
+		}
+
+		//checks for Onychomycosis
+		value = specialistReport.isOnychomycosis();
+		if(value){
+			addDiagnosis("Onychomycosis", "Podiatrist Report", specialistReport.getPodiatristDate());
+		}
+
+		//checks for Peripheral Vascular Disease
+		value = specialistReport.isPeripheralVascularDisease();
+		if(value){
+			addDiagnosis("Peripheral Vascular Disease", "Podiatrist Report", specialistReport.getPodiatristDate());
+		}		
+		
+		//checks for Ulcers of Lower Extremity
+		check = specialistReport.getUlcersOfLowerExtremity();
+		if(check!=null && !check.isEmpty()){
+			if(check.equals("Left")){
+				addDiagnosis("Left Ulcers of Lower Extremity", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}else if(check.equals("Right")){
+				addDiagnosis("Right Ulcers of Lower Extremity", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}else if(check.equals("Both")){
+				addDiagnosis("Left and Right Ulcers of Lower Extremity", "Podiatrist Report", specialistReport.getPodiatristDate());
+			}
+		}
+		
+		//checks for Podiatrist Other
+		check = specialistReport.getPodiatristOther();
+		if(check!=null && !check.isEmpty()){
+			addDiagnosis(check, "Podiatrist Report", specialistReport.getPodiatristDate());
+		}
 	}
-	*/
+	
 	//adds a diagnosis with a date
-	public void addDiagnosis(String diagnosisName, String reportName, String date){
+	public void addDiagnosis(String diagnosisName, String reportName, Date date){
 		//checks if the diagnosis is already in the list
 		//if it is, it will add more information to the diagnosis
 		for(int i = 0; i<diagnoses.size(); i++){
-			if(diagnoses.get(0).getDiagnosisName() == diagnosisName){
+			if(diagnoses.get(i).getDiagnosisName() == diagnosisName){
 				editDiagnosis(i, reportName, date);
 				return;
 			}
@@ -394,7 +756,7 @@ public class DiagnosisList {
 	}
 	
 	//adds an extra test to an existing diagnosis
-	public void editDiagnosis(int num, String reportName, String reportDate){
+	public void editDiagnosis(int num, String reportName, Date reportDate){
 		diagnoses.get(num).setTestName(reportName);
 		diagnoses.get(num).setTestDate(reportDate);
 	}

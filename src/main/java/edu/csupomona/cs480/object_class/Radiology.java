@@ -1,6 +1,7 @@
 package edu.csupomona.cs480.object_class;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Radiology {
@@ -17,15 +18,15 @@ public class Radiology {
 	
 	//Electrocardiogram
 	boolean Electrocardiogram = true;
-	String ElecDate; 		//Manage with Calendar in js
+	Date ElecDate; 		//Manage with Calendar in js
 	String Arrhythmia; 		//Normal, Tachycardia, or Bradycardia
 	boolean AFP; 			//Atrial Fibrillation Present
 	boolean MI;  			//Myocardial Infarction
 	String ElecOther;
-//	
+	
 	//Echocardiogram
 	boolean Echocardiogram = true;
-	String EchoDate;
+	Date EchoDate;
 	boolean Cardiomegaly;
 	boolean Cardiomyopathy;
 	boolean AASP; 			//Aortic A.S.P
@@ -36,7 +37,7 @@ public class Radiology {
 	
 	//Chest X-ray
 	boolean ChestXRay = true;
-	String ChestDate;
+	Date ChestDate;
 	boolean AorticASP = false;
 	boolean AorticAneurysm = false;
 	boolean AorticEctasia = false;
@@ -51,22 +52,22 @@ public class Radiology {
 	//Extremity X-ray
 	boolean ExtremityXray = true;
 	boolean UpperEx = true;
-	String UpperDate;
+	Date UpperDate;
 	String ASPofUpper; //Left, Right, or Both
 	
 	boolean LowerEx = true;
-	String LowerDate;
+	Date LowerDate;
 	String ASPofLower; //Left, Right, or Both
 	
 	boolean OtherEx = true;
-	String OtherExDate;
+	Date OtherExDate;
 	String OtherExResult;
 	
 //Ultrasound and Doppler Studies
 	
 	//Abdominal UltraSound
 	boolean AbdUS = true;
-	String AbdUSDate;
+	Date AbdUSDate;
 	boolean AorticASP2;
 	boolean AorticAneurysm2;
 	boolean Nephritis;
@@ -75,32 +76,32 @@ public class Radiology {
 	
 	//Abdominal Aortic Doppler
 	boolean AbdAD = true;
-	String abdADDate;
+	Date abdADDate;
 	boolean AorticASP3;
 	boolean AorticAneurysm3;
 	String AbdADOther;
 	
 	//Lower Extremity Doppler
 	boolean LowerED = true;
-	String LowerEDDate;
+	Date LowerEDDate;
 	boolean MonophasicWaves;
 	String LowerEDASPofLower; //Left, Right, or Both
 	boolean PVD; //Peripheral Vascular Disease
 	
 	
-//CT Scans: On Hold
+	//CT Scans: On Hold
+		
 	
-
 	public boolean isElectrocardiogram() {
 		return Electrocardiogram;
 	}
 	public void setElectrocardiogram(boolean electrocardiogram) {
 		Electrocardiogram = electrocardiogram;
 	}
-	public String getElecDate() {
+	public Date getElecDate() {
 		return ElecDate;
 	}
-	public void setElecDate(String elecDate) {
+	public void setElecDate(Date elecDate) {
 		ElecDate = elecDate;
 	}
 	public String getArrhythmia() {
@@ -133,10 +134,10 @@ public class Radiology {
 	public void setEchocardiogram(boolean echocardiogram) {
 		Echocardiogram = echocardiogram;
 	}
-	public String getEchoDate() {
+	public Date getEchoDate() {
 		return EchoDate;
 	}
-	public void setEchoDate(String echoDate) {
+	public void setEchoDate(Date echoDate) {
 		EchoDate = echoDate;
 	}
 	public boolean isCardiomegaly() {
@@ -175,10 +176,10 @@ public class Radiology {
 	public void setChestXRay(boolean chestXRay) {
 		ChestXRay = chestXRay;
 	}
-	public String getChestDate() {
+	public Date getChestDate() {
 		return ChestDate;
 	}
-	public void setChestDate(String chestDate) {
+	public void setChestDate(Date chestDate) {
 		ChestDate = chestDate;
 	}
 	public boolean isAorticASP() {
@@ -214,7 +215,7 @@ public class Radiology {
 	public boolean isPneumonia() {
 		return Pneumonia;
 	}
-	public void setPneumoni(boolean pneumonia) {
+	public void setPneumonia(boolean pneumonia) {
 		Pneumonia = pneumonia;
 	}
 	public boolean isChronicBronchitis() {
@@ -253,10 +254,10 @@ public class Radiology {
 	public void setUpperEx(boolean upperEx) {
 		UpperEx = upperEx;
 	}
-	public String getUpperDate() {
+	public Date getUpperDate() {
 		return UpperDate;
 	}
-	public void setUpperDate(String upperDate) {
+	public void setUpperDate(Date upperDate) {
 		UpperDate = upperDate;
 	}
 	public String getASPofUpper() {
@@ -271,10 +272,10 @@ public class Radiology {
 	public void setLowerEx(boolean lowerEx) {
 		LowerEx = lowerEx;
 	}
-	public String getLowerDate() {
+	public Date getLowerDate() {
 		return LowerDate;
 	}
-	public void setLowerDate(String lowerDate) {
+	public void setLowerDate(Date lowerDate) {
 		LowerDate = lowerDate;
 	}
 	public String getASPofLower() {
@@ -289,10 +290,10 @@ public class Radiology {
 	public void setOtherEx(boolean otherEx) {
 		OtherEx = otherEx;
 	}
-	public String getOtherExDate() {
+	public Date getOtherExDate() {
 		return OtherExDate;
 	}
-	public void setOtherExDate(String otherExDate) {
+	public void setOtherExDate(Date otherExDate) {
 		OtherExDate = otherExDate;
 	}
 	public String getOtherExResult() {
@@ -307,10 +308,10 @@ public class Radiology {
 	public void setAbdUS(boolean abdUS) {
 		AbdUS = abdUS;
 	}
-	public String getAbdUSDate() {
+	public Date getAbdUSDate() {
 		return AbdUSDate;
 	}
-	public void setAbdUSDate(String abdUSDate) {
+	public void setAbdUSDate(Date abdUSDate) {
 		AbdUSDate = abdUSDate;
 	}
 	public boolean isAorticASP2() {
@@ -349,10 +350,10 @@ public class Radiology {
 	public void setAbdAD(boolean abdAD) {
 		AbdAD = abdAD;
 	}
-	public String getAbdADDate() {
+	public Date getAbdADDate() {
 		return abdADDate;
 	}
-	public void setAbdADDate(String abdADDate) {
+	public void setAbdADDate(Date abdADDate) {
 		this.abdADDate = abdADDate;
 	}
 	public boolean isAorticASP3() {
@@ -379,10 +380,10 @@ public class Radiology {
 	public void setLowerED(boolean lowerED) {
 		LowerED = lowerED;
 	}
-	public String getLowerEDDate() {
+	public Date getLowerEDDate() {
 		return LowerEDDate;
 	}
-	public void setLowerEDDate(String lowerEDDate) {
+	public void setLowerEDDate(Date lowerEDDate) {
 		LowerEDDate = lowerEDDate;
 	}
 	public boolean isMonophasicWaves() {
@@ -403,5 +404,5 @@ public class Radiology {
 	public void setPVD(boolean pVD) {
 		PVD = pVD;
 	}
-	
 }
+	

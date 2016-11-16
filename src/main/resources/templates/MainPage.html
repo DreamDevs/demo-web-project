@@ -59,12 +59,20 @@
 								<td><input type="text" th:field="*{LabReport.GFR}" /></td>
 							</tr>
 							<tr>
-								<td>PTH: </td>
-								<td><input type="select" name = "PTH" th:field="*{LabReport.PTH}" items="Low, Normal, High" /></td>
-							</tr>
+								<td>PTH</td>
+								<td>
+                                       <input type="checkbox" name="PTH" th:field="*{labReport.PTH}" value="Low" /> Low
+                                       <input type="checkbox" name="PTH" th:field="*{labReport.PTH}" value="Normal" /> Normal
+                                       <input type="checkbox" name="PTH" th:field="*{labReport.PTH}" value="High" /> High
+                                </td>
+                            </tr>
 							<tr>
 								<td>Calcium: </td>
-								<td><input type="select" name = "Calcium" th:field="*{LabReport.PTH}" items="Low, Normal, High" /></td>
+								<td>
+									<input type="checkbox" name = "Calcium" th:field="*{LabReport.Calcium}" value = "Low" /> Low
+									<input type="checkbox" name = "Calcium" th:field="*{LabReport.Calcium}" value = "Normal" /> Normal
+									<input type="checkbox" name = "Calcium" th:field="*{LabReport.Calcium}" value = "High" /> High
+								</td>
 							</tr>
 						</table>
 					<!-- </form> -->
@@ -221,7 +229,7 @@
                                                 <li>DATE: 
                                                     <input type="Date" th:field="*{radiologyReport.UpperDate}" name="UPPEREXTREMITYDate" value=""/><br></br></li>
                                                 <li>A.S.P of upper extremity:
-                                                    <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}" name="ASPUpperEX" value="left"/> Left 
+                                                    <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}" name="ASPUpperEX" value="Left"/> Left 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}" name="ASPUpperEX" value="Right"/> Right 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}"  name="ASPUpperEX" value="Both"/> Both
                                                 </li>
@@ -238,7 +246,7 @@
                                             <ul>
                                                 <li>DATE: <input type="Date" th:field="*{radiologyReport.LowerDate}" name="LOWEREXTREMITYDate" value=""/><br></br></li>
                                                 <li>A.S.P of lower extremity:
-                                                    <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="left"/> Left 
+                                                    <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="Left"/> Left 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="Right"/> Right 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="Both"/> Both
                                                 </li>
@@ -352,7 +360,7 @@
                                             <input type="checkbox" th:field="*{radiologyReport.MonophasicWaves}" name="MonophasicWaves" value="true"/>
                                         </li>
                                         <li>A.S.P of lower extremity:
-                                            <input type="checkbox" th:field="*{radiologyReport.LowerEDASPofLower}" name="ASPLowerEX" value="left"/> Left 
+                                            <input type="checkbox" th:field="*{radiologyReport.LowerEDASPofLower}" name="ASPLowerEX" value="Left"/> Left 
                                             <input type="checkbox" th:field="*{radiologyReport.LowerEDASPofLower}" name="ASPLowerEX" value="Right"/> Right 
                                             <input type="checkbox" th:field="*{radiologyReport.LowerEDASPofLower}" name="ASPLowerEX" value="Both"/> Both 
                                         </li>
@@ -448,22 +456,19 @@
                                     <ul>
 
                                         <li>Glaucoma:
-                                            <input type="checkbox" name="Glaucoma" value="left" th:field="*{specialistReport.Glaucoma}"/> Left 
+                                            <input type="checkbox" name="Glaucoma" value="Left" th:field="*{specialistReport.Glaucoma}"/> Left 
                                             <input type="checkbox" name="Glaucoma" value="Right" th:field="*{specialistReport.Glaucoma}"/> Right 
                                             <input type="checkbox" name="Glaucoma" value="Both" th:field="*{specialistReport.Glaucoma}"/> Both
                                         </li>
                                         <li>Retinopathy:
-                                            <input type="checkbox" name="Retinopathy" value="left" th:field="*{specialistReport.Retinopathy}"/> Left 
-                                            <input type="checkbox" name="Retinopathy" value="Right" th:field="*{specialistReport.Retinopathy}"/> Right 
-                                            <input type="checkbox" name="Retinopathy" value="Both" th:field="*{specialistReport.Retinopathy}"/> Both
-                                            <ul>
+                                        	<ul>
                                                 <li>Proliferative:
-                                                    <input type="checkbox" name="Proliferative" value="left" th:field="*{specialistReport.Proliferative}"/> Left 
+                                                    <input type="checkbox" name="Proliferative" value="Left" th:field="*{specialistReport.Proliferative}"/> Left 
                                                     <input type="checkbox" name="Proliferative" value="Right" th:field="*{specialistReport.Proliferative}"/> Right 
                                                     <input type="checkbox" name="Proliferative" value="Both" th:field="*{specialistReport.Proliferative}"/> Both
                                                 </li>
                                                 <li>Non-Proliferative:
-                                                    <input type="checkbox" name="NonProliferative" value="left" th:field="*{specialistReport.NonProliferative}"/> Left 
+                                                    <input type="checkbox" name="NonProliferative" value="Left" th:field="*{specialistReport.NonProliferative}"/> Left 
                                                     <input type="checkbox" name="NonProliferative" value="Right" th:field="*{specialistReport.NonProliferative}"/> Right 
                                                     <input type="checkbox" name="NonProliferative" value="Both" th:field="*{specialistReport.NonProliferative}"/> Both
                                                 </li>
@@ -471,7 +476,7 @@
                                         </li>
 
                                         <li>Cataract:
-                                            <input type="checkbox" name="Cataract" value="left" th:field="*{specialistReport.Cataract}"/> Left 
+                                            <input type="checkbox" name="Cataract" value="Left" th:field="*{specialistReport.Cataract}"/> Left 
                                             <input type="checkbox" name="Cataract" value="Right" th:field="*{specialistReport.Cataract}"/> Right 
                                             <input type="checkbox" name="Cataract" value="Both" th:field="*{specialistReport.Cataract}"/> Both
                                         </li>
@@ -663,12 +668,12 @@
                                     <ul>
 
                                         <li>Below Knee Amputation:                                      
-                                            <input type="checkbox" name="BelowKneeAmputation" value="left" th:field="*{specialistReport.BelowKneeAmputation}"/> Left 
+                                            <input type="checkbox" name="BelowKneeAmputation" value="Left" th:field="*{specialistReport.BelowKneeAmputation}"/> Left 
                                             <input type="checkbox" name="BelowKneeAmputation" value="Right" th:field="*{specialistReport.BelowKneeAmputation}"/> Right 
                                             <input type="checkbox" name="BelowKneeAmputation" value="Both" th:field="*{specialistReport.BelowKneeAmputation}"/> Both
                                         </li>
                                         <li>Above Knee Amputation:
-                                            <input type="checkbox" name="AboveKneeAmputation" value="left" th:field="*{specialistReport.AboveKneeAmputation}"/> Left 
+                                            <input type="checkbox" name="AboveKneeAmputation" value="Left" th:field="*{specialistReport.AboveKneeAmputation}"/> Left 
                                             <input type="checkbox" name="AboveKneeAmputation" value="Right" th:field="*{specialistReport.AboveKneeAmputation}"/> Right 
                                             <input type="checkbox" name="AboveKneeAmputation" value="Both" th:field="*{specialistReport.AboveKneeAmputation}"/> Both
                                         </li>
@@ -689,7 +694,7 @@
                                             <input type="checkbox" name="PVD" value="true" th:field="*{specialistReport.PeripheralVascularDisease}"/>
                                         </li>
                                         <li>Ulcers of Lower Extremity:
-                                            <input type="checkbox" name="UlcersLowerEX" value="left" th:field="*{specialistReport.UlcersOfLowerExtremity}"/> Left 
+                                            <input type="checkbox" name="UlcersLowerEX" value="Left" th:field="*{specialistReport.UlcersOfLowerExtremity}"/> Left 
                                             <input type="checkbox" name="UlcersLowerEX" value="Right" th:field="*{specialistReport.UlcersOfLowerExtremity}"/> Right 
                                             <input type="checkbox" name="UlcersLowerEX" value="Both" th:field="*{specialistReport.UlcersOfLowerExtremity}"/> Both
                                         </li>
