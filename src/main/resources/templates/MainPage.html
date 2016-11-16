@@ -96,7 +96,7 @@
                                 <li>Electrocardiogram: N/A 
                                     <input type="checkbox" name="ElectroCardioGramCB" th:field="*{radiologyReport.Electrocardiogram}" id = "ElectroCardioGramCB" value="NA" onclick="HideShowNA(DIV0)" />
                                 </li>            
-                                <div id="DIV0">
+                                <div id="DIV0" style="display: none;">
                                     <ul>
                                         <p>
                                             <li>DATE: 
@@ -129,7 +129,7 @@
                                 <li>Echocardiogram: N/A 
                                     <input type="checkbox" th:field="*{radiologyReport.Echocardiogram}" onclick="HideShowNA(DIV1)" />
                                 </li>            
-                                <div id="DIV1">
+                                <div id="DIV1" style="display: none;">
                                     <ul>
                                         <p>
                                         <li>DATE: 
@@ -168,7 +168,7 @@
                                     <input type="checkbox" th:field="*{radiologyReport.ChestXRay}" name="XraysCB" value="NA" onclick="HideShowNA(DIV2)"/>
                                 </li>
                                         
-                                <div id="DIV2">
+                                <div id="DIV2" style="display: none;">
                                     <ul>
                                         <p>
                                         <li>DATE: 
@@ -216,14 +216,14 @@
                                     <input type="checkbox" th:field="*{radiologyReport.ExtremityXray}" name="ExtremityXRayCB" value="NA" onclick="HideShowNA(DIV3)"/>
                                 </li>
                 
-                                <div id="DIV3">
+                                <div id="DIV3" style="display: none;">
                                     <ul>
                                         <p>
                                         <li>Upper Extremity:N/A 
                                             <input type="checkbox" th:field="*{radiologyReport.UpperEx}" name="UpperExtremityCB" value="NA" onclick="HideShowNA(DIV4)"/>
                                         </li>
                                         </p>
-                                        <div id="DIV4">
+                                        <div id="DIV4" style="display: none;">
                                             <p>
                                             <ul>
                                                 <li>DATE: 
@@ -241,7 +241,7 @@
                                             <input type="checkbox" th:field="*{radiologyReport.LowerEx}" name="LowererExtremityCB" value="NA" onclick="HideShowNA(DIV5)" />
                                         </li>
                                         </p>
-                                        <div id="DIV5">
+                                        <div id="DIV5" style="display: none;">
                                             <p>
                                             <ul>
                                                 <li>DATE: <input type="Date" th:field="*{radiologyReport.LowerDate}" name="LOWEREXTREMITYDate" value=""/><br></br></li>
@@ -253,17 +253,19 @@
                                             </ul>
                                             </p>
                                         </div>
-                                    </ul>
-                                    <p>
-                                    <li>Other Extremity: N/A
-                                        <input type="checkbox" th:field="*{radiologyReport.OtherEx}" name="OtherExtremityCB" value="NA" onclick="HideShowNA(DIV5)" />
-                                    </li>
-                                    </p>
-                                    <ul>
-                                        <li>DATE: 
-                                            <input type="Date" th:field="*{radiologyReport.OtherExDate}" name="OTHEREXTREMITYDate" value=""/><br></br></li>
-                                        <li>Other: 
-                                            <input type="text" size="60" th:field="*{radiologyReport.OtherExResult}" name="comments" value=""/><br></br></li>
+                                    	<p>
+                                    	<li>Other Extremity: N/A
+                                        	<input type="checkbox" th:field="*{radiologyReport.OtherEx}" name="OtherExtremityCB" value="NA" onclick="HideShowNA(DIV6)" />
+                                    	</li>
+                                    	</p>
+                                    	<div id="DIV6" style="display: none;">
+                                    		<ul>
+                                        	<li>DATE: 
+                                            	<input type="Date" th:field="*{radiologyReport.OtherExDate}" name="OTHEREXTREMITYDate" value=""/><br></br></li>
+                                        	<li>Other: 
+                                            	<input type="text" size="60" th:field="*{radiologyReport.OtherExResult}" name="comments" value=""/><br></br></li>
+                                    		</ul>
+                                    	</div>
                                     </ul>
                                 </div>
                             </p>
@@ -277,10 +279,10 @@
                         <ul>
                             <p>
                                 <li>Abdominal Ultrasound: N/A 
-                                    <input type="checkbox" th:field="*{radiologyReport.AbdUS}" name="AbdominalUltrasoundCB" value="NA" onclick="HideShowNA(DIV6)"/>
+                                    <input type="checkbox" th:field="*{radiologyReport.AbdUS}" name="AbdominalUltrasoundCB" value="NA" onclick="HideShowNA(DIV7)"/>
                                 </li>
                 
-                                <div id="DIV6">
+                                <div id="DIV7" style="display: none;">
                                     <ul>
                                         <p>
                                         <li>DATE: 
@@ -315,10 +317,10 @@
                         <ul>
                             <p>
                                 <li>Abdominal Aortic Doppler: N/A 
-                                    <input type="checkbox" th:field="*{radiologyReport.AbdAD}"  name="AbdominalAorticDopplerCB" value="NA" onclick="HideShowNA(DIV7)"/>
+                                    <input type="checkbox" th:field="*{radiologyReport.AbdAD}"  name="AbdominalAorticDopplerCB" value="NA" onclick="HideShowNA(DIV8)"/>
                                 </li>
                 
-                                <div id="DIV7">
+                                <div id="DIV8" style="display: none;">
                                     <ul>
                                         <p>
                                         <li>DATE: 
@@ -345,11 +347,11 @@
                 
                             <p>
                                 <li>Lower Extremity Doppler: N/A 
-                                    <input type="checkbox" th:field="*{radiologyReport.LowerED}" name="LowerExtremityDopplerCB" value="NA" onclick="HideShowNA(DIV8)"/>
+                                    <input type="checkbox" th:field="*{radiologyReport.LowerED}" name="LowerExtremityDopplerCB" value="NA" onclick="HideShowNA(DIV9)"/>
                                 </li>
                                 
                 
-                                <div id="DIV8">
+                                <div id="DIV9" style="display: none;">
                                     <ul>
                                         <p>
                                         <li>DATE: 
