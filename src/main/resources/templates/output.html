@@ -1,14 +1,167 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Getting Started: Handling Form Submission</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	<h1>List of Diagnoses</h1>
-	<p th:each="diagnosis,iteration :${diagnosislist}">
-	<td th:text = "${diagnosis.getDiagnosisName()}"></td>
-	</p>	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+rel="stylesheet"/>
+
+<style>
+#tblData {
+	width: 80%;
+	white-space: nowrap;
+	position: center;
+}
+/* Column widths are based on these cells */
+.row-diagnosis {
+	width: 25%;
+}
+
+.row-followup {
+	width: 25%;
+}
+
+.row-plan {
+	width: 25%;
+}
+
+#tblData td {
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#tblData th {
+	background: darkblue;
+	color: white;
+}
+
+#tblData td, #tblData th {
+	text-align: center;
+	padding: 5px 10px;
+}
+
+#tblData  {
+	background: lightgrey;
+}
+
+#loader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 }
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+</style>
+
+<html>
+
+	<body onload="loadFunction()" style="margin: 0;">
 	
-</body>
+		<div id="loader"></div>
+	
+	
+	
+		<div style="display: none;" id="myDiv" class="animate-bottom">
+				
+			<h1>Possible Diagnosis List</h1>
+			<hr></hr>
+			<div class="container">
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+					<table class="table table-bordered table-hover" id="tblData"
+							align="center">
+							<thead>
+								<tr id="categories">
+									<th width="23"></th>
+									<th class="text-center">Diagnosis</th>
+									<th class="text-center">Status</th>
+									<th class="text-center">Plan of Care</th>
+	
+								</tr>
+							</thead>
+							<tbody>
+								<p th:each="diagnosis,iteration :${diagnosislist}">
+								<tr>
+									<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
+									<td th:text = "${diagnosis.getDiagnosisName()}"></td>
+									<td><select>
+											<option value="better">Better</option>
+											<option value="same">Same</option>
+											<option value="worse">Worse</option>
+	
+									</select></td>
+									<td><textarea rows="2" cols="50" name="plan"
+											class="form-control"> </textarea></td>
+	
+								</tr>
+								</p>			
+								
+							</tbody>
+						</table>
+						</div>
+						
+						</div>
+						</div>
+						
+			
+			</div>
+		
+		<script>
+			var myVar;
+		
+			function loadFunction() {
+				myVar = setTimeout(showPage, 3000);
+			}
+		
+			function showPage() {
+				document.getElementById("loader").style.display = "none";
+				document.getElementById("myDiv").style.display = "block";
+			}
+		
+			function deleteRow(btn) {
+				  var row = btn.parentNode.parentNode;
+				  row.parentNode.removeChild(row);
+				}
+		</script>
+	</body>
 </html>

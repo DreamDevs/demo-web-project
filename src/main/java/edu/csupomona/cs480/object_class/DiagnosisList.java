@@ -89,7 +89,7 @@ public class DiagnosisList {
 		//
 		
 		//Electrocardiogram Result
-		if( radiologyReport.isElectrocardiogram()){
+		if( !radiologyReport.isElectrocardiogram()){
 			
 			//checks for Arrhythmia and Type
 			check =  radiologyReport.getArrhythmia();
@@ -98,6 +98,8 @@ public class DiagnosisList {
 					addDiagnosis("Arrhythmia, Tachycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
 				}else if (check.equals("Bradycardia")){
 					addDiagnosis("Arrhythmia, Bradycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
+				}else if (check.equals("Normal")){
+					addDiagnosis("Arrhythmia", "Electrocardiogram Report",  radiologyReport.getElecDate());
 				}
 			}
 			
@@ -121,7 +123,7 @@ public class DiagnosisList {
 		}
 		
 		//Echocardiogram Result
-		if( radiologyReport.isEchocardiogram()){
+		if( !radiologyReport.isEchocardiogram()){
 			
 			//Checks for Cardiomegaly
 			value =  radiologyReport.isCardiomegaly();
@@ -160,7 +162,7 @@ public class DiagnosisList {
 		
 		
 		//Chest X-Ray
-		if( radiologyReport.isChestXRay()){
+		if( !radiologyReport.isChestXRay()){
 			
 			//Checks for all of the possible Diagnoses
 			
@@ -225,7 +227,7 @@ public class DiagnosisList {
 			}
 		}
 		//Extremity X-Ray
-		if( radiologyReport.isExtremityXray()){
+		if( !radiologyReport.isExtremityXray()){
 			
 			//Upper Extremity Report
 			
@@ -273,7 +275,7 @@ public class DiagnosisList {
 		//
 		
 		//Abdominal Ultrasound
-		if( radiologyReport.isAbdUS()){
+		if( !radiologyReport.isAbdUS()){
 
 			//checks for all diagnoses under Abdominal Ultrasound
 			
@@ -309,7 +311,7 @@ public class DiagnosisList {
 		}
 		
 		//Abdominal Aortic Doppler
-		if( radiologyReport.isAbdAD()){
+		if( !radiologyReport.isAbdAD()){
 			//checks for all under Abdominal Aortic Doppler
 			
 			//Checks for Aortic ASP
@@ -332,7 +334,7 @@ public class DiagnosisList {
 		}
 		
 		//Lower Extremity Doppler
-		if( radiologyReport.isLowerED()){
+		if( !radiologyReport.isLowerED()){
 			
 			//check for Monophasic Waves
 			value =  radiologyReport.isMonophasicWaves();

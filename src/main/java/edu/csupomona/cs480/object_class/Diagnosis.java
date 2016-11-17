@@ -9,7 +9,8 @@ public class Diagnosis {
 	Boolean diagnosisValue;
 	ArrayList <Date> testDates;
 	ArrayList <String> testNames;
-	
+	String comments;
+	Medicine medicine;
 	
 	public Diagnosis(String diagnosis){
 		
@@ -57,5 +58,16 @@ public class Diagnosis {
 	public Date getTestDate(int test){
 		return testDates.get(test);
 	}
-
+	public String getComments(){
+		return comments;
+	}
+	public void setComments(String string){
+		comments = string;
+	}
+	public void setMedicine(Medicine med){
+		medicine = med;
+	}
+	public Medicine getMedicine(){
+		return medicine;
+	}
 }
