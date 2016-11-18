@@ -231,7 +231,7 @@ public class DiagnosisList {
 			
 			//Upper Extremity Report
 			
-			if( radiologyReport.isUpperEx()){
+			if( !radiologyReport.isUpperEx()){
 				//Checks for which version of ASP of the Upper Extremity
 				check =  radiologyReport.getASPofUpper();
 				if(check!=null && !check.isEmpty()){
@@ -247,7 +247,7 @@ public class DiagnosisList {
 			}
 			
 			//Lower Extremity
-			if( radiologyReport.isLowerEx()){
+			if( !radiologyReport.isLowerEx()){
 				//Checks for which version of ASP of the Lower Extremity
 				check =  radiologyReport.getASPofLower();
 				if(check!=null && !check.isEmpty()){
@@ -263,10 +263,12 @@ public class DiagnosisList {
 			}
 			
 			//Other Extremity
-			check =  radiologyReport.getOtherExResult();
-			if(check!=null && !check.isEmpty()){
-				addDiagnosis(check, "Extremity X-Ray: Other",  radiologyReport.getOtherExDate());
+			if( !radiologyReport.isOtherEx()){
+				check =  radiologyReport.getOtherExResult();
+				if(check!=null && !check.isEmpty()){
+					addDiagnosis(check, "Extremity X-Ray: Other",  radiologyReport.getOtherExDate());
 
+				}
 			}
 		}
 		
