@@ -100,7 +100,7 @@ rel="stylesheet"/>
 		<div id="loader"></div>
 	
 	
-	
+		<form action="#" th:action="@{/mainPage}" th:object="${patient}" method="post" id ="ConfirmingSubmit">
 		<div style="display: none;" id="myDiv" class="animate-bottom">
 				
 			<h1>Possible Diagnosis from Reports</h1>
@@ -166,12 +166,12 @@ rel="stylesheet"/>
 							
 							<tbody>
 															
-								<p th:each="medicine :${medicinelist}">
+								<p th:each="medicine :${medicinelist}" th:if="${medicine != null}">
 								<tr>
 									<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
 									<td th:text = "${medicine.getBothNames()}"></td>
 									<td th:each="item:${medicine.getPurpose()}">
-                                    <input type="checkbox" th:text="*{item}" value="*(item)" th:field="*{specialistReport.AboveKneeAmputation}"/> Left 
+                                    <input type="checkbox" th:text="*{item}" value="*(item)"/> 
 									</td>
 								</tr>
 								</p>
@@ -184,7 +184,9 @@ rel="stylesheet"/>
 				</div>	
 			</div>
 		</div>
-						
+		
+		<input type="submit" value="Submit" id = "ConfirmSubmitButton"/>
+		</form>				
 		<script>
 			var myVar;
 		
