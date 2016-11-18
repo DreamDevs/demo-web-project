@@ -3,9 +3,12 @@ package edu.csupomona.cs480.object_class;
 import java.util.Date;
 import java.util.Hashtable;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class SpecialistReport {
 
 		//Cardiologist Report
+		@DateTimeFormat (pattern="yyyy-MM-dd")
 		private Date CardiologistDate;
 		private boolean Hyperlipidemia = false;
 		private boolean Cardiomyopathy = false;
@@ -20,6 +23,7 @@ public class SpecialistReport {
 		private String CardiologistOther =  "";
 		
 		//Ophthalmologist Report
+		@DateTimeFormat (pattern="yyyy-MM-dd")
 		private Date OphthalmologistDate;
 		private String Glaucoma = "";
 		private String Proliferative = "";
@@ -28,6 +32,7 @@ public class SpecialistReport {
 		private String OphthalmologistOther = "";
 		
 		//Pulmonologist Report
+		@DateTimeFormat (pattern="yyyy-MM-dd")
 		private Date PulmonologistDate;
 		private boolean CompulsiveObstructivePulmonaryDisease = false;
 		private boolean AsthmaBronchitis = false;
@@ -36,6 +41,7 @@ public class SpecialistReport {
 		private String PulmonologistOther = "";
 		
 		//Neurologist Report
+		@DateTimeFormat (pattern="yyyy-MM-dd")
 		private Date NeurologistDate;
 		private boolean ParkinsonsDisease = false;
 		private boolean SeizureDisorder = false;
@@ -47,6 +53,7 @@ public class SpecialistReport {
 		private String NeurologistOther = "";
 		
 		// Psychiatrist/Psychologist Report
+		@DateTimeFormat (pattern="yyyy-MM-dd")
 		private Date PsychiatristPsychologistDate;
 		private boolean MajorDepression = false;
 		private boolean AnxietyDisorder = false;
@@ -56,6 +63,7 @@ public class SpecialistReport {
 		private String PsychiatristPsychologistOther = "";
 		
 		//RheumatologistReport
+		@DateTimeFormat (pattern="yyyy-MM-dd")
 		private Date RheumatologistDate;
 		private boolean RheumatoidArthritis = false;
 		private boolean SystemicLupus = false;
@@ -63,6 +71,7 @@ public class SpecialistReport {
 		private String RheumatologistOther = "";
 		
 		//Podiatrist Report
+		@DateTimeFormat (pattern="yyyy-MM-dd")
 		private Date PodiatristDate;
 		private String BelowKneeAmputation = "";
 		private String AboveKneeAmputation = "";

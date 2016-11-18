@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Radiology {
 
 //Cardiac Work-Ups
@@ -18,6 +20,7 @@ public class Radiology {
 	
 	//Electrocardiogram
 	boolean Electrocardiogram = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd") 
 	Date ElecDate; 		//Manage with Calendar in js
 	String Arrhythmia; 		//Normal, Tachycardia, or Bradycardia
 	boolean AFP; 			//Atrial Fibrillation Present
@@ -26,6 +29,7 @@ public class Radiology {
 	
 	//Echocardiogram
 	boolean Echocardiogram = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd") 
 	Date EchoDate;
 	boolean Cardiomegaly;
 	boolean Cardiomyopathy;
@@ -37,6 +41,7 @@ public class Radiology {
 	
 	//Chest X-ray
 	boolean ChestXRay = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd")
 	Date ChestDate;
 	boolean AorticASP = false;
 	boolean AorticAneurysm = false;
@@ -52,14 +57,17 @@ public class Radiology {
 	//Extremity X-ray
 	boolean ExtremityXray = true;
 	boolean UpperEx = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd")
 	Date UpperDate;
 	String ASPofUpper; //Left, Right, or Both
 	
 	boolean LowerEx = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd")
 	Date LowerDate;
 	String ASPofLower; //Left, Right, or Both
 	
 	boolean OtherEx = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd")
 	Date OtherExDate;
 	String OtherExResult;
 	
@@ -67,6 +75,7 @@ public class Radiology {
 	
 	//Abdominal UltraSound
 	boolean AbdUS = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd")
 	Date AbdUSDate;
 	boolean AorticASP2;
 	boolean AorticAneurysm2;
@@ -76,6 +85,7 @@ public class Radiology {
 	
 	//Abdominal Aortic Doppler
 	boolean AbdAD = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd")
 	Date abdADDate;
 	boolean AorticASP3;
 	boolean AorticAneurysm3;
@@ -83,6 +93,7 @@ public class Radiology {
 	
 	//Lower Extremity Doppler
 	boolean LowerED = true;
+	@DateTimeFormat (pattern="yyyy-MM-dd")
 	Date LowerEDDate;
 	boolean MonophasicWaves;
 	String LowerEDASPofLower; //Left, Right, or Both

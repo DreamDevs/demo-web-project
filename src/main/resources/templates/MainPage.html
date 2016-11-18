@@ -100,7 +100,7 @@
                                     <ul>
                                         <p>
                                             <li>DATE: 
-                                                <input type="Date" name="ELECTROCARDIOGRAMDate" th:field="*{radiologyReport.ElecDate}" value="" id="ElectrocardiogramDate" /><br></br>
+                                                <input type="date" name="ELECTROCARDIOGRAMDate" th:field="*{radiologyReport.ElecDate}" id="ElectrocardiogramDate" /><br></br>
                                             </li>
                                         </p>
                                         <p>
@@ -133,7 +133,7 @@
                                     <ul>
                                         <p>
                                         <li>DATE: 
-                                            <input type="Date" th:field="*{radiologyReport.EchoDate}" /><br></br>
+                                            <input type="date" th:field="*{radiologyReport.EchoDate}" /><br></br>
                                         </li>
                                         </p>
                                         <p>
@@ -172,7 +172,7 @@
                                     <ul>
                                         <p>
                                         <li>DATE: 
-                                            <input type="Date" th:field="*{radiologyReport.ChestDate}" name="XRAYSDate" value=""/><br></br></li>
+                                            <input type="date" th:field="*{radiologyReport.ChestDate}" name="XRAYSDate" value=""/><br></br></li>
                                         </p>
                                         <p>
                                         <li>Possible Diagnosis that can be found:
@@ -227,7 +227,7 @@
                                             <p>
                                             <ul>
                                                 <li>DATE: 
-                                                    <input type="Date" th:field="*{radiologyReport.UpperDate}" name="UPPEREXTREMITYDate" value=""/><br></br></li>
+                                                    <input type="date" th:field="*{radiologyReport.UpperDate}" name="UPPEREXTREMITYDate" value=""/><br></br></li>
                                                 <li>A.S.P of upper extremity:
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}" name="ASPUpperEX" value="Left"/> Left 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}" name="ASPUpperEX" value="Right"/> Right 
@@ -244,7 +244,7 @@
                                         <div id="DIV5" style="display: none;">
                                             <p>
                                             <ul>
-                                                <li>DATE: <input type="Date" th:field="*{radiologyReport.LowerDate}" name="LOWEREXTREMITYDate" value=""/><br></br></li>
+                                                <li>DATE: <input type="date" th:field="*{radiologyReport.LowerDate}" name="LOWEREXTREMITYDate" value=""/><br></br></li>
                                                 <li>A.S.P of lower extremity:
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="Left"/> Left 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="Right"/> Right 
@@ -261,7 +261,7 @@
                                     	<div id="DIV6" style="display: none;">
                                     		<ul>
                                         	<li>DATE: 
-                                            	<input type="Date" th:field="*{radiologyReport.OtherExDate}" name="OTHEREXTREMITYDate" value=""/><br></br></li>
+                                            	<input type="date" th:field="*{radiologyReport.OtherExDate}" name="OTHEREXTREMITYDate" value=""/><br></br></li>
                                         	<li>Other: 
                                             	<input type="text" size="60" th:field="*{radiologyReport.OtherExResult}" name="comments" value=""/><br></br></li>
                                     		</ul>
@@ -286,7 +286,7 @@
                                     <ul>
                                         <p>
                                         <li>DATE: 
-                                            <input type="Date" th:field="*{radiologyReport.AbdUSDate}" name="ABDOMINALULTRASOUNDDate" value=""/><br></br></li>
+                                            <input type="date" th:field="*{radiologyReport.AbdUSDate}" name="ABDOMINALULTRASOUNDDate" value=""/><br></br></li>
                                         </p>
                                         <p>
                                         <li>Possible Diagnosis that can be found:
@@ -324,7 +324,7 @@
                                     <ul>
                                         <p>
                                         <li>DATE: 
-                                            <input type="Date" th:field="*{radiologyReport.AbdADDate}" name="ABDOMINALAORTICDOPPLERDate" value=""/><br></br></li>
+                                            <input type="date" th:field="*{radiologyReport.AbdADDate}" name="ABDOMINALAORTICDOPPLERDate" value=""/><br></br></li>
                                         </p>
                                         <p>
                                         <li>Possible Diagnosis that can be found:
@@ -355,7 +355,7 @@
                                     <ul>
                                         <p>
                                         <li>DATE: 
-                                            <input type="Date" th:field="*{radiologyReport.LowerEDDate}" name="LOWEREXTREMITYDOPPLERDate" value=""/><br></br></li>
+                                            <input type="date" th:field="*{radiologyReport.LowerEDDate}" name="LOWEREXTREMITYDOPPLERDate" value=""/><br></br></li>
                                         </p>
                                         
                                         <li>Monophasic Waves: 
@@ -395,7 +395,7 @@
                             <ul>
                                 <p>
                                     <li>DATE: 
-                                        <input type="Date" th:field="*{specialistReport.CardiologistDate}"/><br></br></li>
+                                        <input type="date" th:field="*{specialistReport.CardiologistDate}"/><br></br></li>
                                 </p>
                                 <p>
                                     <li>Possible Diagnosis that can be found:
@@ -451,7 +451,7 @@
                             <ul>
                                 <p>
                                 <li>DATE: 
-                                    <input type="Date" th:field="*{specialistReport.OphthalmologistDate}"/><br></br></li>
+                                    <input type="date" th:field="*{specialistReport.OphthalmologistDate}"/><br></br></li>
                                 </p>
                                 <p>
                                 <li>Possible Diagnosis that can be found:
@@ -501,7 +501,7 @@
                             <ul>
                                 <p>
                                 <li>DATE: 
-                                    <input type="Date" th:field="*{specialistReport.PulmonologistDate}"/><br></br></li>
+                                    <input type="date" th:field="*{specialistReport.PulmonologistDate}"/><br></br></li>
                                 </p>
                                 <p>
                                 <li>Possible Diagnosis that can be found:
@@ -540,7 +540,7 @@
                             <ul>
                                 <p>
                                 <li>DATE: 
-                                    <input type="Date" th:field="*{specialistReport.NeurologistDate}"/><br></br></li>
+                                    <input type="date" th:field="*{specialistReport.NeurologistDate}"/><br></br></li>
                                 </p>
                                 <p>
                                 <li>Possible Diagnosis that can be found:
@@ -587,7 +587,7 @@
                             <ul>
                                 <p>
                                 <li>DATE: 
-                                    <input type="Date" th:field="*{specialistReport.PsychiatristPsychologistDate}"/><br></br></li>
+                                    <input type="date" th:field="*{specialistReport.PsychiatristPsychologistDate}"/><br></br></li>
                                 </p>
                                 <p>
                                 <li>Possible Diagnosis that can be found:
@@ -628,7 +628,7 @@
                             <ul>
                                 <p>
                                 <li>DATE: 
-                                    <input type="Date" th:field="*{specialistReport.RheumatologistDate}"/><br></br></li>
+                                    <input type="date" th:field="*{specialistReport.RheumatologistDate}"/><br></br></li>
                                 </p>
                                 <p>
                                 <li>Possible Diagnosis that can be found:
@@ -663,7 +663,7 @@
                             <ul>
                                 <p>
                                 <li>DATE: 
-                                    <input type="Date" th:field="*{specialistReport.PodiatristDate}"/><br></br></li>
+                                    <input type="date" th:field="*{specialistReport.PodiatristDate}"/><br></br></li>
                                 </p>
                                 <p>
                                 <li>Possible Diagnosis that can be found:

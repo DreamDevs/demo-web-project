@@ -99,94 +99,94 @@ rel="stylesheet"/>
 	
 		<div id="loader"></div>
 	
-	
-		<form action="#" th:action="@{/mainPage}" th:object="${patient}" method="post" id ="ConfirmingSubmit">
 		<div style="display: none;" id="myDiv" class="animate-bottom">
 				
-			<h1>Possible Diagnosis from Reports</h1>
-			<hr></hr>
-			<div class="container">
-				<div class="row clearfix">
-					<div class="col-md-12 column">
-					<table class="table table-bordered table-hover" id="tblData"
-							align="center">
-							<thead>
-								<tr id="categories">
-									<th width="23"></th>
-									<th class="text-center">Diagnosis</th>
-									<th class="text-center">Status</th>
-									<th class="text-center">Plan of Care</th>
-	
-								</tr>
-							</thead>
-							<tbody>
-								<p th:each="diagnosis:${diagnosislist}">
-								<tr>
-									<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
-									<td th:text = "${diagnosis.getDiagnosisName()}"></td>
-									<td><select>
-											<option value="better">Better</option>
-											<option value="same">Same</option>
-											<option value="worse">Worse</option>
-	
-									</select></td>
-									<td><textarea rows="2" cols="50" name="plan"
-											class="form-control"> </textarea></td>
-	
-								</tr>
-								</p>			
+			<form action="#" th:action="@{/ConfirmPage}" th:object="${myPatient}" method="post" id ="ConfirmingSubmit">
+				<h1>Possible Diagnosis from Reports</h1>
+				<hr></hr>
+				<div class="container">
+					<div class="row clearfix">
+						<div class="col-md-12 column">
+						<table class="table table-bordered table-hover" id="tblData"
+								align="center">
+								<thead>
+									<tr id="categories">
+										<th width="23"></th>
+										<th class="text-center">Diagnosis</th>
+										<th class="text-center">Status</th>
+										<th class="text-center">Plan of Care</th>
+		
+									</tr>
+								</thead>
+								<tbody>
+									<p th:each="diagnosis:*{getDiagnosisList().getDiagnoses()}">
+									<tr>
+										<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
+										<td th:text = "${diagnosis.getDiagnosisName()}"></td>
+										<td><select>
+												<option value="better">Better</option>
+												<option value="same">Same</option>
+												<option value="worse">Worse</option>
+		
+										</select></td>
+										<td><textarea rows="2" cols="50" name="plan"
+												class="form-control"> </textarea></td>
+		
+									</tr>
+									</p>			
 
-							</tbody>
-						</table>
-						
-						
+								</tbody>
+							</table>
+							
+							
+						</div>	
+					</div>
+				</div>
+													
+				<h1>Possible Diagnosis from Medicine</h1>
+				<hr></hr>
+				<div class="container">
+					<div class="row clearfix">
+						<div class="col-md-12 column">
+							<table class="table table-bordered table-hover" id="tblData"
+									align="center">								
+								<thead>
+									<tr id="categories">
+										<th width="23"></th>
+										<th class="text-center">Medicine</th>
+										<th class="text-center">Diagnosis 1</th>
+										<th class="text-center">Diagnosis 2</th>	
+										<th class="text-center">Diagnosis 3</th>	
+										<th class="text-center">Diagnosis 4</th>	
+										<th class="text-center">Diagnosis 5</th>	
+										<th class="text-center">Diagnosis 6</th>											
+									</tr>
+								</thead>
+								
+								<tbody>
+																
+									<p th:each="medicine :*{medicines}" th:if="${medicine != null}">
+									<tr>
+										<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
+										<td th:text = "${medicine.getBothNames()}"></td>
+										<td th:each="item : ${medicine.getPurpose()}">
+	                                    <input type="checkbox" th:text="${item}" value="$(item)"/> 
+										</td>
+									</tr>
+									</p>
+									
+								</tbody>
+							</table>
+							
+							
+						</div>	
 					</div>	
 				</div>
-			</div>
-												
-			<h1>Possible Diagnosis from Medicine</h1>
-			<hr></hr>
-			<div class="container">
-				<div class="row clearfix">
-					<div class="col-md-12 column">
-						<table class="table table-bordered table-hover" id="tblData"
-								align="center">								
-							<thead>
-								<tr id="categories">
-									<th width="23"></th>
-									<th class="text-center">Medicine</th>
-									<th class="text-center">Diagnosis 1</th>
-									<th class="text-center">Diagnosis 2</th>	
-									<th class="text-center">Diagnosis 3</th>	
-									<th class="text-center">Diagnosis 4</th>	
-									<th class="text-center">Diagnosis 5</th>	
-									<th class="text-center">Diagnosis 6</th>											
-								</tr>
-							</thead>
-							
-							<tbody>
-															
-								<p th:each="medicine :${medicinelist}" th:if="${medicine != null}">
-								<tr>
-									<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
-									<td th:text = "${medicine.getBothNames()}"></td>
-									<td th:each="item:${medicine.getPurpose()}">
-                                    <input type="checkbox" th:text="*{item}" value="*(item)"/> 
-									</td>
-								</tr>
-								</p>
-								
-							</tbody>
-						</table>
-						
-						
-					</div>	
-				</div>	
-			</div>
+				<input type="submit" value="Submit" id = "ConfirmSubmitButton"/>
+			</form>	
 		</div>
 		
-		<input type="submit" value="Submit" id = "ConfirmSubmitButton"/>
-		</form>				
+					
 		<script>
 			var myVar;
 		

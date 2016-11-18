@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.csupomona.cs480.data.provider.MedManager;
 import edu.csupomona.cs480.object_class.LabReport;
@@ -31,34 +33,50 @@ public class LabReportController {
 	@Autowired
 	private MedManager medManager;
 	private Person patient = new Person();
+	private ModelAndView modelAndView = new ModelAndView();
 	
 
 	@RequestMapping(value="/mainPage", method = RequestMethod.GET)
 	public String MainForm(Model model) {
 	 model.addAttribute("patient", new Person());
-     model.addAttribute("labreport", new LabReport());
-     model.addAttribute("radiology", new Radiology());
-     model.addAttribute("specialistreport", new SpecialistReport());
      return "MainPage";
 	}
 	
 	@RequestMapping(value="/mainPage", method = RequestMethod.POST)
-    public String MainSubmit(Model model, @ModelAttribute Person person, @ModelAttribute LabReport labreport,
-    		@ModelAttribute Radiology radiology, @ModelAttribute SpecialistReport specialistreport) {
+    public String MainSubmit(Model model, @ModelAttribute Person person) {
+		
+		
+		//Delaying the loading page so that AJAX can process the Medicine List
+		try{
+			Thread.sleep(500);
+		}catch (InterruptedException e){
+			Thread.currentThread().interrupt();
+		}
+		
 		
 		System.out.println("Meds: " + patient.getMedicineString());
 		String tempMeds = patient.getMedicineString();
 		patient = person;
+		System.out.println(patient.getRadiologyReport().getElecDate());
+		System.out.println(patient.getSpecialistReport().getCardiologistDate());
 		patient.setMedicineString(tempMeds);
 		patient.processMedicine();
-		System.out.println(person.getRadiologyReport().getElecDate());
+		System.out.println(person.getLabReport().getHGBA1C());
 		
 		patient.createDiagnosisList();
 		model.addAttribute("diagnosislist", patient.getDiagnosisList().getDiagnoses());
 		model.addAttribute("medicinelist", patient.getMedicines());
-
-       return "output";
+		return "redirect:ConfirmPage";
 	}
+	
+	
+	@RequestMapping(value="/ConfirmPage", method = RequestMethod.GET)
+    public String ConfirmForm(Model model) {
+		System.out.println("My Meds:" + patient.getMedicineString());
+        model.addAttribute("myPatient", patient);
+        System.out.println(patient.getMedicineString());
+        return "output";
+    }
 	
 	
 	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
@@ -113,8 +131,7 @@ public class LabReportController {
 	      
 	       try{
 	    	   patient.setMedicineString(medString.getMedicineList());
-	    	   patient.processMedicine();
-	    	   
+	    	   //patient.processMedicine();	    	   
 	       }catch(Exception e){
 	    	   e.printStackTrace();
 	       }

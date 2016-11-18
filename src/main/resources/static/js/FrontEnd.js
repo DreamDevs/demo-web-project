@@ -81,9 +81,7 @@ $(function() {
              alert(myString);
            }
         });
-        
-        //Delay remaining form to obtain medicine list first
-        $("#MAINSubmit").submit();
+
         
         //alert($("#ElectrocardiogramDate").val());
 
