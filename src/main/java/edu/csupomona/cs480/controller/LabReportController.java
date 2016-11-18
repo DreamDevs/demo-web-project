@@ -54,7 +54,8 @@ public class LabReportController {
 		System.out.println(person.getRadiologyReport().getElecDate());
 		
 		patient.createDiagnosisList();
-		model.addAttribute("diagnosislist", patient.getDiagnosisList().getDiagnoses());		
+		model.addAttribute("diagnosislist", patient.getDiagnosisList().getDiagnoses());
+		model.addAttribute("medicinelist", patient.getMedicines());
 
        return "output";
 	}

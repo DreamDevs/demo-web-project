@@ -103,7 +103,7 @@ rel="stylesheet"/>
 	
 		<div style="display: none;" id="myDiv" class="animate-bottom">
 				
-			<h1>Possible Diagnosis List</h1>
+			<h1>Possible Diagnosis from Reports</h1>
 			<hr></hr>
 			<div class="container">
 				<div class="row clearfix">
@@ -120,7 +120,7 @@ rel="stylesheet"/>
 								</tr>
 							</thead>
 							<tbody>
-								<p th:each="diagnosis,iteration :${diagnosislist}">
+								<p th:each="diagnosis:${diagnosislist}">
 								<tr>
 									<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
 									<td th:text = "${diagnosis.getDiagnosisName()}"></td>
@@ -135,17 +135,56 @@ rel="stylesheet"/>
 	
 								</tr>
 								</p>			
+
+							</tbody>
+						</table>
+						
+						
+					</div>	
+				</div>
+			</div>
+												
+			<h1>Possible Diagnosis from Medicine</h1>
+			<hr></hr>
+			<div class="container">
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<table class="table table-bordered table-hover" id="tblData"
+								align="center">								
+							<thead>
+								<tr id="categories">
+									<th width="23"></th>
+									<th class="text-center">Medicine</th>
+									<th class="text-center">Diagnosis 1</th>
+									<th class="text-center">Diagnosis 2</th>	
+									<th class="text-center">Diagnosis 3</th>	
+									<th class="text-center">Diagnosis 4</th>	
+									<th class="text-center">Diagnosis 5</th>	
+									<th class="text-center">Diagnosis 6</th>											
+								</tr>
+							</thead>
+							
+							<tbody>
+															
+								<p th:each="medicine :${medicinelist}">
+								<tr>
+									<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
+									<td th:text = "${medicine.getBothNames()}"></td>
+									<td th:each="item:${medicine.getPurpose()}">
+                                    <input type="checkbox" th:text="*{item}" value="*(item)" th:field="*{specialistReport.AboveKneeAmputation}"/> Left 
+									</td>
+								</tr>
+								</p>
 								
 							</tbody>
 						</table>
-						</div>
 						
-						</div>
-						</div>
 						
-			
+					</div>	
+				</div>	
 			</div>
-		
+		</div>
+						
 		<script>
 			var myVar;
 		

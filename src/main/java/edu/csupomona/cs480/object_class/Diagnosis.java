@@ -11,6 +11,7 @@ public class Diagnosis {
 	ArrayList <String> testNames;
 	String comments;
 	Medicine medicine;
+	ArrayList<String> medicineDiagnoses;
 	
 	public Diagnosis(String diagnosis){
 		
