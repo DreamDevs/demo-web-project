@@ -171,7 +171,7 @@ rel="stylesheet"/>
 									<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
 									<td th:text = "${medicine.getBothNames()}"></td>
 									<td th:each="item:${medicine.getPurpose()}">
-                                    <input type="checkbox" th:text="*{item}" value="*(item)" th:field="*{specialistReport.AboveKneeAmputation}"/> Left 
+                                    <input type="checkbox" th:text="*{item}" value="*(item)" th:field=""/>
 									</td>
 								</tr>
 								</p>
