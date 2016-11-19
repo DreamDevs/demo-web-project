@@ -5,12 +5,38 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Result Lab Report</h1>
-    <!-- <p th:text="'HGBA1C: ' + ${labreport.HGBA1C}" /> -->
-    <p th:text="'Arrhythmia: ' + ${person.radiologyReport.Arrhythmia}" />
-    
-    <p>HELLO</p>
+	<h1>Results</h1>
+    <div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<table class="table table-bordered table-hover" id="tblData" align="center" th:object="${myPatient}">
+					<thead>
+						<tr id="categories">
+							<th width="23"></th>
+							<th class="text-center">Diagnosis</th>
+							<th class="text-center">Status</th>
+							<th class="text-center">Plan of Care</th>
+		
+						</tr>
+					</thead>
+					<tbody>
+						<p th:each="diagnosis:*{FinalizedDiagnoses}" th:if="${diagnosis != null}">
+						<tr>
+							<td th:text = "${diagnosis}"></td>
+							<td><select>
+								<option value="better">Better</option>
+								<option value="same">Same</option>
+								<option value="worse">Worse</option>
+								</select></td>
+							<td><textarea rows="2" cols="50" name="plan" class="form-control"> </textarea></td>
+						</tr>
+						</p>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+	</div>
    
-    <a href="/mainPage">Submit another message</a>
+    <a href="/mainPage">Submit another Report</a>
 </body>
 </html>

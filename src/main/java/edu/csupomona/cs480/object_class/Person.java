@@ -23,6 +23,8 @@ public class Person {
 	ArrayList<Diagnosis> diagnoses;
 	private String medicineString = " ";
 	
+	private List<String> FinalizedDiagnoses = new ArrayList<String>();
+	
 	@Autowired
 	private MedManager medManager = new FSMedManager();
 	
@@ -37,9 +39,6 @@ public class Person {
 		this.specialistReport = person.getSpecialistReport();
 		this.diagnosisList = person.getDiagnosisList();
 		this.diagnoses = person.getDiagnoses();
-		
-		//Need to ignore Medicine
-		//this.medicineString = person.medicineString;
 	}
 	
 	public void setPerson(Person person){
@@ -146,5 +145,13 @@ public class Person {
 	//gets the password
 	public String getPassword(){
 		return password;
+	}
+
+	public List<String> getFinalizedDiagnoses() {
+		return FinalizedDiagnoses;
+	}
+
+	public void setFinalizedDiagnoses(List<String> finalizedDiagnoses) {
+		FinalizedDiagnoses = finalizedDiagnoses;
 	}
 }

@@ -75,9 +75,20 @@ public class LabReportController {
 		System.out.println("My Meds:" + patient.getMedicineString());
         model.addAttribute("myPatient", patient);
         System.out.println(patient.getMedicineString());
-        return "output";
+        return "ConfirmPage";
     }
 	
+	@RequestMapping(value="/ConfirmPage", method = RequestMethod.POST)
+    public String FinalizedForm(Model model, @ModelAttribute Person person) {
+		
+		patient.setFinalizedDiagnoses(person.getFinalizedDiagnoses());
+		for (int i = 0; i < patient.getFinalizedDiagnoses().size();  i++){
+			System.out.println(patient.getFinalizedDiagnoses().get(i));
+		}
+		model.addAttribute("myPatient", patient);
+		
+        return "MainResult";
+    }
 	
 	@RequestMapping(value="/rabreport", method = RequestMethod.GET)
     public String indexForm(Model model) {

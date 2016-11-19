@@ -119,7 +119,7 @@ rel="stylesheet"/>
 									</tr>
 								</thead>
 								<tbody>
-									<p th:each="diagnosis:*{getDiagnosisList().getDiagnoses()}">
+									<p th:each="diagnosis:*{getDiagnosisList().getDiagnoses()}" th:if="${diagnosis != null}">
 									<tr>
 										<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
 										<td th:text = "${diagnosis.getDiagnosisName()}"></td>
@@ -169,8 +169,8 @@ rel="stylesheet"/>
 									<tr>
 										<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
 										<td th:text = "${medicine.getBothNames()}"></td>
-										<td th:each="item : ${medicine.getPurpose()}">
-	                                    <input type="checkbox" th:text="${item}" value="$(item)"/> 
+										<td th:each="item, num : ${medicine.getPurpose()}">
+	                                    <input type="checkbox" th:text="${item}" th:value="${item}" th:field = "*{FinalizedDiagnoses}"/> 
 										</td>
 									</tr>
 									</p>
