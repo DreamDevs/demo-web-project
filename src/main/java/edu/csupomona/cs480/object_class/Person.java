@@ -22,7 +22,6 @@ public class Person {
 	DiagnosisList diagnosisList;
 	ArrayList<Diagnosis> diagnoses;
 	private String medicineString = " ";
-	
 	private List<String> FinalizedDiagnoses = new ArrayList<String>();
 	
 	@Autowired
@@ -81,6 +80,10 @@ public class Person {
 		}
 	}
 	
+	public void updatePerson(){
+		diagnosisList.updateDiagnosisList(FinalizedDiagnoses);
+	}
+	
 	//set the Lab Report
 	public void setLabReport(LabReport lab){
 		labReport = lab;
@@ -137,6 +140,10 @@ public class Person {
 		return diagnoses;
 	}
 	
+	public void setDiagnoses(ArrayList<Diagnosis> diag){
+		diagnoses = diag;
+	}
+	
 	//gets the user id
 	public int getUserID(){
 		return userID;
@@ -154,4 +161,5 @@ public class Person {
 	public void setFinalizedDiagnoses(List<String> finalizedDiagnoses) {
 		FinalizedDiagnoses = finalizedDiagnoses;
 	}
+
 }

@@ -765,10 +765,29 @@ public class DiagnosisList {
 		diagnoses.get(num).setTestDate(reportDate);
 	}
 	
+
+	public void updateDiagnosisList(List<String> FinalizedDiagnoses){
+		for(int i =0; i<diagnoses.size(); i++){
+			String name = diagnoses.get(i).getDiagnosisName();
+			for(int j=0; j<FinalizedDiagnoses.size(); j++){
+				if(name.equals(FinalizedDiagnoses.get(j))){
+					
+				}
+			}
+		}
+		
+		
+		
+	}
+	
 	
 	//returns list of Diagnoses
 	public ArrayList<Diagnosis> getDiagnoses(){
 		return diagnoses;
+	}
+	
+	public Diagnosis getDiagnosis(int i){
+		return diagnoses.get(i);
 	}
 
 }

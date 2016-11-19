@@ -81,10 +81,20 @@ public class LabReportController {
 	@RequestMapping(value="/ConfirmPage", method = RequestMethod.POST)
     public String FinalizedForm(Model model, @ModelAttribute Person person) {
 		
+		//setting all the new values from ConfirmPage
+		patient = person;
 		patient.setFinalizedDiagnoses(person.getFinalizedDiagnoses());
-		for (int i = 0; i < patient.getFinalizedDiagnoses().size();  i++){
-			System.out.println(patient.getFinalizedDiagnoses().get(i));
+		
+		//testing to see if stuff worked
+		if(!patient.getFinalizedDiagnoses().isEmpty()){
+			for (int i = 0; i < patient.getFinalizedDiagnoses().size();  i++){
+				System.out.println(patient.getFinalizedDiagnoses().get(i));
+			}
 		}
+		System.out.println(patient.getDiagnoses().get(0).getDiagnosisName());
+		System.out.println(patient.getDiagnoses().get(0).getStatus());
+		System.out.println(patient.getDiagnoses().get(0).getComments());
+		//patient.updatePerson();
 		model.addAttribute("myPatient", patient);
 		
         return "MainResult";

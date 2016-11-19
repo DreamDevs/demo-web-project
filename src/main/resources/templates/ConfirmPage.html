@@ -119,18 +119,18 @@ rel="stylesheet"/>
 									</tr>
 								</thead>
 								<tbody>
-									<p th:each="diagnosis:*{getDiagnosisList().getDiagnoses()}" th:if="${diagnosis != null}">
+									<p th:each="item, stat:*{diagnoses}" th:if="${item != null}">
 									<tr>
 										<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
-										<td th:text = "${diagnosis.getDiagnosisName()}"></td>
-										<td><select>
+										<td> <input type = "text" th:field = "*{diagnoses[__${stat.index}__].DiagnosisName}" /></td>
+										<td><select th:field = "*{diagnoses[__${stat.index}__].Status}" >
 												<option value="better">Better</option>
 												<option value="same">Same</option>
 												<option value="worse">Worse</option>
 		
 										</select></td>
 										<td><textarea rows="2" cols="50" name="plan"
-												class="form-control"> </textarea></td>
+												class="form-control" th:field = "*{diagnoses[__${stat.index}__].Comments}" > </textarea></td>
 		
 									</tr>
 									</p>			

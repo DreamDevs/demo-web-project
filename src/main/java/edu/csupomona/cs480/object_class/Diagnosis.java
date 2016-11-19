@@ -9,9 +9,14 @@ public class Diagnosis {
 	Boolean diagnosisValue;
 	ArrayList <Date> testDates;
 	ArrayList <String> testNames;
-	String comments;
+	String Comments;
 	Medicine medicine;
 	ArrayList<String> medicineDiagnoses;
+	String Status;
+	
+	public Diagnosis(){
+		
+	}
 	
 	public Diagnosis(String diagnosis){
 		
@@ -44,6 +49,10 @@ public class Diagnosis {
 		testDates.add(date);
 	}
 	
+	public void setDiagnosisName(String name){
+		diagnosisName = name;
+	}
+	
 	public String getDiagnosisName(){
 		return diagnosisName;
 	}
@@ -60,15 +69,22 @@ public class Diagnosis {
 		return testDates.get(test);
 	}
 	public String getComments(){
-		return comments;
+		return Comments;
 	}
 	public void setComments(String string){
-		comments = string;
+		Comments = string;
 	}
 	public void setMedicine(Medicine med){
 		medicine = med;
 	}
 	public Medicine getMedicine(){
 		return medicine;
+	}
+	
+	public void setStatus(String status){
+		Status = status;
+	}
+	public String getStatus(){
+		return Status;
 	}
 }
