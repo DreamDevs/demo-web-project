@@ -7,9 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import edu.csupomona.cs480.data.provider.FSMedManager;
-import edu.csupomona.cs480.data.provider.FSUserManager;
 import edu.csupomona.cs480.data.provider.MedManager;
-import edu.csupomona.cs480.data.provider.UserManager;
 
 @Configuration
 @EnableAutoConfiguration
@@ -22,11 +20,6 @@ public class App {
      * will be used in this project, where the Autowired
      * annotation is applied.
      */
-    @Bean
-    public UserManager userManager() {
-        UserManager userManager = new FSUserManager();
-        return userManager;
-    }
     
     @Bean
     public MedManager medManager() {
