@@ -91,9 +91,9 @@ public class LabReportController {
 				System.out.println(patient.getFinalizedDiagnoses().get(i));
 			}
 		}
-		System.out.println(patient.getDiagnoses().get(0).getDiagnosisName());
-		System.out.println(patient.getDiagnoses().get(0).getStatus());
-		System.out.println(patient.getDiagnoses().get(0).getComments());
+//		System.out.println(patient.getDiagnoses().get(0).getDiagnosisName());
+//		System.out.println(patient.getDiagnoses().get(0).getStatus());
+//		System.out.println(patient.getDiagnoses().get(0).getComments());
 		//patient.updatePerson();
 		model.addAttribute("myPatient", patient);
 		

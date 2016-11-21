@@ -1,3 +1,8 @@
+<script th:src="@{//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js}"></script>
+<script th:src="@{//code.jquery.com/jquery-1.12.4.js}"></script>
+<script th:src="@{//code.jquery.com/ui/1.12.1/jquery-ui.js}"></script>
+<script type="text/javascript" src="../js/Confirm.js"></script>
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
 rel="stylesheet"/>
 
@@ -166,11 +171,11 @@ rel="stylesheet"/>
 								<tbody>
 																
 									<p th:each="medicine :*{medicines}" th:if="${medicine != null}">
-									<tr>
+									<tr th:id = "${medicine.getGenericName()}">
 										<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
 										<td th:text = "${medicine.getBothNames()}"></td>
 										<td th:each="item, num : ${medicine.getPurpose()}">
-	                                    <input type="checkbox" th:text="${item}" th:value="${item}" th:field = "*{FinalizedDiagnoses}"/> 
+	                                    <input type="checkbox" th:text="${item}" th:value="${item}" th:field = "*{FinalizedDiagnoses}" th:id = "${medicine.getGenericName()}"/>
 										</td>
 									</tr>
 									</p>
