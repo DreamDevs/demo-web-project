@@ -30,38 +30,77 @@ public class DiagnosisList {
 		Diagnosis tempDiagnosis;
 		double check;
 		
+		Date date = labReport.getDate();
+		
 		//Hemoglobin A1C Lab Result
 		check = labReport.getHGBA1C();
 		if(check >6.4){
-			addDiagnosis("Diabetes Mellitus Type 1 or 2", "Hemoglobin A1C Lab");
+			if(date!=null){
+				addDiagnosis("Diabetes Mellitus Type 1 or 2", "Hemoglobin A1C Lab", date);
+
+			}else{
+				addDiagnosis("Diabetes Mellitus Type 1 or 2", "Hemoglobin A1C Lab");
+			}
 		}
 		
 		//Low Density Lipoprotein Result
 		check =  labReport.getLDL();
 		if(check >= 100 && check <= 120){
-			addDiagnosis("Possible Hyperlipidemia", "Low Density Lipoprotein Lab");
+			if(date!=null){
+				addDiagnosis("Possible Hyperlipidemia", "Low Density Lipoprotein Lab", date);
+			}else{
+				addDiagnosis("Possible Hyperlipidemia", "Low Density Lipoprotein Lab");
+			}
 		}else if (check > 120){
-			addDiagnosis("Hyperlipidemia", "Low Density Lipoprotein Lab");
+			if(date!=null){
+				addDiagnosis("Hyperlipidemia", "Low Density Lipoprotein Lab", date);
+			}else{
+				addDiagnosis("Hyperlipidemia", "Low Density Lipoprotein Lab");
+			}
 		}
 		
 		//Microalbuminuria Result
 		boolean checker =  labReport.isMicroalbumin();
 		if(checker){
-			addDiagnosis("Microalbuminuria", "Microalbuminuria Lab");
+			if(date!=null){
+				addDiagnosis("Microalbuminuria", "Microalbuminuria Lab", date);
+			}else{
+				addDiagnosis("Microalbuminuria", "Microalbuminuria Lab");
+			}
 		}
 		
 		//Glomerular Filtration Rate Result
 		check =  labReport.getGFR();
 		if( labReport.isMicroalbumin() && check > 89){
-			addDiagnosis("Chronic Kidney Disease Stage 1", "Glomerular Filtration Rate Lab");
+			if(date!=null){
+				addDiagnosis("Chronic Kidney Disease Stage 1", "Glomerular Filtration Rate Lab", date);
+			}else{
+				addDiagnosis("Chronic Kidney Disease Stage 1", "Glomerular Filtration Rate Lab", date);
+			}
 		}else if (check >= 60 && check <=89){
-			addDiagnosis("Chronic Kidney Disease Stage 2", "Glomerular Filtration Rate Lab");
+			if(date!=null){
+				addDiagnosis("Chronic Kidney Disease Stage 2", "Glomerular Filtration Rate Lab", date);
+			}else{
+				addDiagnosis("Chronic Kidney Disease Stage 2", "Glomerular Filtration Rate Lab");
+			}
 		}else if (check >= 30 && check <=59){
-			addDiagnosis("Chronic Kidney Disease Stage 3", "Glomerular Filtration Rate Lab");
+			if(date!=null){
+				addDiagnosis("Chronic Kidney Disease Stage 3", "Glomerular Filtration Rate Lab", date);
+			}else{
+				addDiagnosis("Chronic Kidney Disease Stage 3", "Glomerular Filtration Rate Lab");
+			}
 		}else if (check >= 15 && check <=29){
-			addDiagnosis("Chronic Kidney Disease Stage 4", "Glomerular Filtration Rate Lab");
+			if(date!=null){
+				addDiagnosis("Chronic Kidney Disease Stage 4", "Glomerular Filtration Rate Lab", date);
+			}else{
+				addDiagnosis("Chronic Kidney Disease Stage 4", "Glomerular Filtration Rate Lab");
+			}
 		}else if (0 < check && check < 15){
-			addDiagnosis("Chronic Kidney Disease Stage 5", "Glomerular Filtration Rate Lab");
+			if(date!=null){
+				addDiagnosis("Chronic Kidney Disease Stage 5", "Glomerular Filtration Rate Lab", date);
+			}else{
+				addDiagnosis("Chronic Kidney Disease Stage 5", "Glomerular Filtration Rate Lab");
+			}
 		}
 		
 		
@@ -70,11 +109,23 @@ public class DiagnosisList {
 		String calcium =  labReport.getCalcium();
 		if(	pth!=null && !pth.isEmpty() && calcium !=null && !calcium.isEmpty()){
 			if(pth.equals("High") && calcium.equals("High")){
-				addDiagnosis("Hyperthyroidism", "Parathyroid Hormone and Calcium Level Lab");
+				if(date!=null){
+					addDiagnosis("Hyperthyroidism", "Parathyroid Hormone and Calcium Level Lab", date);
+				}else{
+					addDiagnosis("Hyperthyroidism", "Parathyroid Hormone and Calcium Level Lab");
+				}
 			}else if(pth.equals("Low") && calcium.equals("Low")){
-				addDiagnosis("Hypothyroidism", "Parathyroid Hormone and Calcium Level Lab");
+				if(date!=null){
+					addDiagnosis("Hypothyroidism", "Parathyroid Hormone and Calcium Level Lab", date);
+				}else{
+					addDiagnosis("Hypothyroidism", "Parathyroid Hormone and Calcium Level Lab");
+				}
 			}else if(pth != "normal" || calcium != "normal"){
-				addDiagnosis("Possible Issue - PTH and Calcium levels", "Parathyroid Hormone and Calcium Level Lab");
+				if(date!=null){
+					addDiagnosis("Possible Issue - PTH and Calcium levels", "Parathyroid Hormone and Calcium Level Lab", date);
+				}else{
+					addDiagnosis("Possible Issue - PTH and Calcium levels", "Parathyroid Hormone and Calcium Level Lab");
+				}
 			}
 		}
 	}

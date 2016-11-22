@@ -49,7 +49,6 @@ public class WebController {
 		patient = person;
 		patient.setMedicineString(tempMeds);
 		patient.processMedicine();
-		
 		patient.createDiagnosisList();
 		model.addAttribute("diagnosislist", patient.getDiagnosisList().getDiagnoses());
 		model.addAttribute("medicinelist", patient.getMedicines());
@@ -74,12 +73,6 @@ public class WebController {
 		patient.combineDiagnoses(diag);
 		patient.updatePerson();
 		
-		//testing to see if stuff worked
-		if(!patient.getFinalizedDiagnoses().isEmpty()){
-			for (int i = 0; i < patient.getFinalizedDiagnoses().size();  i++){
-				System.out.println(patient.getFinalizedDiagnoses().get(i));
-			}
-		}
 		model.addAttribute("myPatient", patient);
 		
         return "MainResult";
