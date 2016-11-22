@@ -96,6 +96,12 @@ rel="stylesheet"/>
   display: none;
   text-align: center;
 }
+div#wrapperHeader {
+ width:100%;
+ text-align:center;
+}
+
+
 </style>
 
 <html>
@@ -105,6 +111,12 @@ rel="stylesheet"/>
 		<div id="loader"></div>
 	
 		<div style="display: none;" id="myDiv" class="animate-bottom">
+		 <div id="wrapperHeader">
+ 			<div id="header">
+  				<img th:src="@{/logo.png}" src = "../logo.png"/>
+ 			</div> 
+		</div>
+        
 				
 			<form action="#" th:action="@{/ConfirmPage}" th:object="${myPatient}" method="post" id ="ConfirmingSubmit">
 				<h1>Possible Diagnosis from Reports</h1>

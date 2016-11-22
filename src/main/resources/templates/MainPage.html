@@ -11,8 +11,12 @@
     <body>
     	<form action="#" th:action="@{/mainPage}" th:object="${patient}" method="post" id ="MAINSubmit">
         <div id="whole">
-            <h1>TITLE OF APP </h1>
-            <hr></hr>
+           <div id="wrapperHeader">
+ 			<div id="header">
+  				<img th:src="@{/logo.png}" src = "../logo.png"/>
+				  <hr></hr>
+ 			</div> 
+			</div>
     
             <div class="accordion">
                 <b>Medications</b>
