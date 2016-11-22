@@ -1,7 +1,12 @@
 package edu.csupomona.cs480.object_class;
 
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class LabReport {
 	
+	@DateTimeFormat (pattern="yyyy-MM-dd")
+	Date   date;
 	double HGBA1C;
 	double LDL;
 	boolean Microalbumin;
@@ -44,5 +49,11 @@ public class LabReport {
 	}
 	public void setCalcium(String calcium) {
 		Calcium = calcium;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }

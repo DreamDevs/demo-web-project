@@ -40,6 +40,10 @@
                     <!-- <form action="#" th:action="@{/mainPage}" th:object = "${labreport}" method="post" id="LABREPORT"> -->
 						<table border="0">
 							<tr>
+								<td>Date: </td>
+								<td><input type="date" th:field="*{LabReport.date}" /></td>
+							</tr>					
+							<tr>
 								<td>HGBA1C: </td>
 								<td><input type="text" th:field="*{LabReport.HGBA1C}" /></td>
 							</tr>
