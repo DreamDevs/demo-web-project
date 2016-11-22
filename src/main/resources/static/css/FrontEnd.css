@@ -1,5 +1,13 @@
 @CHARSET "ISO-8859-1";
 
+div#wrapperHeader {
+ width:100%;
+ text-align:center;
+}
+
+
+
+
 div.accordion {
     background-color: #eee;
     color: #444;
