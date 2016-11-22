@@ -6,11 +6,11 @@ import java.util.Date;
 public class Diagnosis {
 
 	String diagnosisName;
-	Boolean diagnosisValue;
 	ArrayList <Date> testDates;
+	ArrayList <String> testDateStrings;
 	ArrayList <String> testNames;
 	String Comments;
-	Medicine medicine;
+	String medicine;
 	ArrayList<String> medicineDiagnoses;
 	String Status;
 	
@@ -21,25 +21,22 @@ public class Diagnosis {
 	public Diagnosis(String diagnosis){
 		
 		diagnosisName = diagnosis;
-		diagnosisValue = false;
 		testDates = new ArrayList<Date>();
 		testNames = new ArrayList<String>();
+		testDateStrings = new ArrayList<String>();
 		
 	}
 	
 	public Diagnosis(String diagnosis, String test){
 		
 		diagnosisName = diagnosis;
-		diagnosisValue = false;
 		testDates = new ArrayList<Date>();
 		testNames = new ArrayList<String>();
+		testDateStrings = new ArrayList<String>();
 		testNames.add(test);
 		
 	}
-	
-	public void setValue(Boolean val){
-		diagnosisValue = val;
-	}
+
 	
 	public void setTestName(String test){
 		testNames.add(test);
@@ -57,12 +54,11 @@ public class Diagnosis {
 		return diagnosisName;
 	}
 	
-	public Boolean getValue(){
-		return diagnosisValue;
-	}
-	
 	public String getTestName(int test){
 		return testNames.get(test);
+	}
+	public void setMedicine(String med){
+		medicine = med;
 	}
 
 	public Date getTestDate(int test){
@@ -74,10 +70,7 @@ public class Diagnosis {
 	public void setComments(String string){
 		Comments = string;
 	}
-	public void setMedicine(Medicine med){
-		medicine = med;
-	}
-	public Medicine getMedicine(){
+	public String getMedicine(){
 		return medicine;
 	}
 	
@@ -86,5 +79,18 @@ public class Diagnosis {
 	}
 	public String getStatus(){
 		return Status;
+	}
+	
+	public ArrayList<Date> getTestDates(){
+		return testDates;
+	}
+	public void setTestDates(ArrayList<Date> dates){
+		testDates = dates;
+	}
+	public ArrayList<String> getTestDateStrings(){
+		return testDateStrings;
+	}
+	public void setTestDateStrigs(ArrayList<String> strings){
+		testDateStrings = strings;
 	}
 }

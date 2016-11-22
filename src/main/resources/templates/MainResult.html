@@ -12,58 +12,27 @@
 				<table class="table table-bordered table-hover" id="tblData" align="center" th:object="${myPatient}">
 					<thead>
 						<tr id="categories">
-							<th width="23"></th>
 							<th class="text-center">Diagnosis</th>
 							<th class="text-center">Status</th>
 							<th class="text-center">Plan of Care</th>
-		
+							<th class="text-center">Medicine</th>
+ 							<th class="text-center">Source Tests</th>
 						</tr>
 					</thead>
 					<tbody>
 						<p th:each="diagnosis, stat:*{diagnoses}" th:if="${diagnosis != null}">
 						<tr>
-							<td th:text = "*{diagnoses[__${stat.index}__].DiagnosisName}"></td>
-							<td><select>
-								<option value="better">Better</option>
-								<option value="same">Same</option>
-								<option value="worse">Worse</option>
-								</select></td>
-							<td><textarea rows="2" cols="50" name="plan" class="form-control"> </textarea></td>
-						</tr>
+							<td th:text = "${diagnosis.getDiagnosisName()}"></td>
+ 							<td th:text = "${diagnosis.getStatus()}"></td>
+ 							<td th:text = "	${diagnosis.getComments()}"></td>
+ 							<td th:text = "${diagnosis.getMedicine()}"></td>						</tr>
 						</p>
 					</tbody>
 				</table>
 			</div>	
 		</div>
 	</div>
-   
-   <div class="container">
-		<div class="row clearfix">
-			<div class="col-md-12 column">
-				<table class="table table-bordered table-hover" id="tblData" align="center" th:object="${myPatient}">
-					<thead>
-						<tr id="categories">
-							<th width="23"></th>
-							<th class="text-center">Medicine Diagnosis</th>		
-						</tr>
-					</thead>
-					<tbody>
-						<p th:each="diagnosis:*{FinalizedDiagnoses}" th:if="${diagnosis != null}">
-						<tr>
-							<td th:text = "${diagnosis}"></td>
-							<td><select>
-								<option value="better">Better</option>
-								<option value="same">Same</option>
-								<option value="worse">Worse</option>
-								</select></td>
-							<td><textarea rows="2" cols="50" name="plan" class="form-control"> </textarea></td>
-						</tr>
-						</p>
-					</tbody>
-				</table>
-			</div>	
-		</div>
-	</div>
+
    
    
     <a href="/mainPage">Submit another Report</a>

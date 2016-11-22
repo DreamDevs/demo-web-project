@@ -747,7 +747,6 @@ public class DiagnosisList {
 		}
 		//creates a new diagnosis if none already exists
 		Diagnosis tempDiagnosis = new Diagnosis(diagnosisName, reportName);
-		tempDiagnosis.setValue(true);
 		tempDiagnosis.testDates.add(date);
 		diagnoses.add(tempDiagnosis);
 	}
@@ -755,7 +754,6 @@ public class DiagnosisList {
 	//adds a diagnosis without a date
 	public void addDiagnosis(String diagnosisName, String reportName){
 		Diagnosis tempDiagnosis = new Diagnosis(diagnosisName, reportName);
-		tempDiagnosis.setValue(true);
 		diagnoses.add(tempDiagnosis);
 	}
 	
@@ -763,21 +761,6 @@ public class DiagnosisList {
 	public void editDiagnosis(int num, String reportName, Date reportDate){
 		diagnoses.get(num).setTestName(reportName);
 		diagnoses.get(num).setTestDate(reportDate);
-	}
-	
-
-	public void updateDiagnosisList(List<String> FinalizedDiagnoses){
-		for(int i =0; i<diagnoses.size(); i++){
-			String name = diagnoses.get(i).getDiagnosisName();
-			for(int j=0; j<FinalizedDiagnoses.size(); j++){
-				if(name.equals(FinalizedDiagnoses.get(j))){
-					
-				}
-			}
-		}
-		
-		
-		
 	}
 	
 	
