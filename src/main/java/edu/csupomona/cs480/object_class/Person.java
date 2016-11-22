@@ -2,6 +2,10 @@ package edu.csupomona.cs480.object_class;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -80,8 +84,61 @@ public class Person {
 		}
 	}
 	
+	public void combineDiagnoses(List<Diagnosis> diag){
+		
+		//Processes the Dates into a better format
+		for(int i = 0; i<diagnoses.size(); i++){
+			String name = diagnoses.get(i).getDiagnosisName();
+			for(int j = 0; j<diag.size(); j++){
+				if(name.equals(diag.get(j).getDiagnosisName())){
+					diagnoses.get(i).testDates = diag.get(j).testDates;
+					diagnoses.get(i).testNames = diag.get(j).testNames;
+					diagnoses.get(i).testDateStrings = diag.get(j).testDateStrings;
+				}
+			}
+		}
+		
+		
+	}
+	
+	
 	public void updatePerson(){
-		diagnosisList.updateDiagnosisList(FinalizedDiagnoses);
+		
+		//Processes the Dates into a better format
+		for(int i = 0; i<diagnoses.size(); i++){
+			ArrayList<Date> dates = diagnoses.get(i).getTestDates();
+			if(dates!=null){
+				for(int j = 0; j<dates.size(); j++){
+					DateFormat dateFormat = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+				try {
+						Date date = (Date)dateFormat.parse(dates.get(j).toString());
+						SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMM dd yyyy");
+						diagnoses.get(i).getTestDateStrings().add(dateFormat2.format(date));
+						System.out.println(dateFormat2.format(date));
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		
+		//Adds all medicine diagnoses to the list
+		for(int i =0; i<FinalizedDiagnoses.size(); i++){
+			String[] parts = FinalizedDiagnoses.get(i).split(":");
+			int check = 0;
+			for(int j=0; j<diagnoses.size(); j++){
+				if(parts[1].equals(diagnoses.get(j).getDiagnosisName())){
+					diagnoses.get(j).setMedicine(parts[0]);
+					check++;
+				}
+			}
+			if(check==0){
+				Diagnosis newDiagnosis = new Diagnosis();
+				newDiagnosis.setDiagnosisName(parts[1]);
+				newDiagnosis.setMedicine(parts[0]);				diagnoses.add(newDiagnosis);
+			}
+		}		
+		
 	}
 	
 	//set the Lab Report

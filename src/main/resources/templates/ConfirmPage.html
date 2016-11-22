@@ -164,18 +164,20 @@ rel="stylesheet"/>
 										<th class="text-center">Diagnosis 3</th>	
 										<th class="text-center">Diagnosis 4</th>	
 										<th class="text-center">Diagnosis 5</th>	
-										<th class="text-center">Diagnosis 6</th>											
+										<th class="text-center">Diagnosis 6</th>
+										<th class="text-center">Diagnosis 7</th>											
+ 										<th class="text-center">Diagnosis 8</th>												
 									</tr>
 								</thead>
 								
 								<tbody>
 																
-									<p th:each="medicine :*{medicines}" th:if="${medicine != null}">
+									<p th:each="medicine,stat :*{medicines}" th:if="${medicine != null}">
 									<tr th:id = "${medicine.getGenericName()}">
 										<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
 										<td th:text = "${medicine.getBothNames()}"></td>
 										<td th:each="item, num : ${medicine.getPurpose()}">
-	                                    <input type="checkbox" th:text="${item}" th:value="${item}" th:field = "*{FinalizedDiagnoses}" th:id = "${medicine.getGenericName()}"/>
+	                                    <input type="checkbox" th:text="${item}" th:value="${medicine.getBothNames()}+ ':' +${item}" th:field = "*{FinalizedDiagnoses}"/> 
 										</td>
 									</tr>
 									</p>

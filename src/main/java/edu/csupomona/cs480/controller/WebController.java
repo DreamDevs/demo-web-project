@@ -1,5 +1,7 @@
 package edu.csupomona.cs480.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import edu.csupomona.cs480.data.provider.MedManager;
 import edu.csupomona.cs480.object_class.MedString;
+import edu.csupomona.cs480.object_class.Medicine;
 import edu.csupomona.cs480.object_class.Person;
+import edu.csupomona.cs480.object_class.Diagnosis;
 
 
 @Controller
@@ -63,8 +67,12 @@ public class WebController {
     public String FinalizedForm(Model model, @ModelAttribute Person person) {
 		
 		//setting all the new values from ConfirmPage
+		List<Medicine> meds = patient.getMedicines();
+		List<Diagnosis> diag = patient.getDiagnoses();
 		patient = person;
 		patient.setFinalizedDiagnoses(person.getFinalizedDiagnoses());
+		patient.combineDiagnoses(diag);
+		patient.updatePerson();
 		
 		//testing to see if stuff worked
 		if(!patient.getFinalizedDiagnoses().isEmpty()){
