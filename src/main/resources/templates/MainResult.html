@@ -1,12 +1,73 @@
 <!DOCTYPE HTML>
+<style>
+#tblData {
+	width: 80%;
+	white-space: nowrap;
+	position: center;
+}
+/* Column widths are based on these cells */
+.row-diagnosis {
+	width: 25%;
+}
+
+.row-followup {
+	width: 25%;
+}
+
+.row-plan {
+	width: 25%;
+}
+
+#tblData td {
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#tblData th {
+	background: darkblue;
+	color: white;
+}
+
+#tblData td, #tblData th {
+	text-align: center;
+	padding: 5px 10px;
+}
+
+#tblData  {
+	background: lightgrey;
+}
+
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+div#wrapperHeader {
+ width:100%;
+ text-align:center;
+}
+
+
+</style>
+
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+	 <div id="wrapperHeader">
+ 			<div id="header">
+  				<img th:src="@{/logo.png}" src = "../logo.png"/>
+ 			</div> 
+		</div>
+        
 	<h1>Results</h1>
     <div class="container">
+    
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<table class="table table-bordered table-hover" id="tblData" align="center" th:object="${myPatient}">
