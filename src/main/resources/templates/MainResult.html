@@ -92,7 +92,7 @@ div#wrapperHeader div#header img {
 							<th class="text-center">Status</th>
 							<th class="text-center">Plan of Care</th>
 							<th class="text-center">Medicine</th>
- 							<th class="text-center">Source Tests</th>
+ 							<th class="text-center">Tests</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -101,8 +101,19 @@ div#wrapperHeader div#header img {
 							<td th:text = "${diagnosis.getDiagnosisName()}"></td>
  							<td th:text = "${diagnosis.getStatus()}"></td>
  							<td th:text = "	${diagnosis.getComments()}"></td>
- 							<td th:text = "${diagnosis.getMedicine()}"></td>	
- 							<td></td>					</tr>
+ 							<td>
+ 								<select>
+								  <option value="" >Click for List of Medicines</option>
+								  <option th:each="med : ${diagnosis.getMedicineDiagnoses()}" th:text="${med}" disabled = "disabled"></option>
+								</select>
+							</td>
+ 							<td>
+ 							 	<select>
+								  <option value="" >Click for List of Tests and Test Dates</option>
+								  <option th:each="test : ${diagnosis.combinedTests()}" th:text="${test}" disabled = "disabled"></option>
+								</select>
+ 							</td>
+ 						</tr>
 						</p>
 					</tbody>
 				</table>

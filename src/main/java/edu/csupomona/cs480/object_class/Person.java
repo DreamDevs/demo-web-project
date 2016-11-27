@@ -128,14 +128,15 @@ public class Person {
 			int check = 0;
 			for(int j=0; j<diagnoses.size(); j++){
 				if(parts[1].equals(diagnoses.get(j).getDiagnosisName())){
-					diagnoses.get(j).setMedicine(parts[0]);
+					diagnoses.get(j).addMedicineDiagnoses(parts[0]);
 					check++;
 				}
 			}
 			if(check==0){
 				Diagnosis newDiagnosis = new Diagnosis();
 				newDiagnosis.setDiagnosisName(parts[1]);
-				newDiagnosis.setMedicine(parts[0]);				diagnoses.add(newDiagnosis);
+				newDiagnosis.addMedicineDiagnoses(parts[0]);
+				diagnoses.add(newDiagnosis);
 			}
 		}		
 		

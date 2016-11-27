@@ -10,12 +10,14 @@ public class Diagnosis {
 	ArrayList <String> testDateStrings;
 	ArrayList <String> testNames;
 	String Comments;
-	String medicine;
-	ArrayList<String> medicineDiagnoses;
+	ArrayList<String> medicineDiagnoses = new ArrayList<String>();
 	String Status;
 	
 	public Diagnosis(){
-		
+		medicineDiagnoses = new ArrayList<String>();
+		testDateStrings = new ArrayList<String>();
+		testNames = new ArrayList<String>();
+		testDates = new ArrayList<Date>();
 	}
 	
 	public Diagnosis(String diagnosis){
@@ -23,8 +25,7 @@ public class Diagnosis {
 		diagnosisName = diagnosis;
 		testDates = new ArrayList<Date>();
 		testNames = new ArrayList<String>();
-		testDateStrings = new ArrayList<String>();
-		
+		testDateStrings = new ArrayList<String>();		
 	}
 	
 	public Diagnosis(String diagnosis, String test){
@@ -34,7 +35,6 @@ public class Diagnosis {
 		testNames = new ArrayList<String>();
 		testDateStrings = new ArrayList<String>();
 		testNames.add(test);
-		
 	}
 
 	
@@ -57,10 +57,6 @@ public class Diagnosis {
 	public String getTestName(int test){
 		return testNames.get(test);
 	}
-	public void setMedicine(String med){
-		medicine = med;
-	}
-
 	public Date getTestDate(int test){
 		return testDates.get(test);
 	}
@@ -69,9 +65,6 @@ public class Diagnosis {
 	}
 	public void setComments(String string){
 		Comments = string;
-	}
-	public String getMedicine(){
-		return medicine;
 	}
 	
 	public void setStatus(String status){
@@ -92,5 +85,21 @@ public class Diagnosis {
 	}
 	public void setTestDateStrigs(ArrayList<String> strings){
 		testDateStrings = strings;
+	}
+	
+	public void addMedicineDiagnoses(String med){
+		medicineDiagnoses.add(med);
+	}
+	
+	public ArrayList<String> getMedicineDiagnoses(){
+		return medicineDiagnoses;
+	}
+	
+	public ArrayList<String> combinedTests(){
+		ArrayList<String> combined = new ArrayList<String>();
+		for(int i =0; i<testNames.size(); i++){
+			combined.add(testNames.get(i) + "  :  " + testDateStrings.get(i));
+		}
+		return combined;
 	}
 }
