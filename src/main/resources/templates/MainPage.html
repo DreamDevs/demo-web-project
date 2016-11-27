@@ -61,8 +61,7 @@
 							<tr>
 								<td>Microalbumin: </td>
 								<td>
-									<input type="checkbox" name = "Microalbumin" value="true" th:field="*{LabReport.Microalbumin}"/>Yes
-									<input type="checkbox" name = "Microalbumin" value="false" th:field="*{LabReport.Microalbumin}"/>No
+									<input type="checkbox" name = "Microalbumin" value="true" th:field="*{LabReport.Microalbumin}"/>
 								</td>
 							</tr>
 							<tr>
@@ -155,7 +154,7 @@
                                             <li>Cardiomyopathy: 
                                                 <input type="checkbox" th:field="*{radiologyReport.Cardiomyopathy}" name="Cardiomyopathy" value="true" />
                                             </li>
-                                            <li>Aortic (A.S.P): 
+                                            <li>Aortic Atherosclerosis: 
                                                 <input type="checkbox" th:field="*{radiologyReport.AASP}" name="AorticASP" value="true" />
                                             </li>
                                             <li>Ejection Fraction: 
@@ -189,7 +188,7 @@
                                         <li>Possible Diagnosis that can be found:
                                             <ul>
                 
-                                                <li>Aortic A.S.P: 
+                                                <li>Aortic Atherosclerosis: 
                                                     <input type="checkbox" th:field="*{radiologyReport.AorticASP}" name="AorticASP" value="true"/>
                                                 </li>
                                                 <li>Aortic Aneurysm: 
@@ -239,7 +238,7 @@
                                             <ul>
                                                 <li>DATE: 
                                                     <input type="date" th:field="*{radiologyReport.UpperDate}" name="UPPEREXTREMITYDate" value=""/><br></br></li>
-                                                <li>A.S.P of upper extremity:
+                                                <li>Atherosclerosis of Upper Extremity:
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}" name="ASPUpperEX" value="Left"/> Left 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}" name="ASPUpperEX" value="Right"/> Right 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofUpper}"  name="ASPUpperEX" value="Both"/> Both
@@ -256,7 +255,7 @@
                                             <p>
                                             <ul>
                                                 <li>DATE: <input type="date" th:field="*{radiologyReport.LowerDate}" name="LOWEREXTREMITYDate" value=""/><br></br></li>
-                                                <li>A.S.P of lower extremity:
+                                                <li>Atherosclerosis of Lower Extremity:
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="Left"/> Left 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="Right"/> Right 
                                                     <input type="checkbox" th:field="*{radiologyReport.ASPofLower}" name="ASPLowerEX" value="Both"/> Both
@@ -302,7 +301,7 @@
                                         <p>
                                         <li>Possible Diagnosis that can be found:
                                             <ul>
-                                                <li>Aortic A.S.P: 
+                                                <li>Aortic Atherosclerosis: 
                                                     <input type="checkbox" th:field="*{radiologyReport.AorticASP2}"  name="AorticASP" value="true"/>
                                                 </li>
                                                 <li>Aortic Aneurysm: 
@@ -340,7 +339,7 @@
                                         <p>
                                         <li>Possible Diagnosis that can be found:
                                             <ul>        
-                                                <li>Aortic A.S.P: 
+                                                <li>Aortic Atherosclerosis: 
                                                     <input type="checkbox" th:field="*{radiologyReport.AorticASP3}" name="AorticASP" value="true"/> 
                                                 </li>
                                                 <li>Aortic Aneurysm: 
@@ -474,8 +473,12 @@
                                             <input type="checkbox" name="Glaucoma" value="Both" th:field="*{specialistReport.Glaucoma}"/> Both
                                         </li>
                                         <li>Retinopathy:
+                                             <input type="checkbox" name="Unspecified" value="Left" th:field="*{specialistReport.Retinopathy}"/> Left 
+                                              <input type="checkbox" name="Unspecified" value="Right" th:field="*{specialistReport.Retinopathy}"/> Right 
+                                              <input type="checkbox" name="Unspecified" value="Both" th:field="*{specialistReport.Retinopathy}"/> Both
+                                        </li>
                                         	<ul>
-                                                <li>Proliferative:
+                                                 <li>Proliferative:
                                                     <input type="checkbox" name="Proliferative" value="Left" th:field="*{specialistReport.Proliferative}"/> Left 
                                                     <input type="checkbox" name="Proliferative" value="Right" th:field="*{specialistReport.Proliferative}"/> Right 
                                                     <input type="checkbox" name="Proliferative" value="Both" th:field="*{specialistReport.Proliferative}"/> Both
@@ -486,7 +489,6 @@
                                                     <input type="checkbox" name="NonProliferative" value="Both" th:field="*{specialistReport.NonProliferative}"/> Both
                                                 </li>
                                             </ul>
-                                        </li>
 
                                         <li>Cataract:
                                             <input type="checkbox" name="Cataract" value="Left" th:field="*{specialistReport.Cataract}"/> Left 

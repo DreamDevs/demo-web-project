@@ -146,11 +146,9 @@ public class DiagnosisList {
 			check =  radiologyReport.getArrhythmia();
 			if(check!=null && !check.isEmpty()){
 				if(check.equals("Tachycardia")){
-					addDiagnosis("Arrhythmia, Tachycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
+					addDiagnosis("Tachycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
 				}else if (check.equals("Bradycardia")){
-					addDiagnosis("Arrhythmia, Bradycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
-				}else if (check.equals("Normal")){
-					addDiagnosis("Arrhythmia", "Electrocardiogram Report",  radiologyReport.getElecDate());
+					addDiagnosis("Bradycardia", "Electrocardiogram Report",  radiologyReport.getElecDate());
 				}
 			}
 			
@@ -191,7 +189,7 @@ public class DiagnosisList {
 			//Checks for Aortic ASP
 			value =  radiologyReport.isAASP();
 			if(value){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Echocardiogram Report",  radiologyReport.getEchoDate());
+				addDiagnosis("Aortic Atherosclerosis", "Echocardiogram Report",  radiologyReport.getEchoDate());
 			}
 			
 			//Checks for Congestive Heart Failure
@@ -220,7 +218,7 @@ public class DiagnosisList {
 			//Checks for Aortic ASP
 			value =  radiologyReport.isAorticASP();
 			if(value){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Echocardiogram Report",  radiologyReport.getChestDate());
+				addDiagnosis("Aortic Atherosclerosis", "Echocardiogram Report",  radiologyReport.getChestDate());
 			}
 			
 			//Checks for Aortic Aneurysm
@@ -287,11 +285,11 @@ public class DiagnosisList {
 				check =  radiologyReport.getASPofUpper();
 				if(check!=null && !check.isEmpty()){
 					if(check.equals("Left")){
-						check = "Left Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
+						check = "Atherosclerosis of Left Upper Extremity";
 					}else if(check.equals("Right")){
-						check = "Right Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
+						check = "Atherosclerosis of Right Upper Extremity";
 					}else if(check.equals("Both")){
-						check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Upper Extremity";
+						check = "Bilateral Atherosclerosis of Upper Extremities";
 					}
 					addDiagnosis(check, "Extremity X-Ray Report: Upper Extremity",  radiologyReport.getUpperDate());
 				}
@@ -303,11 +301,11 @@ public class DiagnosisList {
 				check =  radiologyReport.getASPofLower();
 				if(check!=null && !check.isEmpty()){
 					if(check.equals("Left")){
-						check = "Left Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+						check = "Atherosclerosis of Left Lower Extremity";
 					}else if(check.equals("Right")){
-						check = "Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+						check = "Atherosclerosis of Right Lower Extremity";
 					}else if(check.equals("Both")){
-						check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+						check = "Bilateral Atherosclerosis of Lower Extremities";
 					}
 					addDiagnosis(check, "Extremity X-Ray Report: Lower Extremity",  radiologyReport.getLowerDate());
 				}
@@ -335,7 +333,7 @@ public class DiagnosisList {
 			//Checks for Aortic ASP
 			value =  radiologyReport.isAorticASP2();
 			if(value){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
+				addDiagnosis("Aortic Atherosclerosis", "Abdominal Ultrasound",  radiologyReport.getAbdUSDate());
 			}
 			
 			//Checks for Aortic Aneurysm
@@ -353,7 +351,7 @@ public class DiagnosisList {
 			//Checks for Renal Artery ASP
 			value =  radiologyReport.isRenalArteryASP();
 			if(value){
-				addDiagnosis("Renal Artery Atherosclerosis, Stenosis, Plaque", "Chest X-Ray Report",  radiologyReport.getAbdUSDate());
+				addDiagnosis("Renal Artery Atherosclerosis", "Chest X-Ray Report",  radiologyReport.getAbdUSDate());
 			}
 
 			//Other Diagnoses under Abdominal Ultrasound
@@ -370,7 +368,7 @@ public class DiagnosisList {
 			//Checks for Aortic ASP
 			value =  radiologyReport.isAorticASP3();
 			if(value){
-				addDiagnosis("Aortic Atherosclerosis, Stenosis, Plaque", "Abdominal Aortic Doppler",  radiologyReport.getAbdADDate());
+				addDiagnosis("Aortic Atherosclerosis", "Abdominal Aortic Doppler",  radiologyReport.getAbdADDate());
 			}
 			
 			//Checks for Aortic Aneurysm
@@ -396,14 +394,14 @@ public class DiagnosisList {
 			}
 			
 			//check for type ASP of Lower Extremity
-			check =  radiologyReport.getASPofLower();
+			check =  radiologyReport.getLowerEDASPofLower();
 			if(check!=null && !check.isEmpty()){
 				if(check.equals("Left")){
-					check = "Left Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+					check = "Atherosclerosis of Left Lower Extremity";
 				}else if(check.equals("Right")){
-					check = "Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+					check = "Atherosclerosis of Right Lower Extremity";
 				}else if(check.equals("Both")){
-					check = "Left and Right Atherosclerosis, Stenosis, Plaque of the Lower Extremity";
+					check = "Bilateral Atherosclerosis of Lower Extremities";
 				}
 				addDiagnosis(check, "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
 			}
@@ -512,21 +510,44 @@ public class DiagnosisList {
 				addDiagnosis("Left and Right Eye Glaucoma", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
 			}
 		}
-		
+		//checks for Retinopathy
+			
 		//check for Proliferative
-		check = specialistReport.getProliferative();
-		if(check!=null && !check.isEmpty()){
-			if(check.equals("Left")){
-				addDiagnosis("Left Eye Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-			}else if(check.equals("Right")){
-				addDiagnosis("Right Eye Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-			}else if(check.equals("Both")){
-				addDiagnosis("Left and Right Proliferative Eye Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+		String retinopathy = specialistReport.getRetinopathy();
+		String proliferative = specialistReport.getProliferative();
+		String nonproliferative = specialistReport.getNonProliferative();
+		//checks if retinopathy is null
+		if(retinopathy!=null && !retinopathy.isEmpty()){
+			//checks if proliferative is null
+			if(proliferative!=null && !proliferative.isEmpty()){
+				if(proliferative.equals("Left")){
+					addDiagnosis("Proliferative Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(proliferative.equals("Right")){
+					addDiagnosis("Proliferative Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(proliferative.equals("Both")){
+					addDiagnosis("Bilateral Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}
+			}
+			if(nonproliferative!=null && !nonproliferative.isEmpty())
+				if(nonproliferative.equals("Left")){
+					addDiagnosis("Non-Proliferative Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(nonproliferative.equals("Right")){
+					addDiagnosis("Non-Proliferative Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(nonproliferative.equals("Both")){
+					addDiagnosis("Bilateral Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}
+			if(!(proliferative!=null && !proliferative.isEmpty() && nonproliferative!=null && !nonproliferative.isEmpty())){
+				if(retinopathy.equals("Left")){
+					addDiagnosis("Unspecified Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(retinopathy.equals("Right")){
+					addDiagnosis("Unspecified Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(retinopathy.equals("Both")){
+					addDiagnosis("Unspecified Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}
 			}
 		}
+
 		
-		//check for Non-Proliferative
-		check = specialistReport.getNonProliferative();
 		if(check!=null && !check.isEmpty()){
 			if(check.equals("Left")){
 				addDiagnosis("Left Eye Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());

@@ -108,7 +108,7 @@ public class Person {
 		if (diagnoses != null){
 			for(int i = 0; i<diagnoses.size(); i++){
 				ArrayList<Date> dates = diagnoses.get(i).getTestDates();
-				if(dates!=null){
+				if(dates!=null && !dates.isEmpty()){
 					for(int j = 0; j<dates.size(); j++){
 						DateFormat dateFormat = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
 						try {
