@@ -5,31 +5,28 @@
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
 rel="stylesheet"/>
-
+<link href = "../static/css/w3.css" th:href="@{/css/w3.css}" rel = "stylesheet" type="text/css" media = "screen"/>
 <style>
-#tblData {
-	width: 80%;
-	white-space: nowrap;
-	position: center;
-}
 /* Column widths are based on these cells */
 .row-diagnosis {
-	width: 25%;
+	width: 50%;
 }
 
 .row-followup {
-	width: 25%;
+	width: 50%;
 }
 
 .row-plan {
-	width: 25%;
+	width: 50%;
 }
 
 #tblData td {
 
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	word-wrap: break-word;
+	
+
 }
 
 #tblData th {
@@ -43,7 +40,10 @@ rel="stylesheet"/>
 }
 
 #tblData  {
+	table-layout:auto;
 	background: lightgrey;
+	width: 80%;
+	white-space: nowrap;
 }
 
 #loader {
@@ -92,15 +92,23 @@ rel="stylesheet"/>
   to{ bottom:0; opacity:1 }
 }
 
-#myDiv {
-  display: none;
-  text-align: center;
-}
+
+
 div#wrapperHeader {
  width:100%;
  text-align:center;
+ height: 28%;
+}
+div#wrapperHeader div#header {
+
+ margin:0 auto;
 }
 
+div#wrapperHeader div#header img {
+ width:; /* the width of the logo image */
+ height:; /* the height of the logo image */
+ margin:0 auto;
+}
 
 </style>
 
@@ -111,23 +119,28 @@ div#wrapperHeader {
 		<div id="loader"></div>
 	
 		<div style="display: none;" id="myDiv" class="animate-bottom">
-		 <div id="wrapperHeader">
- 			<div id="header">
-  				<img th:src="@{/logo.png}" src = "../logo.png"/>
+		
+		<div id="wrapperHeader" >
+    
+ 			<div class="w3-container" id="header">
+ 			   
+ 			   <img th:src="@{/header.jpg}" src = "../header.jpg"/> 
+  					<hr></hr>
  			</div> 
 		</div>
-        
+   		 
+   		 <div class="w3-container" id="whole">
 				
 			<form action="#" th:action="@{/ConfirmPage}" th:object="${myPatient}" method="post" id ="ConfirmingSubmit">
-				<h1>Possible Diagnosis from Reports</h1>
-				<hr></hr>
-				<div class="container">
+				<h1 align="center">Possible Diagnosis from Reports</h1>
+			
+				<div class="w3-container">
 					<div class="row clearfix">
 						<div class="col-md-12 column">
-						<table class="table table-bordered table-hover" id="tblData"
+						<table class="w3-table-all" id="tblData"
 								align="center">
 								<thead>
-									<tr id="categories">
+									<tr class="w3-darkblue" id="categories">
 										<th width="23"></th>
 										<th class="text-center">Diagnosis</th>
 										<th class="text-center">Status</th>
@@ -160,12 +173,12 @@ div#wrapperHeader {
 					</div>
 				</div>
 													
-				<h1>Possible Diagnosis from Medicine</h1>
-				<hr></hr>
-				<div class="container">
+				<h1 align="center">Possible Diagnosis from Medicine</h1>
+				
+				<div class="w3-responsive">
 					<div class="row clearfix">
 						<div class="col-md-12 column">
-							<table class="table table-bordered table-hover" id="tblData"
+							<table class="w3-table-all" id="tblData"
 									align="center">								
 								<thead>
 									<tr id="categories">
@@ -201,11 +214,15 @@ div#wrapperHeader {
 						</div>	
 					</div>	
 				</div>
-				<input type="submit" value="Submit" id = "ConfirmSubmitButton"/>
-			</form>	
+				<div class="w3-container">
+		<input class="w3-btn" type="submit" value="Submit" id = "ConfirmSubmitButton"/></div>
+			</form>
+				
 		</div>
-		
 					
+	</div>
+	
+	
 		<script>
 			var myVar;
 		

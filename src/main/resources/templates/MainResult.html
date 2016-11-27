@@ -1,10 +1,7 @@
 <!DOCTYPE HTML>
+<link href = "../static/css/w3.css" th:href="@{/css/w3.css}" rel = "stylesheet" type="text/css" media = "screen"/>
 <style>
-#tblData {
-	width: 80%;
-	white-space: nowrap;
-	position: center;
-}
+
 /* Column widths are based on these cells */
 .row-diagnosis {
 	width: 25%;
@@ -37,16 +34,31 @@
 
 #tblData  {
 	background: lightgrey;
+	width: 80%;
+	white-space: nowrap;
+	position: center;
+	table-layout:auto;
 }
 
 
-#myDiv {
-  display: none;
+#whole {
+  
   text-align: center;
 }
 div#wrapperHeader {
  width:100%;
  text-align:center;
+ height: 28%;
+}
+div#wrapperHeader div#header {
+
+ margin:0 auto;
+}
+
+div#wrapperHeader div#header img {
+ width:; /* the width of the logo image */
+ height:; /* the height of the logo image */
+ margin:0 auto;
 }
 
 
@@ -59,18 +71,21 @@ div#wrapperHeader {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	 <div id="wrapperHeader">
- 			<div id="header">
-  				<img th:src="@{/logo.png}" src = "../logo.png"/>
+	 <div id="wrapperHeader" >
+    
+ 			<div class="w3-container" id="header">
+ 			   
+ 			   <img th:src="@{/header.jpg}" src = "../header.jpg"/> 
+  					<hr></hr>
  			</div> 
 		</div>
-        
+   <div class="w3-container" id="whole">
 	<h1>Results</h1>
     <div class="container">
     
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<table class="table table-bordered table-hover" id="tblData" align="center" th:object="${myPatient}">
+				<table class="w3-table-all" id="tblData" align="center" th:object="${myPatient}">
 					<thead>
 						<tr id="categories">
 							<th class="text-center">Diagnosis</th>
@@ -86,7 +101,8 @@ div#wrapperHeader {
 							<td th:text = "${diagnosis.getDiagnosisName()}"></td>
  							<td th:text = "${diagnosis.getStatus()}"></td>
  							<td th:text = "	${diagnosis.getComments()}"></td>
- 							<td th:text = "${diagnosis.getMedicine()}"></td>						</tr>
+ 							<td th:text = "${diagnosis.getMedicine()}"></td>	
+ 							<td></td>					</tr>
 						</p>
 					</tbody>
 				</table>
@@ -97,5 +113,6 @@ div#wrapperHeader {
    
    
     <a href="/mainPage">Submit another Report</a>
+    </div>
 </body>
 </html>

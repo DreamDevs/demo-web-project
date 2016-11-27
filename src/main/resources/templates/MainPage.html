@@ -3,21 +3,24 @@
 	<script th:src="@{//code.jquery.com/ui/1.12.1/jquery-ui.js}"></script>
 	<script type="text/javascript" src="../js/FrontEnd.js"></script>
 	
+	
 	<link href = "../static/css/FrontEnd.css" th:href="@{/css/FrontEnd.css}" rel = "stylesheet" type="text/css" media = "screen"/>
 	<link href = "../static/css/jquery-ui.css" th:href="@{/css/jquery-ui.css}" rel = "stylesheet" type="text/css" media = "screen"/>
-
+	<link href = "../static/css/w3.css" th:href="@{/css/w3.css}" rel = "stylesheet" type="text/css" media = "screen"/>
+	
 <html ng-app="cs480Med">
-
-    <body>
+<body>
     	<form action="#" th:action="@{/mainPage}" th:object="${patient}" method="post" id ="MAINSubmit">
-        <div id="whole">
-           <div id="wrapperHeader">
- 			<div id="header">
-  				<img th:src="@{/logo.png}" src = "../logo.png"/>
-				  <hr></hr>
- 			</div> 
-			</div>
+        
+        <div id="wrapperHeader" >
     
+ 			<div class="w3-container" id="header">
+ 			   
+ 			   <img th:src="@{/header.jpg}" src = "../header.jpg"/> 
+  					<hr></hr>
+ 			</div> 
+		</div>
+   		 <div class="w3-container" id="whole">
             <div class="accordion">
                 <b>Medications</b>
             </div>
@@ -717,7 +720,8 @@
                         </ul>                   
                     </div>
                 <!-- </form> -->
-            </div>            
+            </div>  
+			<input class="w3-btn" type="submit" value="Submit" id = "SubmitButton"/>         
         </div>
         
         <script th:inline="javascript">
@@ -741,7 +745,7 @@
                 }
              /*]]>*/
             </script> 
-            <input type="submit" value="Submit" id = "SubmitButton"/>
+            
     </form>
-    </body>
+   </body>
 </html>
