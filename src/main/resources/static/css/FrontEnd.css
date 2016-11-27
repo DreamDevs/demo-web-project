@@ -3,6 +3,17 @@
 div#wrapperHeader {
  width:100%;
  text-align:center;
+ height: 28%;
+}
+div#wrapperHeader div#header {
+
+ margin:0 auto;
+}
+
+div#wrapperHeader div#header img {
+ width:; /* the width of the logo image */
+ height:; /* the height of the logo image */
+ margin:0 auto;
 }
 
 
@@ -14,6 +25,7 @@ div.accordion {
     cursor: pointer;
     padding: 18px;
     width: 99%;
+    height:15%;
     border: none;
     text-align: left;
     outline: none;
@@ -62,7 +74,7 @@ div.panel.show p {
 
 
 div.whole {
-	
+	position:absolute;
 	overflow-y: scroll;
 	height:	100000px
 	
