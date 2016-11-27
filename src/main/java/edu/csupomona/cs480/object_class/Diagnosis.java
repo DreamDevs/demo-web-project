@@ -98,7 +98,11 @@ public class Diagnosis {
 	public ArrayList<String> combinedTests(){
 		ArrayList<String> combined = new ArrayList<String>();
 		for(int i =0; i<testNames.size(); i++){
-			combined.add(testNames.get(i) + "  :  " + testDateStrings.get(i));
+			if(testDateStrings.size() > i){
+				combined.add(testNames.get(i) + "  :  " + testDateStrings.get(i));
+			}else{
+				combined.add(testNames.get(i));
+			}
 		}
 		return combined;
 	}

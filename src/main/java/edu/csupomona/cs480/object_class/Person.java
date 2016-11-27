@@ -110,14 +110,18 @@ public class Person {
 				ArrayList<Date> dates = diagnoses.get(i).getTestDates();
 				if(dates!=null && !dates.isEmpty()){
 					for(int j = 0; j<dates.size(); j++){
-						DateFormat dateFormat = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
-						try {
-							Date date = (Date)dateFormat.parse(dates.get(j).toString());
-							SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMM dd yyyy");
-							diagnoses.get(i).getTestDateStrings().add(dateFormat2.format(date));
-							System.out.println(dateFormat2.format(date));
-						} catch (ParseException e) {
-							e.printStackTrace();
+						if(dates.get(j)!=null){
+							DateFormat dateFormat = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+							try {
+								Date date = (Date)dateFormat.parse(dates.get(j).toString());
+								SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMM dd yyyy");
+								diagnoses.get(i).getTestDateStrings().add(dateFormat2.format(date));
+								System.out.println(dateFormat2.format(date));
+							} catch (ParseException e) {
+								e.printStackTrace();
+							}
+						}else{
+							diagnoses.get(i).getTestDateStrings().add("No Date");
 						}
 					}
 				}

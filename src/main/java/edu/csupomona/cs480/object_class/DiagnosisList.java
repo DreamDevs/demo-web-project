@@ -826,6 +826,7 @@ public class DiagnosisList {
 	//adds a diagnosis without a date
 	public void addDiagnosis(String diagnosisName, String reportName){
 		Diagnosis tempDiagnosis = new Diagnosis(diagnosisName, reportName);
+		tempDiagnosis.testDates.add(null);
 		diagnoses.add(tempDiagnosis);
 	}
 	
