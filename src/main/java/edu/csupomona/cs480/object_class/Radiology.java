@@ -95,7 +95,7 @@ public class Radiology {
 	boolean LowerED = true;
 	@DateTimeFormat (pattern="yyyy-MM-dd")
 	Date LowerEDDate;
-	boolean MonophasicWaves;
+	String MonophasicWaves;
 	String LowerEDASPofLower; //Left, Right, or Both
 	boolean PVD; //Peripheral Vascular Disease
 	
@@ -397,10 +397,10 @@ public class Radiology {
 	public void setLowerEDDate(Date lowerEDDate) {
 		LowerEDDate = lowerEDDate;
 	}
-	public boolean isMonophasicWaves() {
+	public String getMonophasicWaves() {
 		return MonophasicWaves;
 	}
-	public void setMonophasicWaves(boolean monophasicWaves) {
+	public void setMonophasicWaves(String monophasicWaves) {
 		MonophasicWaves = monophasicWaves;
 	}
 	public String getLowerEDASPofLower() {

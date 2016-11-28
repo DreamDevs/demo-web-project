@@ -388,9 +388,16 @@ public class DiagnosisList {
 		if( !radiologyReport.isLowerED()){
 			
 			//check for Monophasic Waves
-			value =  radiologyReport.isMonophasicWaves();
-			if(value){
-				addDiagnosis("Peripheral Vascular Disease", "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
+			check =  radiologyReport.getMonophasicWaves();
+			if(check!=null && !check.isEmpty()){
+				if(check.equals("Left")){
+					check = "Peripheral Vascular Disease of Left Lower Extremity";
+				}else if(check.equals("Right")){
+					check = "Peripheral Vascular Disease of Right Lower Extremity";
+				}else if(check.equals("Both")){
+					check = "Peripheral Vascular Disease of Bilateral Lower Extremity";
+				}
+				addDiagnosis(check, "Lower Extremity Doppler",  radiologyReport.getLowerEDDate());
 			}
 			
 			//check for type ASP of Lower Extremity

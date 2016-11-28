@@ -129,22 +129,24 @@ public class Person {
 		}
 		
 		//Adds all medicine diagnoses to the list
-		for(int i =0; i<FinalizedDiagnoses.size(); i++){
-			String[] parts = FinalizedDiagnoses.get(i).split(":");
-			int check = 0;
-			for(int j=0; j<diagnoses.size(); j++){
-				if(parts[1].equals(diagnoses.get(j).getDiagnosisName())){
-					diagnoses.get(j).addMedicineDiagnoses(parts[0]);
-					check++;
+		if(FinalizedDiagnoses!=null && !FinalizedDiagnoses.isEmpty()){
+			for(int i =0; i<FinalizedDiagnoses.size(); i++){
+				String[] parts = FinalizedDiagnoses.get(i).split(":");
+				int check = 0;
+				for(int j=0; j<diagnoses.size(); j++){
+					if(parts[1].equals(diagnoses.get(j).getDiagnosisName())){
+						diagnoses.get(j).addMedicineDiagnoses(parts[0]);
+						check++;
+					}
 				}
-			}
-			if(check==0){
-				Diagnosis newDiagnosis = new Diagnosis();
-				newDiagnosis.setDiagnosisName(parts[1]);
-				newDiagnosis.addMedicineDiagnoses(parts[0]);
-				diagnoses.add(newDiagnosis);
-			}
-		}		
+				if(check==0){
+					Diagnosis newDiagnosis = new Diagnosis();
+					newDiagnosis.setDiagnosisName(parts[1]);
+					newDiagnosis.addMedicineDiagnoses(parts[0]);
+					diagnoses.add(newDiagnosis);
+				}
+			}		
+		}
 		
 	}
 	
