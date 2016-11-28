@@ -510,51 +510,50 @@ public class DiagnosisList {
 				addDiagnosis("Left and Right Eye Glaucoma", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
 			}
 		}
-		//checks for Retinopathy
-			
-		//check for Proliferative
-		String retinopathy = specialistReport.getRetinopathy();
-		String proliferative = specialistReport.getProliferative();
-		String nonproliferative = specialistReport.getNonProliferative();
-		//checks if retinopathy is null
-		if(retinopathy!=null && !retinopathy.isEmpty()){
-			//checks if proliferative is null
-			if(proliferative!=null && !proliferative.isEmpty()){
-				if(proliferative.equals("Left")){
-					addDiagnosis("Proliferative Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-				}else if(proliferative.equals("Right")){
-					addDiagnosis("Proliferative Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-				}else if(proliferative.equals("Both")){
-					addDiagnosis("Bilateral Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+		
+		
+		//checks for Retinopathy		
+		boolean retinopathy = specialistReport.getRetinopathy();
+		String left = specialistReport.getLeft();
+		String right = specialistReport.getRight();
+		
+		//checks if retinopathy is available
+		if(!retinopathy){
+			//checks all cases
+			if(left == null || left.isEmpty()){
+				if(right!=null && !right.isEmpty()){
+					if(right.equals("Proliferative")){
+						addDiagnosis("Proliferative Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+					}else if(right.equals("NonProliferative")){
+						addDiagnosis("Non-Proliferative Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+					}
 				}
-			}
-			if(nonproliferative!=null && !nonproliferative.isEmpty())
-				if(nonproliferative.equals("Left")){
-					addDiagnosis("Non-Proliferative Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-				}else if(nonproliferative.equals("Right")){
-					addDiagnosis("Non-Proliferative Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-				}else if(nonproliferative.equals("Both")){
+			}else if(right == null || right.isEmpty()){
+				if(left!=null && !left.isEmpty()){
+					if(left.equals("Proliferative")){
+						addDiagnosis("Proliferative Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+					}else if(left.equals("NonProliferative")){
+						addDiagnosis("Non-Proliferative Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+					}		
+				}
+			}else if(left.equals(right)){
+				if(left.equals("Proliferative")){
+					addDiagnosis("Bilateral Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(left.equals("NonProliferative")){
 					addDiagnosis("Bilateral Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
 				}
-			if(!(proliferative!=null && !proliferative.isEmpty() && nonproliferative!=null && !nonproliferative.isEmpty())){
-				if(retinopathy.equals("Left")){
-					addDiagnosis("Unspecified Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-				}else if(retinopathy.equals("Right")){
-					addDiagnosis("Unspecified Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-				}else if(retinopathy.equals("Both")){
-					addDiagnosis("Unspecified Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+			}else{
+				if(left.equals("Proliferative")){
+					addDiagnosis("Proliferative Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(left.equals("NonProliferative")){
+					addDiagnosis("Non-Proliferative Retinopathy of Left Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
 				}
-			}
-		}
-
-		
-		if(check!=null && !check.isEmpty()){
-			if(check.equals("Left")){
-				addDiagnosis("Left Eye Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-			}else if(check.equals("Right")){
-				addDiagnosis("Right Eye Non-Proliferative Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
-			}else if(check.equals("Both")){
-				addDiagnosis("Left and Right Non-Proliferative Eye Retinopathy", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				
+				if(right.equals("Proliferative")){
+					addDiagnosis("Proliferative Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}else if(right.equals("NonProliferative")){
+					addDiagnosis("Non-Proliferative Retinopathy of Right Eye", "Ophthalmologist Report",  specialistReport.getOphthalmologistDate());
+				}
 			}
 		}
 		

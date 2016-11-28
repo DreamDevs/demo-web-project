@@ -26,9 +26,9 @@ public class SpecialistReport {
 		@DateTimeFormat (pattern="yyyy-MM-dd")
 		private Date OphthalmologistDate;
 		private String Glaucoma = "";
-		private String Retinopathy = "";
-		private String Proliferative = "";
-		private String NonProliferative = "";
+		private boolean Retinopathy = false;
+		private String Left = "";
+		private String Right = "";
 		private String Cataract = "";
 		private String OphthalmologistOther = "";
 		
@@ -173,17 +173,17 @@ public class SpecialistReport {
 		public void setGlaucoma(String glaucoma) {
 			Glaucoma = glaucoma;
 		}
-		public String getProliferative() {
-			return Proliferative;
+		public String getLeft() {
+			return Left;
 		}
-		public void setProliferative(String proliferative) {
-			Proliferative = proliferative;
+		public void setLeft(String left) {
+			Left = left;
 		}
-		public String getNonProliferative() {
-			return NonProliferative;
+		public String getRight() {
+			return Right;
 		}
-		public void setNonProliferative(String nonProliferative) {
-			NonProliferative = nonProliferative;
+		public void setRight(String right) {
+			Right = right;
 		}
 		public String getCataract() {
 			return Cataract;
@@ -419,10 +419,10 @@ public class SpecialistReport {
 		public void setPodiatristOther(String podiatristOther) {
 			PodiatristOther = podiatristOther;
 		}
-		public String getRetinopathy() {
+		public boolean getRetinopathy() {
 			return Retinopathy;
 		}
-		public void setRetinopathy(String retinopathy) {
+		public void setRetinopathy(boolean retinopathy) {
 			Retinopathy = retinopathy;
 		}
 }

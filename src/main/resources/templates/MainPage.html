@@ -473,20 +473,18 @@
                                             <input type="checkbox" name="Glaucoma" value="Both" th:field="*{specialistReport.Glaucoma}"/> Both
                                         </li>
                                         <li>Retinopathy:
-                                             <input type="checkbox" name="Unspecified" value="Left" th:field="*{specialistReport.Retinopathy}"/> Left 
-                                              <input type="checkbox" name="Unspecified" value="Right" th:field="*{specialistReport.Retinopathy}"/> Right 
-                                              <input type="checkbox" name="Unspecified" value="Both" th:field="*{specialistReport.Retinopathy}"/> Both
+                                            <input type="checkbox" name="N/A" th:field="*{specialistReport.Retinopathy}"/> N/A 
                                         </li>
                                         	<ul>
-                                                 <li>Proliferative:
-                                                    <input type="checkbox" name="Proliferative" value="Left" th:field="*{specialistReport.Proliferative}"/> Left 
-                                                    <input type="checkbox" name="Proliferative" value="Right" th:field="*{specialistReport.Proliferative}"/> Right 
-                                                    <input type="checkbox" name="Proliferative" value="Both" th:field="*{specialistReport.Proliferative}"/> Both
+                                                 <li>Left Eye:
+                                                    <input type="checkbox" name="Proliferative" value="Proliferative" th:field="*{specialistReport.Left}"/> Proliferative
+                                                    <input type="checkbox" name="NonProliferative" value="NonProliferative" th:field="*{specialistReport.Left}"/> Non-Proliferative
+                                                    <input type="checkbox" name="None" value="None" th:field="*{specialistReport.Left}"/> None
                                                 </li>
-                                                <li>Non-Proliferative:
-                                                    <input type="checkbox" name="NonProliferative" value="Left" th:field="*{specialistReport.NonProliferative}"/> Left 
-                                                    <input type="checkbox" name="NonProliferative" value="Right" th:field="*{specialistReport.NonProliferative}"/> Right 
-                                                    <input type="checkbox" name="NonProliferative" value="Both" th:field="*{specialistReport.NonProliferative}"/> Both
+                                                <li>Right Eye:
+                                                    <input type="checkbox" name="Proliferative" value="Proliferative" th:field="*{specialistReport.Right}"/> Proliferative 
+                                                    <input type="checkbox" name="NonProliferative" value="NonProliferative" th:field="*{specialistReport.Right}"/> Non-Proliferative
+                                                    <input type="checkbox" name="None" value="None" th:field="*{specialistReport.Right}"/> None
                                                 </li>
                                             </ul>
 

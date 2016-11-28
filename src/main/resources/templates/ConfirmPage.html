@@ -154,9 +154,9 @@ div#wrapperHeader div#header img {
 										<td><i class='material-icons' onclick='deleteRow(this)'>clear</i></td>
 										<td> <input type = "text" th:field = "*{diagnoses[__${stat.index}__].DiagnosisName}" /></td>
 										<td><select th:field = "*{diagnoses[__${stat.index}__].Status}" >
-												<option value="better">Better</option>
-												<option value="same">Same</option>
-												<option value="worse">Worse</option>
+												<option value="Improved">Improved</option>
+												<option value="Stable">Stabled</option>
+												<option value="Worse">Worse</option>
 		
 										</select></td>
 										<td><textarea rows="2" cols="50" name="plan"
