@@ -28,13 +28,13 @@ public class WebController {
 	private Person patient = new Person();
 	
 
-	@RequestMapping(value="/mainPage", method = RequestMethod.GET)
+	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String MainForm(Model model) {
 	 model.addAttribute("patient", new Person());
      return "MainPage";
 	}
 	
-	@RequestMapping(value="/mainPage", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
     public String MainSubmit(Model model, @ModelAttribute Person person) {
 		
 		
