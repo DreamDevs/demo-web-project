@@ -63,7 +63,7 @@ public class WebController {
     }
 	
 	@RequestMapping(value="/ConfirmPage", method = RequestMethod.POST)
-    public String FinalizedForm(Model model, @ModelAttribute Person person) {
+    public String ConfirmSubmit(Model model, @ModelAttribute Person person) {
 		
 		//setting all the new values from ConfirmPage
 		List<Medicine> meds = patient.getMedicines();
@@ -75,7 +75,25 @@ public class WebController {
 		
 		model.addAttribute("myPatient", patient);
 		
+        return "redirect:MainResult";
+    }	
+	
+	@RequestMapping(value="/MainResult", method = RequestMethod.GET)
+    public String MainResultForm(Model model) {
+        model.addAttribute("myPatient", patient);
         return "MainResult";
+    }
+	
+	@RequestMapping(value="/MainResult", method = RequestMethod.POST)
+    public String FinalizedForm(Model model, @ModelAttribute Person person) {
+		
+		//setting all the new values from ConfirmPage
+		for(int i=0; i<patient.getDiagnoses().size(); i++){
+			patient.getDiagnoses().get(i).setComments(person.getDiagnoses().get(i).getComments());
+			patient.getDiagnoses().get(i).setStatus(person.getDiagnoses().get(i).getStatus());
+		}
+		model.addAttribute("finalPatient", patient);
+        return "FinalResult";
     }	
 		
 	//Page is not meant to be visited, only for retrieving information from client to server

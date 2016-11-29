@@ -71,8 +71,6 @@ div#wrapperHeader div#header img {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <form action="#" th:action="@{/MainResult}" th:object="${patient}" method="post" id ="MAINRESULTSubmit">
-
 	 <div id="wrapperHeader" >
     
  			<div class="w3-container" id="header">
@@ -87,7 +85,7 @@ div#wrapperHeader div#header img {
     
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<table class="w3-table-all" id="tblData" align="center" th:object="${myPatient}">
+				<table class="w3-table-all" id="tblData" align="center" th:object="${finalPatient}">
 					<thead>
 						<tr id="categories">
 							<th class="text-center">Diagnosis</th>
@@ -101,8 +99,8 @@ div#wrapperHeader div#header img {
 						<p th:each="diagnosis, stat:*{diagnoses}" th:if="${diagnosis != null}">
 						<tr>
 							<td th:text = "${diagnosis.getDiagnosisName()}"></td>
-							<td> <input type = "text" th:field = "*{diagnoses[__${stat.index}__].Status}" /></td>
- 							<td> <input type = "text" th:field = "*{diagnoses[__${stat.index}__].Comments}" /></td>
+							<td th:text = "${diagnosis.getStatus()}" ></td>
+ 							<td th:text = "${diagnosis.getComments()}" ></td>
  							<td>
  								<select>
 								  <option value="" >Click for List of Medicines</option>
@@ -125,8 +123,7 @@ div#wrapperHeader div#header img {
 
    
    
-			<input class="w3-btn" type="submit" value="Submit" id = "SubmitButton"/>         
+    <a href="/mainPage">Submit another Report</a>
     </div>
-    </form>
 </body>
 </html>
