@@ -34,7 +34,7 @@ public class WebController {
      return "MainPage";
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="/", method = RequestMethod.POST)
     public String MainSubmit(Model model, @ModelAttribute Person person) {
 		
 		
