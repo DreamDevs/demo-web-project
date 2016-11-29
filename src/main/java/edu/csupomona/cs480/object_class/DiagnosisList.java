@@ -47,9 +47,9 @@ public class DiagnosisList {
 		check =  labReport.getLDL();
 		if(check >= 100 && check <= 120){
 			if(date!=null){
-				addDiagnosis("Possible Hyperlipidemia", "Low Density Lipoprotein Lab", date);
+				addDiagnosis("Hyperlipidemia", "Low Density Lipoprotein Lab", date);
 			}else{
-				addDiagnosis("Possible Hyperlipidemia", "Low Density Lipoprotein Lab");
+				addDiagnosis("Hyperlipidemia", "Low Density Lipoprotein Lab");
 			}
 		}else if (check > 120){
 			if(date!=null){
