@@ -99,8 +99,8 @@ div#wrapperHeader div#header img {
 						<p th:each="diagnosis, stat:*{diagnoses}" th:if="${diagnosis != null}">
 						<tr>
 							<td th:text = "${diagnosis.getDiagnosisName()}"></td>
- 							<td th:text = "${diagnosis.getStatus()}"></td>
- 							<td th:text = "	${diagnosis.getComments()}"></td>
+							<td> <input type = "text" th:field = "*{diagnoses[__${stat.index}__].Status}" /></td>
+ 							<td> <input type = "text" th:field = "*{diagnoses[__${stat.index}__].Comments}" /></td>
  							<td>
  								<select>
 								  <option value="" >Click for List of Medicines</option>
